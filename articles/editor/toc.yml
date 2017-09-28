@@ -1,0 +1,10 @@
+- name: Intellisense
+  href: intellisense.md
+- name: Error and Todo lists
+  href: lists.md
+- name: Formatting
+  href: formatting.md
+- name: Refactoring & quick fixes
+  href: refactoring.md
+- name: Linting
+  href: linting.md
