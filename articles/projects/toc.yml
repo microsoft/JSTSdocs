@@ -1,6 +1,11 @@
 - name: Open folder
   href: openfolder.md
 - name: ASP.NET
-  href: aspnet.md
+  href: aspnet/index.md
+  items:
+    - name: ASP.NET Classic
+      href: aspnet/aspnetclassic.md
+    - name: ASP.NET Core
+      href: aspnet/aspnetcore.md
 - name: Node.js
   href: nodejs.md

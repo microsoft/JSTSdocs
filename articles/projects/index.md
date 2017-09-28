@@ -1,1 +1,1 @@
-# TODO
+# Lots of stuff about projects
