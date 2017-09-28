@@ -12,6 +12,10 @@
           href: projects/aspnet/aspnetcore.md
     - name: Node.js
       href: projects/nodejs.md
+    - name: Universal Windows Projects
+      href: projects/uwp.md
+    - name: Cordova
+      href: projects/cordova.md
 - name: Configuration
   href: configuration/index.md
   items:
@@ -50,11 +54,36 @@
   items:
     - name: Node.js requirements
       href: nodejs/requirements.md
-    - name: NPM and package management
+    - name: Package management
       href: nodejs/npm.md
     - name: Unit testing
       href: nodejs/unittesting.md
     - name: Running tasks
       href: nodejs/taskexplorer.md
-    - name: Interactive window
+    - name: The interactive window
       href: nodejs/interactivewindow.md
+    - name: Publishing to Azure
+      href: nodejs/azure.md
+- name: Support for JS frameworks
+  href: frameworks/index.md
+  items:
+    - name: JSX & React
+      href: frameworks/jsx.md
+    - name: Angular
+      href: frameworks/angular.md
+    - name: Vue.js
+      href: frameworks/vue.md
+    - name: Gulp & Webpack
+      href: frameworks/gulpwebpack.md
+- name: Debugging
+  href: debugging/index.md
+  items:
+    - name: Using sourcemaps
+      href: debugging/sourcemaps.md
+- name: Building & publishing
+  href: build/index.md
+  items:
+    - name: The tsc command-line
+      href: build/tsc.md
+    - name: Building with NuGet
+      href: build/nuget.md
