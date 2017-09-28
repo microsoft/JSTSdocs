@@ -1,0 +1,36 @@
+- name: Project types & templates
+  href: projects/index.md
+  items:
+    - name: Open folder
+      href: projects/openfolder.md
+    - name: ASP.NET
+      href: projects/aspnet/index.md
+      items:
+        - name: ASP.NET Classic
+          href: projects/aspnet/aspnetclassic.md
+        - name: ASP.NET Core
+          href: projects/aspnet/aspnetcore.md
+    - name: Node.js
+      href: projects/nodejs.md
+- name: Configuration
+  href: configuration/index.md
+  items:
+    - name: tsconfig.json
+      href: configuration/tsconfig.md
+    - name: MSBuild
+      href: configuration/msbuild.md
+    - name: Versioning
+      href: configuration/versioning.md
+- name: Editor features
+  href: editor/index.md
+  items:
+    - name: Intellisense
+      href: editor/intellisense.md
+    - name: Error and Todo lists
+      href: editor/lists.md
+    - name: Formatting
+      href: editor/formatting.md
+    - name: Refactoring & quick fixes
+      href: editor/refactoring.md
+    - name: Linting
+      href: editor/linting.md

@@ -1,8 +1,2 @@
-- name: Overview
-  href: overview.md
-- name: Project types & templates
-  href: articles/projects/
-- name: Configuration
-  href: articles/configuration/
-- name: Editor features
-  href: articles/editor/
+- name: JavaScript in VS
+  href: articles/

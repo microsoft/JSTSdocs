@@ -1,6 +1,0 @@
-- name: tsconfig.json
-  href: tsconfig.md
-- name: MSBuild
-  href: msbuild.md
-- name: Versioning
-  href: versioning.md
