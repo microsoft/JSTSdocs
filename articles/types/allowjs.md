@@ -1,0 +1,3 @@
+# Type checking JavaScript
+
+TODO

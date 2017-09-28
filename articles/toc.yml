@@ -34,3 +34,27 @@
       href: editor/refactoring.md
     - name: Linting
       href: editor/linting.md
+- name: Using type definitions
+  href: types/index.md
+  items:
+    - name: "@types and DefinitelyTyped"
+      href: types/attypes.md
+    - name: JsDoc support
+      href: types/jsdoc.md
+    - name: Automatic type acquisition
+      href: types/ata.md
+    - name: Type checking JavaScript
+      href: types/allowjs.md
+- name: Node.js
+  href: nodejs/index.md
+  items:
+    - name: Node.js requirements
+      href: nodejs/requirements.md
+    - name: NPM and package management
+      href: nodejs/npm.md
+    - name: Unit testing
+      href: nodejs/unittesting.md
+    - name: Running tasks
+      href: nodejs/taskexplorer.md
+    - name: Interactive window
+      href: nodejs/interactivewindow.md
