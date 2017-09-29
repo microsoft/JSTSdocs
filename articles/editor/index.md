@@ -10,4 +10,4 @@ How d'ya like them apples?
 
 A tool tip looks like this
 
-![VS tooltip](/images/tooltip.png)
+<img src="../../images/tooltip.png" width="460px"/>
