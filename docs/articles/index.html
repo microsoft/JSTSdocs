@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Welcome to the overview! </title>
+    <title>JavaScript in Visual Studio 2017 </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Welcome to the overview! ">
+    <meta name="title" content="JavaScript in Visual Studio 2017 ">
     <meta name="generator" content="docfx 2.24.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -67,11 +67,77 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="welcome-to-the-overview">Welcome to the overview!</h1>
+<h1 id="javascript-in-visual-studio-2017">JavaScript in Visual Studio 2017</h1>
 
-<p><em>What do you want to know?</em></p>
-<h2 id="getting-started">Getting started</h2>
-<p>It all started when...</p>
+<h2 id="overview">Overview</h2>
+<p>Visual Studio 2017 provides rich support for JavaScript development, both via JavaScript directly, and via
+the <a href="http://www.typescriptlang.org">TypeScript programming language</a>, which was developed to provide a more
+productive and enjoyable JavaScript development experience - especially when developing projects at scale.</p>
+<p>The language service underlying the JavaScript experience is all new for Visual Studio 2017, and is based
+the same engine that provides TypeScript support. This provides for a level of feature support, richness,
+and integration that was not possible with the previous JavaScript language service.</p>
+<div class="WARNING"><h5>Warning</h5><p>With the new JavaScript language service, while many new features were enabled, some features
+were also removed. In particular, <a href="https://msdn.microsoft.com/en-us/library/hh874692.aspx">intellisense extensions</a>
+based on the prior language service will not run in the new language service, and the
+ <a href="https://msdn.microsoft.com/en-us/library/hh524453.aspx">XML documentation comments</a> format is no longer recognized.
+See the <a href="editor/intellisense.html">Editor Intellisense</a> and <a href="types/jsdoc.html">JsDoc</a> topics for alternatives.</p>
+</div>
+<p>The below provides a high-level overview of various feature areas, with links to more in-depth documentation.</p>
+<h2 id="broad-project-support">Broad project support</h2>
+<p>While JavaScript or TypeScript files can be directly added to many project types, several project types
+provide an enhanced experience via preconfigured new project templates, rich build support, integrated
+debuggers, etc. This include ASP.NET &amp; ASP.NET Core projects for web development, Node.js project support,
+Cordova for mobile development, and features to support UWP applications.</p>
+<p>See the <a href="projects/index.html">Projects</a> documentation for more information.</p>
+<h2 id="custom-configuration">Custom configuration</h2>
+<p>Detailed configuration information may be provided for JavaScript &amp; TypeScript either directly in the 
+project property pages, or via the addition of a <code>tsconfig.json</code> file. Configuration details can include
+settings such as which version of the language specification to target, which common libraries to provide
+intellisense for, configuration settings for source-map support, settings to control type checking, etc.</p>
+<p>Since Visual Studio 2017 Update 2, side-by-side versions of the language service are supported. This enables
+different projects to target different versions of the language.</p>
+<p>See the <a href="configuration/index.html">Configuration</a> documentation for more information.</p>
+<h2 id="advanced-editing-features">Advanced editing features</h2>
+<p>The JavaScript and TypeScript languages use the same <a href="https://github.com/dotnet/roslyn">Roslyn</a> powered
+editor in Visual Studio 2017 that is used for languages such as C#, Visual Basic, etc. This provides a
+rich and consistent experience in which to view, edit, and navigate code.</p>
+<p>See the <a href="editor/index.html">Editor</a> documentation for more information.</p>
+<h2 id="rich-type-information">Rich type information</h2>
+<p>One of the key benefits of TypeScript is the volume and quality of &quot;type definitions&quot; for common
+JavaScript frameworks that has been authored <a href="https://github.com/DefinitelyTyped/DefinitelyTyped">by the community</a>.</p>
+<p>Using these type definitions, or type definitions from elsewhere (including your own), intellisense
+can provide rich and accurate suggestions, and type checking can catch errors in code. For JavaScript projects,
+by default, many of the type definitions needed can be automatically detected and added to the project.</p>
+<p>See the <a href="types/index.html">Types</a> documentation for more information.</p>
+<h2 id="first-class-nodejs-support">First class Node.js support</h2>
+<p>Visual Studio 2017 includes a &quot;Node.js&quot; workload, and when installed, project templates for creating
+Node.js applications with either JavaScript or TypeScript are installed. Integrated into Visual Studio
+are also features such as NPM package management, debugger support for various Node.js runtimes, unit 
+testing support, and an Interactive Window.</p>
+<p>See the <a href="nodejs/index.html">Node.js</a> documentation for more information.</p>
+<h2 id="support-for-popular-javascript-frameworks">Support for popular JavaScript frameworks</h2>
+<p>The JavaScript ecosystem is a vibrant and ever evolving landscape. There are a number of JavaScript projects
+that have had an outsized impact on the community, among them React, Angular, Vue, WebPack, and Gulp -
+to name a few. Visual Studio 2017 provides direct support for a number of these, with others support
+via easily configured extensions.</p>
+<p>See the <a href="frameworks/index.html">Frameworks</a> documentation for more information.</p>
+<h2 id="integrated-debugging-for-multiple-platforms">Integrated debugging for multiple platforms</h2>
+<p>Integrated into Visual Studio 2017 is support for debugging several JavaScript engines, among these
+are Edge, Chrome, Internet Explorer, UWP and Node.js (both via the <em>legacy</em> pre-Node.js 8.0 debugger, and 
+the new post-Node.js 8.0 debugger).</p>
+<p>These debuggers also have various levels of support for consuming &quot;source-maps&quot;, which provide a format
+and mechanism to map from one set of source code to another. For example, from the original TypeScript
+code the author wrote, to the minified JavaScript output by WebPack that a debugger consumes.</p>
+<p>See the <a href="debugging/index.html">Debugger</a> documentation for more information.</p>
+<h2 id="integrated-build-environment">Integrated build environment</h2>
+<p>JavaScript and TypeScript integrated directly into the Visual Studio build environment, which provides
+for compiling either TypeScript or JavaScript code to an output location, along with build errors on
+failure, publishing artifacts on success, etc. The Visual Studio editor also provides a &#39;compile-on-save&#39;
+feature, enabling the output to stay up-to-date as the developer works, without the need for a full build.</p>
+<p>Beyond the MSBuild support provided by the installation
+of Visual Studio, there is also a <a href="https://www.nuget.org/packages/Microsoft.TypeScript.MSBuild/">TypeScript NuGet package</a>
+to provide for cross-platform build.</p>
+<p>See the <a href="build/index.html">Build</a> documentation for more information.</p>
 </article>
           </div>
           
@@ -79,6 +145,9 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/billti/jsdocs/blob/master/articles/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

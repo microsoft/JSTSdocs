@@ -1,5 +1,8 @@
 # Intellisense
 
+> [!NOTE]
+> Cover using .d.ts files to fund intellisense.
+
 Intellisense is a broad topic. Let's get started...
 
 ## Completion lists
