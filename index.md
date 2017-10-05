@@ -1,5 +1,9 @@
-# Microsoft Docs
+# Docs
 
-You are going to learn so much!
+This page is a place holder for the top-level workload navigation page.
 
-Visit the [JavaScript & TypeScript in Visual Studio documentation](articles/index.md)
+Click here to view the [JavaScript & TypeScript in Visual Studio 2017 documentation](articles/index.md)
+
+<script>
+	window.onload = function() {window.location.href = "/articles"; }
+</script>

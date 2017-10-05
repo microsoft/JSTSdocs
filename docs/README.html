@@ -73,8 +73,15 @@
 <li>When done, from the root dir run <code>docfx .\docfx.json --serve</code>. This will build the site and start a simple web server</li>
 <li>Open <a href="http://localhost:8080">http://localhost:8080</a> in your browser to view</li>
 <li>Once happy with your changes, open a pull request to merge them into <code>master</code> (including the built output under <code>./docs</code>)</li>
-<li>The site content in the <code>./docs</code> folder is served via GitHub pages on <a href="https://billti.github.io/jsdocs">https://billti.github.io/jsdocs</a></li>
+<li>Once merged, the site content in the <code>./docs</code> folder is served via GitHub pages on <a href="https://billti.github.io/jsdocs">https://billti.github.io/jsdocs</a></li>
 </ol>
+<h2 id="authoring-guidelines">Authoring guidelines</h2>
+<ul>
+<li>Navigation does not render well if items are added to the top-level toc.yml file. All content for the site should be authored under the <code>./articles</code> directory.</li>
+<li>Outline the entire content structure in the <code>./articles/toc.yml</code> file, following the pattern already in place. Having all navigation in one YAML file as nested items provides for a collapsable navigation tree on the left, rather than navigating to a new section when an item is selected.</li>
+<li>Place all screen-shots and other images under the <code>./images</code> folder, and reference the file via relative paths (e.g. <code>../../images/foo.png</code>)</li>
+<li>Using high-res screen clippings can result in rendering overly large images if using basic Markdown for them. This can be solved by using img tags directly in Markdown and specifying the desired width or height (e.g. <code>&lt;img src=&quot;../../images/sample.png&quot; width=&quot;375px&quot;/&gt;</code>).</li>
+</ul>
 <h2 id="more-info">More info</h2>
 <p>Below is a list of useful links to reference when authoring content:</p>
 <ul>
@@ -85,8 +92,9 @@
 <li>Guidance for contributing to Visual Studio docs: <a href="https://github.com/MicrosoftDocs/visualstudio-docs/blob/master/CONTRIBUTING.md">https://github.com/MicrosoftDocs/visualstudio-docs/blob/master/CONTRIBUTING.md</a></li>
 </ul>
 <h2 id="misc">Misc</h2>
-<p>In the docfx.json file, the output has been changed from the default <code>_site</code> to <code>docs</code>. This is to allow for simple viewing on GitHub.
-See <a href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch">Publishing your GitHub pages site from a docs folder</a> for more info.</p>
+<ul>
+<li>In the docfx.json file, the output has been changed from the default <code>_site</code> directory to <code>docs</code>. This is to allow for simple viewing via GitHub pages. See <a href="https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch">Publishing your GitHub pages site from a docs folder</a> for more info.</li>
+</ul>
 </article>
           </div>
           
