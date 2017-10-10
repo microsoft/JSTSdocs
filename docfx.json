@@ -26,6 +26,12 @@
       }
     ],
     "dest": "docs",
+    "globalMetadata": {
+      "_gitContribute": {
+        "repo": "https://github.com/billti/jsdocs",
+        "branch": "master"
+      }
+    },
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
