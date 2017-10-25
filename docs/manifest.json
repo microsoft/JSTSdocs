@@ -1,0 +1,661 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/src/github/jsdocs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Conceptual",
+      "source_relative_path": "README.md",
+      "output": {
+        ".html": {
+          "relative_path": "README.html",
+          "hash": "8f/sTS2A1bo/XshGr0J/OA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/build/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/build/index.html",
+          "hash": "gaRZE7mNobJ+sdAmjs2qvg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/build/nuget.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/build/nuget.html",
+          "hash": "YOX2Fk+caniyxn5mVxKCVg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/build/tsc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/build/tsc.html",
+          "hash": "BBbXlEOTJMMVdvdTjmQroQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/configuration/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/configuration/index.html",
+          "hash": "scoX5fnsn2z2KZo5kXWVzg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/configuration/msbuild.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/configuration/msbuild.html",
+          "hash": "Bj67bjeAQPtOrnaNzQYxYg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/configuration/tsconfig.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/configuration/tsconfig.html",
+          "hash": "U+qHvV6tjRpDtQy2/bk13A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/configuration/versioning.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/configuration/versioning.html",
+          "hash": "1oUoHR/SWf28pr6rldI3Lw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/debugging/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/debugging/index.html",
+          "hash": "mHaMd6clD6BlQzK5gSWwzQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/debugging/sourcemaps.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/debugging/sourcemaps.html",
+          "hash": "U6mNp1qlluMLy98n2Wkwmg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/editor/formatting.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/editor/formatting.html",
+          "hash": "Q+dMMwWSulObxXQGmoaf6w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/editor/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/editor/index.html",
+          "hash": "Gu4+VMSAWH8d07UUk2ozpw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/editor/intellisense.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/editor/intellisense.html",
+          "hash": "+ZCCZcrzAHl4kg8NaRcpSA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/editor/linting.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/editor/linting.html",
+          "hash": "S1GOD1CLkk4hDzuccFnMhg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/editor/lists.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/editor/lists.html",
+          "hash": "5K6WGOJHUsI0C1TbtI3kaw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/editor/refactoring.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/editor/refactoring.html",
+          "hash": "CQ9h2vEglHIuzEnHc8nFmQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/frameworks/angular.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/frameworks/angular.html",
+          "hash": "/VWDnvpKUnqQYy95Cgz5lQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/frameworks/gulpwebpack.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/frameworks/gulpwebpack.html",
+          "hash": "6zRhK9oUNjoXM89l0TQLDg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/frameworks/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/frameworks/index.html",
+          "hash": "FJNo7i8KF9FeWfbCIfs0rg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/frameworks/jsx.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/frameworks/jsx.html",
+          "hash": "1w4ghRhi7Zq9HdQs8VGsqQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/frameworks/vue.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/frameworks/vue.html",
+          "hash": "4/+aazp761OJjKNx9bK79A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/index.html",
+          "hash": "FnUDdVIZ9UaZ5wB1NWVySA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/nodejs/azure.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/nodejs/azure.html",
+          "hash": "DbxCkdomzkrM0lOlPuR+Kw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/nodejs/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/nodejs/index.html",
+          "hash": "X0bep0TMGuQWzC7HYC0SYw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/nodejs/interactivewindow.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/nodejs/interactivewindow.html",
+          "hash": "xlGCoj8RYdcvHTztCsyveQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/nodejs/npm.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/nodejs/npm.html",
+          "hash": "coElY50RY3hOm78CDqZCiw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/nodejs/requirements.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/nodejs/requirements.html",
+          "hash": "raha/Z73nal8dAqTHYSSCw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/nodejs/taskexplorer.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/nodejs/taskexplorer.html",
+          "hash": "iKPG5u3yVvcnROjvClCQdQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/nodejs/unittesting.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/nodejs/unittesting.html",
+          "hash": "6orOm1PVuEox0fZQH6mRog=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/projects/aspnet/aspnetclassic.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/projects/aspnet/aspnetclassic.html",
+          "hash": "U4e6ljQDsi01LF2gxTlaIw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/projects/aspnet/aspnetcore.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/projects/aspnet/aspnetcore.html",
+          "hash": "HUxZ6YXbZ+kITQhMr5YXsA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/projects/aspnet/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/projects/aspnet/index.html",
+          "hash": "QluciI3EgtaQ1TxqIwPZZg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/projects/cordova.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/projects/cordova.html",
+          "hash": "I+q/0Z3FLpa24WwK4NpbrQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/projects/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/projects/index.html",
+          "hash": "RpYFfRooVYySlnKI+uIqVg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/projects/nodejs.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/projects/nodejs.html",
+          "hash": "9tjETcwnhyHQf52HnsnnLg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/projects/openfolder.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/projects/openfolder.html",
+          "hash": "thxGWwO/GzcRpB9/YOe2Pg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/projects/uwp.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/projects/uwp.html",
+          "hash": "voAQJV6S/3ziddMSioaBfQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "X31bj/3yaJxmBtM+WIkkRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/troubleshooting/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/troubleshooting/index.html",
+          "hash": "+2E6opmzd2EkKNMVCs1GKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/types/allowjs.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/types/allowjs.html",
+          "hash": "gK53IFPynLirt+keOcRDfg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/types/ata.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/types/ata.html",
+          "hash": "fi2ctAJfDA6IfRlkiY4GVw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/types/attypes.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/types/attypes.html",
+          "hash": "Jj6L/VbIi0dKVxppvVjJJw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/types/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/types/index.html",
+          "hash": "wplMTn5vOsrJpnH5PdnVmQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/types/jsdoc.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/types/jsdoc.html",
+          "hash": "+eRZHRbSq/E2DnNK1qBa3w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/jslsdisabledpopup.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/jslsdisabledpopup.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/taskmanager.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/taskmanager.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/toolsoptionsproject.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/toolsoptionsproject.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/tooltip.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/tooltip.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/virtualproject.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/virtualproject.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "5RheSmtiRPukcqFSNJfWzQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "2aZAzfypMbRePF/dmP9pjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "RestApiDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

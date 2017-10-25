@@ -87,3 +87,5 @@
       href: build/tsc.md
     - name: Building with NuGet
       href: build/nuget.md
+- name: Troubleshooting
+  href: troubleshooting/index.md

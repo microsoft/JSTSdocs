@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Troubleshooting </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Troubleshooting ">
+    <meta name="generator" content="docfx 2.26.1.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="troubleshooting">Troubleshooting</h1>
+
+<h2 id="language-service-is-disabled">Language service is disabled</h2>
+<p>You may get a bar along the top of the editor with text that reads &quot;The JavaScript language 
+service has been disabled for the following project(s)&quot;, as shown below.</p>
+<p><img src="../../images/jslsdisabledpopup.png" width="970px"></p>
+<p>This limit is enabled by default to reduce the amount of memory that the JavaScript language
+service in Visual Studio 2017 might consume, as loading high volumes of JavaScript code is 
+often unintentional, or suboptimal. See the section below on &quot;Reducing the amount of source
+loaded&quot; for ways to configure this.</p>
+<h2 id="excessive-cpu-andor-memory-usage">Excessive CPU and/or memory usage</h2>
+<p>High CPU usage or memory usage by the Node.exe process that runs the JavaScript and TypeScript
+language service is often caused by the amount of code loaded that needs to be analyzed. As a
+first step, verify it is indeed the JavaScript/TypeScript language service process consuming the
+resources. This is best done using Task Manager (most easily launched with Ctrl + Shift + Esc), 
+selecting &quot;More details&quot; in the bottom left if necessary, going to the &quot;Details&quot; tab, and adding
+the &quot;Command line&quot; column (right click on the column headings and click on &quot;Select columns&quot;). The
+language service process is the Node.exe process running the <code>tsserver.js</code> script, as shown below:</p>
+<p><img src="../../images/taskmanager.png" width="1800px"></p>
+<p>If it is indeed the offending process, often the best way to reduce load is to reduce the amount
+of source code analyzed, as shown below.</p>
+<h2 id="reducing-the-amount-of-source-loaded">Reducing the amount of source loaded</h2>
+<p>By default, without a <code>tsconfig.json</code> file present, a Visual Studio 2017 project will create 
+a TypeScript &quot;context&quot; that includes all the TypeScript files, and another for any JavaScript files. These
+contexts may be controlled somewhat with TypeScript settings in the Visual Studio project file, however
+for more control over the &quot;contexts&quot; and their settings, adding <code>tsconfig.json</code> files is recommended.</p>
+<p>If one or more <code>tsconfig.json</code> files are present in a project, then a &quot;context&quot; will be created for
+each <code>tsconfig.json</code> file, and any files not belonging to one of these contexts, will be placed into
+a &quot;Miscellaneous&quot; context with default settings.</p>
+<p>The language service works by statically analyzing the source code, and attempting to infer the shape
+and types of the code; this is what powers the editor completion lists, signature help, goto definition, etc. 
+For TypeScript code, or JavaScript code with JsDoc annotations, this can be highly effective, however
+for many JavaScript files - especially large libraries - this results in a lot of work, with often limited
+results.</p>
+<p>For some common JavaScript libraries, the langauge service can recognize the library files, and will
+automatically fetch the type definitions for it rather than process the JavaScript code directly. For
+some project structures however, this is insufficient, and assisting the language service via explicit
+configuration can be highly beneficial.</p>
+<p>The simpliest way to avoid loading large Javascript libraries, but still provide good IntelliSense, is to
+have all such code under common directories which can be excluded from the context, and then listing the
+libraries to fetch and include the type definitions for explicitly. For example, in the below configuration,
+the large JavaScript libraries are included under the &quot;js/lib&quot; and &quot;vendor&quot; directories, so these have
+been listed under the &quot;exclude&quot; setting. The &quot;typeAcquisition&quot; configuration is then provided to fetch and
+include the definitions for the excluded libraries. (The other settings in this configuration file will be
+explained further below).</p>
+<pre><code class="lang-json">{
+  &quot;compilerOptions&quot;: {
+    &quot;allowJs&quot;: true, 
+    &quot;noEmit&quot;: true,
+    &quot;disableSizeLimit&quot;: true,
+    &quot;skipLibCheck&quot;: true
+  },
+  &quot;typeAcquisition&quot;: {
+    &quot;enable&quot;: true,
+    &quot;include&quot;: [&quot;knockout&quot;, &quot;underscore&quot;, &quot;chartist&quot;]
+  },
+  &quot;exclude&quot;: [
+      &quot;node_modules&quot;,
+      &quot;js/lib&quot;,
+      &quot;vendor&quot;
+  ]
+}
+</code></pre><h2 id="other-optimizations-to-reduce-overhead">Other optimizations to reduce overhead</h2>
+<h3 id="project-settings">Project settings</h3>
+<p>The above <code>tsconfig.json</code> file contains several other options that may be beneficial, these are:</p>
+<ul>
+<li>&quot;disableSizeLimit&quot;: This will switch off the limit on the amount of JavaScript code loaded, which
+can cause the warning shown at the top of this page. Note however in doing so, there is a risk of
+&quot;out of memory&quot; errors in the language service if more code is loaded than can be processed.</li>
+<li>&quot;skipLibCheck&quot;: By default the language service will check the type definition files, (&quot;*.d.ts&quot; files).
+For a JavaScript only project, or projects using well-tested type definition files (such as
+those published via <code>@types</code> and fetched automatically), this can be of little value, so disabling
+this via this configuration option can be beneficial.</li>
+<li>&quot;noEmit&quot;: If the language service is not being used to &quot;compile&quot; the code (i.e. convert TypeScript
+into JavaScript, or convert ES2015 JavaScript into ES5 JavaScript), then this option should be set.</li>
+</ul>
+<h3 id="editor-settings">Editor settings</h3>
+<p>Within Visual Studio 2017, the default behavior is to create the language service contexts for every
+project in a solution. In VS2017 Update 3 an option was added to only create the contexts for projects
+that have files open in the editor. This can significantly reduce memory usage, but does mean that
+projects without files open may contain errors that will not show in the editor while editing. (Though
+the errors will still be shown when performing a build). </p>
+<p>To enable this option, select &quot;Tools&quot; / &quot;Options&quot; from the menu, navigate to &quot;Text Editor&quot; / &quot;JavaScript/TypeScript&quot;
+ / &quot;Project&quot;, and check the setting &quot;Only analyze projects which contain files opened in the editor&quot;.</p>
+<p><img src="../../images/toolsoptionsproject.png" width="940px"></p>
+<h2 id="gathering-an-etw-trace-of-detailed-analysis">Gathering an ETW trace of detailed analysis</h2>
+<p>TODO: Detail where to obtain PerfView, and the command-line to use when running it.</p>
+<h2 id="useful-links">Useful links</h2>
+<p>The below pages go over the configuration options in more detail:</p>
+<ul>
+<li><a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">https://www.typescriptlang.org/docs/handbook/tsconfig-json.html</a></li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">https://www.typescriptlang.org/docs/handbook/compiler-options.html</a></li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html">https://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/billti/jsdocs/blob/master/articles/troubleshooting/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>
