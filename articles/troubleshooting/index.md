@@ -1,15 +1,25 @@
 # Troubleshooting
 
+> [!NOTE]
+> This page attempts to explain that the "why" as well as the "how", as investigations are 
+> often more fruitful when the underlying mechanics and the reason for changes are understood.
+> Many of the details below may be skipped over if not useful or interesting.
+
 ## Language service is disabled
 You may get a bar along the top of the editor with text that reads "The JavaScript language 
 service has been disabled for the following project(s)", as shown below.
 
-<img src="../../images/jslsdisabledpopup.png" width="970px"/>
+<img src="../../images/jslsdisabledpopup.png" width="860px"/>
 
 This limit is enabled by default to reduce the amount of memory that the JavaScript language
 service in Visual Studio 2017 might consume, as loading high volumes of JavaScript code is 
 often unintentional, or suboptimal. See the section below on "Reducing the amount of source
 loaded" for ways to configure this.
+
+> [!WARNING]
+> The project name given in the alert is the project that happened to be being processed when
+> the limit was hit. While this is most often the project that is causing problems, it is not
+> guaranteed to be so.
 
 ## Excessive CPU and/or memory usage
 High CPU usage or memory usage by the Node.exe process that runs the JavaScript and TypeScript
@@ -20,7 +30,7 @@ selecting "More details" in the bottom left if necessary, going to the "Details"
 the "Command line" column (right click on the column headings and click on "Select columns"). The
 language service process is the Node.exe process running the `tsserver.js` script, as shown below:
 
-<img src="../../images/taskmanager.png" width="1800px"/>
+<img src="../../images/taskmanager.png" width="1600px"/>
 
 If it is indeed the offending process, often the best way to reduce load is to reduce the amount
 of source code analyzed, as shown below.
@@ -55,6 +65,7 @@ been listed under the "exclude" setting. The "typeAcquisition" configuration is 
 include the definitions for the excluded libraries. (The other settings in this configuration file will be
 explained further below).
 
+**tsconfig.json**
 ```json
 {
   "compilerOptions": {
@@ -102,7 +113,24 @@ the errors will still be shown when performing a build).
 To enable this option, select "Tools" / "Options" from the menu, navigate to "Text Editor" / "JavaScript/TypeScript"
  / "Project", and check the setting "Only analyze projects which contain files opened in the editor".
 
-<img src="../../images/toolsoptionsproject.png" width="940px"/>
+<img src="../../images/toolsoptionsproject.png" width="840px"/>
+
+## Viewing the files in the project contexts
+
+Often it is useful to understand the source files that are contributing to the contexts created
+within the language service. By checking the "Display Virtual Projects when a Solution is loaded"
+option in the "Tools" / "Options" dialog as shown above, Solution Explorer in Visual Studio will add a 
+"TypeScript Virtual Projects" node under the solution as shown below, which contains a child node
+for each context created, that shows all the files contained within it.
+
+Analyzing the contexts created may highlight an area where more source is being included than expected,
+and this may then be corrected via configuration options as outlined above.
+
+<img src="../../images/virtualprojects.png" width="370px"/>
+
+## Enabled detailed language service logging
+
+TODO: Detail the use of the TSS_LOG environment variable to capture tsserver communications.
 
 ## Gathering an ETW trace of detailed analysis
 

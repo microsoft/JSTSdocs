@@ -57,10 +57,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/index.html",
-          "hash": "scoX5fnsn2z2KZo5kXWVzg=="
+          "hash": "Aky4MRNv4Lt4ZVKsjfrtGw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -81,10 +81,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/tsconfig.html",
-          "hash": "U+qHvV6tjRpDtQy2/bk13A=="
+          "hash": "qpTD1lafkjnR7IDUsJ4p7w=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -141,10 +141,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/index.html",
-          "hash": "Gu4+VMSAWH8d07UUk2ozpw=="
+          "hash": "oXtlIAShkxlzLPg37PhNjQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -165,10 +165,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/linting.html",
-          "hash": "S1GOD1CLkk4hDzuccFnMhg=="
+          "hash": "h2cqipoJxxCD+h0u7eHGlQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -177,10 +177,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/lists.html",
-          "hash": "5K6WGOJHUsI0C1TbtI3kaw=="
+          "hash": "T0LoValc52n2un6YuGnhMg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -189,10 +189,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/refactoring.html",
-          "hash": "CQ9h2vEglHIuzEnHc8nFmQ=="
+          "hash": "9ajOq86HxLe4xgJMmTkEtg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -264,7 +264,7 @@
           "hash": "FnUDdVIZ9UaZ5wB1NWVySA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -369,10 +369,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/aspnet/aspnetcore.html",
-          "hash": "HUxZ6YXbZ+kITQhMr5YXsA=="
+          "hash": "Q5XauwMjvi8F+8WUqf1yXw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -381,10 +381,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/aspnet/index.html",
-          "hash": "QluciI3EgtaQ1TxqIwPZZg=="
+          "hash": "10Qxlg+OWqjY86k+xNhhTA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -393,10 +393,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/cordova.html",
-          "hash": "I+q/0Z3FLpa24WwK4NpbrQ=="
+          "hash": "sS4OCOVUzUrdLaCr2N2pHw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -417,10 +417,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/nodejs.html",
-          "hash": "9tjETcwnhyHQf52HnsnnLg=="
+          "hash": "FpFYzKXGweERWSThXzxwaQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -429,10 +429,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/openfolder.html",
-          "hash": "thxGWwO/GzcRpB9/YOe2Pg=="
+          "hash": "eoPihMJM2bIKZc0jc0cIlw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -465,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/troubleshooting/index.html",
-          "hash": "+2E6opmzd2EkKNMVCs1GKA=="
+          "hash": "UIxyLgfqRKeEONn0bgCP0Q=="
         }
       },
       "is_incremental": false,
@@ -587,6 +587,17 @@
       "version": ""
     },
     {
+      "type": "Resource",
+      "source_relative_path": "images/virtualprojects.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/virtualprojects.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
@@ -628,16 +639,16 @@
           "details": "Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build"
-        },
-        "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         }

@@ -1,12 +1,9 @@
 # Project configuration
 
-We have configured, external, and inferred project types. Whoop whoop!
-
-> [!warning]
-> Configured projects cannot include content in script blocks
+TODO: Details configured, external, and inferred project/context types.
 
 ## External projects
-The MSBuild default, with all the goodness of XML
+The VS/MSBuild default
 
 ```xml
 <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
