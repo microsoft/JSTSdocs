@@ -7,7 +7,7 @@
 
 ## No IntelliSense, formatting, refactoring, etc.
 
-If the language service for JavaScript & TypeScript doesn't appear to be running at all, basic
+If the language service for JavaScript & TypeScript doesn't appear to be working at all, basic
 installation, configuration, and operation should be verified first.
 
 ### Installation
@@ -16,7 +16,7 @@ installation, configuration, and operation should be verified first.
  installation of the Enterprise Edition, this would be under
 a path similar to `"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TypeScript"`
  - Ensure the TypeScript SDK is also present. For a default installation, this would be under a path
- similar to `"C:\Program Files (x86)\Microsoft SDKs\TypeScript\2.5"` (Or the `2.3` folder, if on an earlier
+ similar to `"C:\Program Files (x86)\Microsoft SDKs\TypeScript\2.5"` (Or the `"2.3"` folder, if on an earlier
 release than Visual Studio 2017 Update 5).
  - In Visual Studio itself, open the `Help / About` menu, and ensure that `"TypeScript Tools"` is listed.
 
@@ -25,12 +25,13 @@ under the `%TEMP%` folder, with names starting with `"dd_setup_"`. Locate the fi
 in the name, and ensure the log contains a line near the end with text such as `"Installation completed successfully"`
 or `"Package executed successfully. Return code: 0"`.
 
-If the above and below investigations don't help, try repairing Visual Studio.
+If the above and below investigations don't help, try repairing Visual Studio. This is done by launching the `"Visual Studio installer"` application, selecting the `"More"` drop-down, and choosing `"Repair"`.
 
 ### Configuration
 
  - On the Visual Studio menu, open `"Tools / Extensions and Updates"`, and navigate to the `"Installed"` node. 
- Search for `"TypeScript"` and ensure the TypeScript Tools are listed, and are not disabled.
+ Search for `"TypeScript"` and ensure the TypeScript Tools are listed, and are not disabled. Do the same for the
+ `"Visual Studio extension for TextMate grammars"` (which is used to provide syntax highlighting).
  - Check the activity log at `"%APPDATA%\Microsoft\VisualStudio\15.0_<ID>\ActivityLog.xml"`. (Open this in
   Internet Explorer for easiest viewing). Look for any errors that mention `"TypeScript"` or `"CodeAnalysis"`.
  - On occassion, the MEF cache can become corrupt. Delete the MEF cache files in
@@ -40,18 +41,19 @@ If the above and below investigations don't help, try repairing Visual Studio.
 ### Operation
 
  - With a JavaScript or TypeScript file open, check Task Manager to see if the Node.js process is running.
- To do this, click `"More Details"` on the bottom left (if present), go to the `"Details"` tab, right click
- on the column headings and select the `"Command Line"` column, and locate the `node.exe` process which is 
- running the `"tsserver.js"` script. If this is not present, the language service is not starting, (or failing),
- for some reason.
+ To do this, use `"Ctrl+Shift+Esc"` to open Task Manager, click `"More Details"` on the bottom left (if present), 
+ go to the `"Details"` tab, right click on the column headings and select the `"Command Line"` column, and
+ locate the `node.exe` process which is running the `"tsserver.js"` script. If this is not present, the language
+ service is not starting, (or failing), for some reason.
  - You can enable detailed logging by setting an environment variable. From a Developer Command Prompt, set the 
- TSS_LOG environment varaible using something like `"SET TSS_LOG=-file C:\temp\logs\tsserver.log -level verbose"`
- and restart Visual Studio. After attempting to edit a JavaScript of TypeScript file, see if this file is present.
- If it is, look for any errors or exceptions that are happening internally.
+ `"TSS_LOG"` environment varaible using something like `"SET TSS_LOG=-file C:\temp\logs\tsserver.log -level verbose"`
+ and restart Visual Studio. (Note: The folder given for the log file location should already exist on disk). After 
+ attempting to edit a JavaScript of TypeScript file, see if this file is present. If it is, look for any errors
+ or exceptions that are happening internally.
 
 ## Language service is disabled
-You may get a bar along the top of the editor with text that reads "The JavaScript language 
-service has been disabled for the following project(s)", as shown below.
+When opening certain projects or solutions, you may get a bar along the top of the editor with text that reads
+"The JavaScript language service has been disabled for the following project(s)", as shown below.
 
 <img src="../../images/jslsdisabledpopup.png" width="860px"/>
 

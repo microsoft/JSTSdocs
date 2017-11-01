@@ -74,7 +74,7 @@ often more fruitful when the underlying mechanics and the reason for changes are
 Many of the details below may be skipped over if not useful or interesting.</p>
 </div>
 <h2 id="no-intellisense-formatting-refactoring-etc">No IntelliSense, formatting, refactoring, etc.</h2>
-<p>If the language service for JavaScript &amp; TypeScript doesn&#39;t appear to be running at all, basic
+<p>If the language service for JavaScript &amp; TypeScript doesn&#39;t appear to be working at all, basic
 installation, configuration, and operation should be verified first.</p>
 <h3 id="installation">Installation</h3>
 <ul>
@@ -82,7 +82,7 @@ installation, configuration, and operation should be verified first.</p>
 installation of the Enterprise Edition, this would be under
 a path similar to <code>&quot;C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TypeScript&quot;</code></li>
 <li>Ensure the TypeScript SDK is also present. For a default installation, this would be under a path
-similar to <code>&quot;C:\Program Files (x86)\Microsoft SDKs\TypeScript\2.5&quot;</code> (Or the <code>2.3</code> folder, if on an earlier
+similar to <code>&quot;C:\Program Files (x86)\Microsoft SDKs\TypeScript\2.5&quot;</code> (Or the <code>&quot;2.3&quot;</code> folder, if on an earlier
 release than Visual Studio 2017 Update 5).</li>
 <li>In Visual Studio itself, open the <code>Help / About</code> menu, and ensure that <code>&quot;TypeScript Tools&quot;</code> is listed.</li>
 </ul>
@@ -90,11 +90,12 @@ release than Visual Studio 2017 Update 5).</li>
 under the <code>%TEMP%</code> folder, with names starting with <code>&quot;dd_setup_&quot;</code>. Locate the files with <code>&quot;TypeScript&quot;</code>
 in the name, and ensure the log contains a line near the end with text such as <code>&quot;Installation completed successfully&quot;</code>
 or <code>&quot;Package executed successfully. Return code: 0&quot;</code>.</p>
-<p>If the above and below investigations don&#39;t help, try repairing Visual Studio.</p>
+<p>If the above and below investigations don&#39;t help, try repairing Visual Studio. This is done by launching the <code>&quot;Visual Studio installer&quot;</code> application, selecting the <code>&quot;More&quot;</code> drop-down, and choosing <code>&quot;Repair&quot;</code>.</p>
 <h3 id="configuration">Configuration</h3>
 <ul>
 <li>On the Visual Studio menu, open <code>&quot;Tools / Extensions and Updates&quot;</code>, and navigate to the <code>&quot;Installed&quot;</code> node. 
-Search for <code>&quot;TypeScript&quot;</code> and ensure the TypeScript Tools are listed, and are not disabled.</li>
+Search for <code>&quot;TypeScript&quot;</code> and ensure the TypeScript Tools are listed, and are not disabled. Do the same for the
+<code>&quot;Visual Studio extension for TextMate grammars&quot;</code> (which is used to provide syntax highlighting).</li>
 <li>Check the activity log at <code>&quot;%APPDATA%\Microsoft\VisualStudio\15.0_&lt;ID&gt;\ActivityLog.xml&quot;</code>. (Open this in
 Internet Explorer for easiest viewing). Look for any errors that mention <code>&quot;TypeScript&quot;</code> or <code>&quot;CodeAnalysis&quot;</code>.</li>
 <li>On occassion, the MEF cache can become corrupt. Delete the MEF cache files in
@@ -104,18 +105,19 @@ Prompt run <code>&quot;devenv.exe /updateConfiguration&quot;</code> to recreate 
 <h3 id="operation">Operation</h3>
 <ul>
 <li>With a JavaScript or TypeScript file open, check Task Manager to see if the Node.js process is running.
-To do this, click <code>&quot;More Details&quot;</code> on the bottom left (if present), go to the <code>&quot;Details&quot;</code> tab, right click
-on the column headings and select the <code>&quot;Command Line&quot;</code> column, and locate the <code>node.exe</code> process which is 
-running the <code>&quot;tsserver.js&quot;</code> script. If this is not present, the language service is not starting, (or failing),
-for some reason.</li>
+To do this, use <code>&quot;Ctrl+Shift+Esc&quot;</code> to open Task Manager, click <code>&quot;More Details&quot;</code> on the bottom left (if present), 
+go to the <code>&quot;Details&quot;</code> tab, right click on the column headings and select the <code>&quot;Command Line&quot;</code> column, and
+locate the <code>node.exe</code> process which is running the <code>&quot;tsserver.js&quot;</code> script. If this is not present, the language
+service is not starting, (or failing), for some reason.</li>
 <li>You can enable detailed logging by setting an environment variable. From a Developer Command Prompt, set the 
-TSS_LOG environment varaible using something like <code>&quot;SET TSS_LOG=-file C:\temp\logs\tsserver.log -level verbose&quot;</code>
-and restart Visual Studio. After attempting to edit a JavaScript of TypeScript file, see if this file is present.
-If it is, look for any errors or exceptions that are happening internally.</li>
+<code>&quot;TSS_LOG&quot;</code> environment varaible using something like <code>&quot;SET TSS_LOG=-file C:\temp\logs\tsserver.log -level verbose&quot;</code>
+and restart Visual Studio. (Note: The folder given for the log file location should already exist on disk). After 
+attempting to edit a JavaScript of TypeScript file, see if this file is present. If it is, look for any errors
+or exceptions that are happening internally.</li>
 </ul>
 <h2 id="language-service-is-disabled">Language service is disabled</h2>
-<p>You may get a bar along the top of the editor with text that reads &quot;The JavaScript language 
-service has been disabled for the following project(s)&quot;, as shown below.</p>
+<p>When opening certain projects or solutions, you may get a bar along the top of the editor with text that reads
+&quot;The JavaScript language service has been disabled for the following project(s)&quot;, as shown below.</p>
 <p><img src="../../images/jslsdisabledpopup.png" width="860px"></p>
 <p>This limit is enabled by default to reduce the amount of memory that the JavaScript language
 service in Visual Studio 2017 might consume, as loading high volumes of JavaScript code is 
