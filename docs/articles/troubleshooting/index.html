@@ -93,11 +93,16 @@ or <code>&quot;Package executed successfully. Return code: 0&quot;</code>.</p>
 <p>If the above and below investigations don&#39;t help, try repairing Visual Studio. This is done by launching the <code>&quot;Visual Studio installer&quot;</code> application, selecting the <code>&quot;More&quot;</code> drop-down, and choosing <code>&quot;Repair&quot;</code>.</p>
 <h3 id="configuration">Configuration</h3>
 <ul>
-<li>On the Visual Studio menu, open <code>&quot;Tools / Extensions and Updates&quot;</code>, and navigate to the <code>&quot;Installed&quot;</code> node. 
+<li><p>On the Visual Studio menu, open <code>&quot;Tools / Extensions and Updates&quot;</code>, and navigate to the <code>&quot;Installed&quot;</code> node. 
 Search for <code>&quot;TypeScript&quot;</code> and ensure the TypeScript Tools are listed, and are not disabled. Do the same for the
-<code>&quot;Visual Studio extension for TextMate grammars&quot;</code> (which is used to provide syntax highlighting).</li>
-<li>Check the activity log at <code>&quot;%APPDATA%\Microsoft\VisualStudio\15.0_&lt;ID&gt;\ActivityLog.xml&quot;</code>. (Open this in
-Internet Explorer for easiest viewing). Look for any errors that mention <code>&quot;TypeScript&quot;</code> or <code>&quot;CodeAnalysis&quot;</code>.</li>
+<code>&quot;Visual Studio extension for TextMate grammars&quot;</code> (which is used to provide syntax highlighting).</p>
+<div class="NOTE"><h5>Note</h5><p>Currently there is also a bug whereby if the <code>&quot;Azure Functions and Web Jobs Tools&quot;</code> extension is 
+disabled, then this can break the JavaScript &amp; TypeScript language service. Please check this also.</p>
+</div>
+</li>
+<li><p>Check the activity log at <code>&quot;%APPDATA%\Microsoft\VisualStudio\15.0_&lt;ID&gt;\ActivityLog.xml&quot;</code>. (Open this in
+Internet Explorer for easiest viewing). Look for any errors that mention <code>&quot;TypeScript&quot;</code> or <code>&quot;CodeAnalysis&quot;</code>.</p>
+</li>
 <li>On occassion, the MEF cache can become corrupt. Delete the MEF cache files in
 <code>&quot;%LOCALAPPDATA%\Microsoft\VisualStudio\15.0_&lt;ID&gt;\ComponentModelCache&quot;</code>, and then from a Developer Command 
 Prompt run <code>&quot;devenv.exe /updateConfiguration&quot;</code> to recreate it.</li>

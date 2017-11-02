@@ -32,6 +32,10 @@ If the above and below investigations don't help, try repairing Visual Studio. T
  - On the Visual Studio menu, open `"Tools / Extensions and Updates"`, and navigate to the `"Installed"` node. 
  Search for `"TypeScript"` and ensure the TypeScript Tools are listed, and are not disabled. Do the same for the
  `"Visual Studio extension for TextMate grammars"` (which is used to provide syntax highlighting).
+
+ > [!NOTE] Currently there is also a bug whereby if the `"Azure Functions and Web Jobs Tools"` extension is 
+ disabled, then this can break the JavaScript & TypeScript language service. Please check this also.
+ 
  - Check the activity log at `"%APPDATA%\Microsoft\VisualStudio\15.0_<ID>\ActivityLog.xml"`. (Open this in
   Internet Explorer for easiest viewing). Look for any errors that mention `"TypeScript"` or `"CodeAnalysis"`.
  - On occassion, the MEF cache can become corrupt. Delete the MEF cache files in
