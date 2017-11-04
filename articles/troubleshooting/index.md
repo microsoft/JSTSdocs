@@ -33,14 +33,29 @@ If the above and below investigations don't help, try repairing Visual Studio. T
  Search for `"TypeScript"` and ensure the TypeScript Tools are listed, and are not disabled. Do the same for the
  `"Visual Studio extension for TextMate grammars"` (which is used to provide syntax highlighting).
 
- > [!NOTE] Currently there is also a bug whereby if the `"Azure Functions and Web Jobs Tools"` extension is 
- disabled, then this can break the JavaScript & TypeScript language service. Please check this also.
+ > [!NOTE]
+ > Currently there is also a bug whereby if the `"Azure Functions and Web Jobs Tools"` extension is 
+ > disabled, then this can break the JavaScript & TypeScript language service. Please check this also.
  
  - Check the activity log at `"%APPDATA%\Microsoft\VisualStudio\15.0_<ID>\ActivityLog.xml"`. (Open this in
   Internet Explorer for easiest viewing). Look for any errors that mention `"TypeScript"` or `"CodeAnalysis"`.
  - On occassion, the MEF cache can become corrupt. Delete the MEF cache files in
  `"%LOCALAPPDATA%\Microsoft\VisualStudio\15.0_<ID>\ComponentModelCache"`, and then from a Developer Command 
  Prompt run `"devenv.exe /updateConfiguration"` to recreate it.
+ - If after clearing & recreating the MEF cache as shown above, there are still issues, check the MEF cache error
+ log at `"%LOCALAPPDATA%\Microsoft\VisualStudio\15.0_9c557bbb\ComponentModelCache\Microsoft.VisualStudio.Default.err"`.
+ The file can contain lots of noise (i.e. benign errors), but can also point to problematic failures.
+ - Check that another editor isn't configured to handle JavaScript and TypeScript files, by looking to see if
+ there are any custom mappings in `Tools / Options / Text Editor / File Extensions`.
+ - Even for a clean install of Visual Studio, some settings may have roamed from other installations, and
+ may be the cause of issue. Visual Studio uses a private registry hive, so examining this is a little involved.
+     1. Run `regedt32.exe` and select the `HKEY_LOCAL_MACHINE` key.
+     2. Select `File / Load Hive...` from the menu and open the file at `%LOCALAPPDATA%\Microsoft\VisualStudio\15.0_<ID>\privateregistry.bin` (where `<ID>` is unique per install). Give
+     the new key a name such as `VSprivate`. The settings may now be browsed and edited (with great caution).
+     3. To save the data (e.g. for sharing for analysis), select the new `VSprivate` key and choose `File / Export` from
+     the menu. Give the file a name such as `"VSprivate.reg"`.
+     4. When finished, with the `VSprivate` key selected, choose `File / Unload Hive` from the menu, and 
+     close the Registry Editor.
 
 ### Operation
 
@@ -180,11 +195,56 @@ and this may then be corrected via configuration options as outlined above.
 
 ## Enabled detailed language service logging
 
-TODO: Detail the use of the TSS_LOG environment variable to capture tsserver communications.
+The "brains" of the language service largely runs in a node.exe process running the `tsserver.js` script.
+Visual Studio 2017 communicates with this process to keep the project in sync, and ask questions for the
+editor. This communication can be logged, which can be very helpful in identifying where issues might be
+occurring.
+
+Logging is easiest enabled by setting an environment variable. This can be set via system properties, or
+on the command line before launching Visual Studio. Below describes how to do it via the command-line.
+
+1. Open an instance of the `"Developer Command Prompt for VS 2017"`.
+2. Set the environment variable with a command such as: `SET TSS_LOG=-level verbose -file C:\temp\logs\tsserver.log`
+3. Launch VS 2017 from the same command prompt by running `devenv.exe`.
+
+> [!NOTE]
+> The folder to contain the log file referenced in step 2 should already exist
+
+After reproducing the problem, log files should be created in the folder specified. (There will be a `tsserver.log` file
+created for the langauge service process, and a `ti-<ProcId>.log` file created for any types installer processes).
+
+> [!WARNING]
+> The log file may contain sensitive information, such as file paths, segments of code, and 
+> data used for completion lists, signature help, etc. Review the file before sharing if this is a concern.
+
+Of particular interest in the log file, depending on the problem, may be the project structures that get 
+created and the files & settings they contain, and the execution time for each request to be processed.
 
 ## Gathering an ETW trace of detailed analysis
 
-TODO: Detail where to obtain PerfView, and the command-line to use when running it.
+For in-depth analysis, it can be useful to gather an ETW log with detailed tracing. (For more information 
+on ETW, see [this MSDN documentation](https://msdn.microsoft.com/en-us/library/windows/desktop/bb968803).
+
+One of the most powerful tools to capture (and view) ETW events is PerfView. PerfView is an open source
+tool and the latest release can be downloaded from https://github.com/Microsoft/perfview/releases .
+
+With PerfView downloaded and the executable extracted and unblocked, open a `"Developer Command Prompt for VS 2017"`
+with Administrative rights, and run the following commands:
+
+1. `SET VSEXE=%VSINSTALLDIR%Common7\IDE\devenv.exe`
+2. `SET ETWPROV=*TypeScriptEventSource,*Microsoft-VisualStudio-Common`
+3. `PerfView -KernelEvents:FileIOInit,ThreadTime -Providers:%ETWPROV% run "%VSEXE%"`
+
+Visual Studio should launch. Reproduce the issue, then stop the PerfView trace. The zip file created
+contains detailed logging of file access, asynchronous tasks, Visual Studio internal events, and events
+from the TypeScript/JavaScript language service.
+
+> [!CAUTION]
+> The log file created can be extremely large - in the order of hundreds of megabytes per minute - and
+> contains system-wide details including call-stacks, file access, etc. Ensure you have sufficient
+> disk space, stop logging promptly after reproducing the problem, and do not share the trace if it may
+> contain private data.
+
 
 ## Useful links
 

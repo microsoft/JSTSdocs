@@ -106,6 +106,22 @@ Internet Explorer for easiest viewing). Look for any errors that mention <code>&
 <li>On occassion, the MEF cache can become corrupt. Delete the MEF cache files in
 <code>&quot;%LOCALAPPDATA%\Microsoft\VisualStudio\15.0_&lt;ID&gt;\ComponentModelCache&quot;</code>, and then from a Developer Command 
 Prompt run <code>&quot;devenv.exe /updateConfiguration&quot;</code> to recreate it.</li>
+<li>If after clearing &amp; recreating the MEF cache as shown above, there are still issues, check the MEF cache error
+log at <code>&quot;%LOCALAPPDATA%\Microsoft\VisualStudio\15.0_9c557bbb\ComponentModelCache\Microsoft.VisualStudio.Default.err&quot;</code>.
+The file can contain lots of noise (i.e. benign errors), but can also point to problematic failures.</li>
+<li>Check that another editor isn&#39;t configured to handle JavaScript and TypeScript files, by looking to see if
+there are any custom mappings in <code>Tools / Options / Text Editor / File Extensions</code>.</li>
+<li>Even for a clean install of Visual Studio, some settings may have roamed from other installations, and
+may be the cause of issue. Visual Studio uses a private registry hive, so examining this is a little involved.<ol>
+<li>Run <code>regedt32.exe</code> and select the <code>HKEY_LOCAL_MACHINE</code> key.</li>
+<li>Select <code>File / Load Hive...</code> from the menu and open the file at <code>%LOCALAPPDATA%\Microsoft\VisualStudio\15.0_&lt;ID&gt;\privateregistry.bin</code> (where <code>&lt;ID&gt;</code> is unique per install). Give
+the new key a name such as <code>VSprivate</code>. The settings may now be browsed and edited (with great caution).</li>
+<li>To save the data (e.g. for sharing for analysis), select the new <code>VSprivate</code> key and choose <code>File / Export</code> from
+the menu. Give the file a name such as <code>&quot;VSprivate.reg&quot;</code>.</li>
+<li>When finished, with the <code>VSprivate</code> key selected, choose <code>File / Unload Hive</code> from the menu, and 
+close the Registry Editor.</li>
+</ol>
+</li>
 </ul>
 <h3 id="operation">Operation</h3>
 <ul>
@@ -218,9 +234,46 @@ for each context created, that shows all the files contained within it.</p>
 and this may then be corrected via configuration options as outlined above.</p>
 <p><img src="../../images/virtualprojects.png" width="370px"></p>
 <h2 id="enabled-detailed-language-service-logging">Enabled detailed language service logging</h2>
-<p>TODO: Detail the use of the TSS_LOG environment variable to capture tsserver communications.</p>
+<p>The &quot;brains&quot; of the language service largely runs in a node.exe process running the <code>tsserver.js</code> script.
+Visual Studio 2017 communicates with this process to keep the project in sync, and ask questions for the
+editor. This communication can be logged, which can be very helpful in identifying where issues might be
+occurring.</p>
+<p>Logging is easiest enabled by setting an environment variable. This can be set via system properties, or
+on the command line before launching Visual Studio. Below describes how to do it via the command-line.</p>
+<ol>
+<li>Open an instance of the <code>&quot;Developer Command Prompt for VS 2017&quot;</code>.</li>
+<li>Set the environment variable with a command such as: <code>SET TSS_LOG=-level verbose -file C:\temp\logs\tsserver.log</code></li>
+<li>Launch VS 2017 from the same command prompt by running <code>devenv.exe</code>.</li>
+</ol>
+<div class="NOTE"><h5>Note</h5><p>The folder to contain the log file referenced in step 2 should already exist</p>
+</div>
+<p>After reproducing the problem, log files should be created in the folder specified. (There will be a <code>tsserver.log</code> file
+created for the langauge service process, and a <code>ti-&lt;ProcId&gt;.log</code> file created for any types installer processes).</p>
+<div class="WARNING"><h5>Warning</h5><p>The log file may contain sensitive information, such as file paths, segments of code, and 
+data used for completion lists, signature help, etc. Review the file before sharing if this is a concern.</p>
+</div>
+<p>Of particular interest in the log file, depending on the problem, may be the project structures that get 
+created and the files &amp; settings they contain, and the execution time for each request to be processed.</p>
 <h2 id="gathering-an-etw-trace-of-detailed-analysis">Gathering an ETW trace of detailed analysis</h2>
-<p>TODO: Detail where to obtain PerfView, and the command-line to use when running it.</p>
+<p>For in-depth analysis, it can be useful to gather an ETW log with detailed tracing. (For more information 
+on ETW, see <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/bb968803">this MSDN documentation</a>.</p>
+<p>One of the most powerful tools to capture (and view) ETW events is PerfView. PerfView is an open source
+tool and the latest release can be downloaded from <a href="https://github.com/Microsoft/perfview/releases">https://github.com/Microsoft/perfview/releases</a> .</p>
+<p>With PerfView downloaded and the executable extracted and unblocked, open a <code>&quot;Developer Command Prompt for VS 2017&quot;</code>
+with Administrative rights, and run the following commands:</p>
+<ol>
+<li><code>SET VSEXE=%VSINSTALLDIR%Common7\IDE\devenv.exe</code></li>
+<li><code>SET ETWPROV=*TypeScriptEventSource,*Microsoft-VisualStudio-Common</code></li>
+<li><code>PerfView -KernelEvents:FileIOInit,ThreadTime -Providers:%ETWPROV% run &quot;%VSEXE%&quot;</code></li>
+</ol>
+<p>Visual Studio should launch. Reproduce the issue, then stop the PerfView trace. The zip file created
+contains detailed logging of file access, asynchronous tasks, Visual Studio internal events, and events
+from the TypeScript/JavaScript language service.</p>
+<div class="CAUTION"><h5>Caution</h5><p>The log file created can be extremely large - in the order of hundreds of megabytes per minute - and
+contains system-wide details including call-stacks, file access, etc. Ensure you have sufficient
+disk space, stop logging promptly after reproducing the problem, and do not share the trace if it may
+contain private data.</p>
+</div>
 <h2 id="useful-links">Useful links</h2>
 <p>The below pages go over the configuration options in more detail:</p>
 <ul>
