@@ -8,7 +8,7 @@ Visual Studio has the capability to use and generate source maps on JavaScript s
 See below if you'll like to know how to configure more advance settings. You can use either a tsconfig.json or the project settings, but not both.
 
 ## Configure source maps using tsconfig.json file
-By adding a *tsconfig.json* file to your project you will indicate that the directory root is a TypeScript project. Just right right click *project > Add > New Item > Web > Scripts > TypeScript JSON Configuration File* to generate a file like below:
+By adding a *tsconfig.json* file to your project you will indicate that the directory root is a TypeScript project. Just right click *project > Add > New Item > Web > Scripts > TypeScript JSON Configuration File* to generate a file like below:
 
 tsconfig.json:
 ```json
