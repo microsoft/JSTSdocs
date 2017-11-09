@@ -78,7 +78,7 @@
 - name: Debugging
   href: debugging/index.md
   items:
-    - name: Using sourcemaps
+    - name: Using source maps
       href: debugging/sourcemaps.md
 - name: Building & publishing
   href: build/index.md
