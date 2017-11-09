@@ -1,6 +1,6 @@
 # Using Source Maps
 
-Visual Studio has the capability to use and generate source maps on JavaScript source files. This is often required if your source is minified or created by a transpiler like TypeScript. By defailt it will generate it for you.
+Visual Studio has the capability to use and generate source maps on JavaScript source files. This is often required if your source is minified or created by a transpiler like TypeScript. By default it will generate it for you.
 
 > [!NOTE]
 > We're going to assume you already know about source maps. If not, we suggest to read the page [Introduction to JavaScript Source Maps](https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/).
