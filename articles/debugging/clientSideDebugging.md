@@ -11,7 +11,7 @@ Breakpoints on files generated with Razor syntax (cshtml, vbhtml) are not automa
 1. **Place the `debugger;` statement where you want to break**: This will cause the dynamic script to stop execution and start debugging immediately while being created.
 1. **Load the page and open the dynamic document on Visual Studio**: You'll need to open the dynamic file while debugging, place your breakpoint and refresh the page for this one to work. Depending if you're using Chrome or Internet Explorer you'll find the file using one of the following strategies:
 
-   For Chrome, go to *Solution Explorer > Script Documents > YourPageName*. **Note**: When using Chrome you might get a screen indicating no source available between `script` tags. This is OK, just continue debugging.
+   For Chrome, go to *Solution Explorer > Script Documents > YourPageName*. **Note**: When using Chrome you might get a screen indicating no source available between `<script>` tags. This is OK, just continue debugging.
 
    For Internet Explorer, go to *Solution Explorer > Script Documents > Windows Internet Explorer > YourPageName*.
 
