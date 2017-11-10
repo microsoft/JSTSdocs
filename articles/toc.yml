@@ -78,6 +78,8 @@
 - name: Debugging
   href: debugging/index.md
   items:
+    - name: Client-side debugging
+      href: debugging/clientSideDebugging.md
     - name: Using source maps
       href: debugging/sourcemaps.md
 - name: Building & publishing
