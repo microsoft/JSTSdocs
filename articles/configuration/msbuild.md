@@ -53,3 +53,7 @@ Starting with the TypeScript 2.7 SDK, we use the `Inputs` and `Outputs` attribut
 ## Compilation Options
 
 Similar to how the set of input files is specified, there are two ways to specify settings for the compiler. If a `tsconfig.json` exists, then it will specify the compilation settings. Otherwise, settings can be specified in the project file itself (between the imports of the props and targets files), as shown [in the TypeScript handbook](http://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html#msbuild). These settings are documented [in the handbook](http://www.typescriptlang.org/docs/handbook/compiler-options-in-msbuild.html) as well.
+
+## Third-Party Build Tool Support
+
+If you are using a different build tool to build your project (e.g. gulp, grunt , etc.) and VS for the development and debugging experience, set `<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>` in your project. This will give support for editing TypeScript files but will not include them in the build process.
