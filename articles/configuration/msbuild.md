@@ -18,24 +18,38 @@ There are two different sources of information that tell MSBuild how to handle T
 > ASP.NET Core projects implicitly include these files, so an ASP.NET Core project file will not need to import them.
 
 ## TypeScript Tools Version
-Since a particular machine may have multiple versions of TypeScript installed, MSBuild allows you to set the TypeScriptToolsVersion property in your project file to specify which version to use.
-If this property is not set, MSBuild defaults to using the newest version of TypeScript that is installed. However, if you are using the TypeScript NuGet package instead, its version will override any setting in the project file.
+Since a particular machine may have multiple versions of TypeScript installed, MSBuild allows you to set the `TypeScriptToolsVersion` property in your project file to specify which version to use, as shown in the example below. If this property is not set, MSBuild defaults to using the newest version of TypeScript that is installed. However, if you are using the TypeScript NuGet package instead, its version will override any setting in the project file. This setting must occur before the import of `Microsoft.TypeScript.targets` to properly work.
+```xml
+<TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+```
 
 ## Input Files
-There are two ways that files can be recognized by and therefore built with the project: either by the project file itself or by way of a tsconfig.json file.
+There are two ways of including TypeScript files in the compilation: either using a tsconfig.json file or the `TypeScriptCompile` MSBuild item type.
 ### With TSConfig
-One option for allowing MSBuild to recognize what TypeScript files are part of your project is by way of a tsconfig.json file. This configuration file can either be explicitly associated with your .csproj in the Content item list, or it can be simply included as part of the directory tree rooted at the directory containing your project file. Note that in the latter case, configuration files within a folder titled "node_modules", "bower_components", or "platforms" will not be considered in order to avoid duplicate symbol errors.
+One option for allowing MSBuild to recognize what TypeScript files are part of your project is by way of a tsconfig.json file. This configuration file can either be explicitly associated with your .csproj in the Content item list, as shown in the example below, or it can be simply included as part of the directory tree rooted at the directory containing your project file. 
+```xml
+<ItemGroup>
+    <Content Include="myfolder/tsconfig.json" />
+</ItemGroup>
+```
+Note that in the latter case, configuration files within a folder titled "node_modules", "bower_components", or "platforms" will not be considered in order to avoid duplicate symbol errors.
 
-The tsconfig.json can either explicitly enumerate the files intended to be compiled (in the "includes" property) or it can exclude files that should not be compiled (in the "excludes" property). The file also allows you to set compile options that will override those set in the TypeScript Build page of your project's Properties. For more details, refer to [the discussion of tsconfig.json files](xref:tsconfig).
+The tsconfig.json can either explicitly enumerate the input files (in the "includes" property) or it can exclude files that should not be compiled (in the "excludes" property). The file also allows you to set compile options that will override those set in the TypeScript Build page of your project's Properties. For more details, refer to [the discussion of tsconfig.json files](xref:tsconfig).
 
-### Without TSConfig
+### `TypeScriptCompile` Items
 
-If there is no discoverable tsconfig.json, MSBuild relies on the project file to determine what files to include. For this scenario, TypeScript files must be included using the TypeScriptCompile item list.
+If there is no discoverable tsconfig.json, MSBuild relies on the project file to determine what files to include. For this scenario, TypeScript files must be included using the `TypeScriptCompile` item type, as shown in the following example.
+
+```xml
+<ItemGroup>
+    <TypeScriptCompile Include="myfolder/file1.ts" />
+</ItemGroup>
+```
 
 ## Incremental Build
 
-The `Inputs` and `Outputs` attributes of certain targets, such as `CompileTypeScript` or `CompileTypeScriptWithTSConfig` allow MSBuild to determine whether or not to skip the target. For targets that have these attributes defined, MSBuild compares the timestamps of the files specified by `Inputs` with those specified by `Outputs`. Since there is not always a one-to-one mapping between input files and output files (e.g., if `--outFile` is specified), MSBuild will rebuild all output files if at least one of the input files has been updated.
+Starting with the TypeScript 2.7 SDK, we use the `Inputs` and `Outputs` attributes of certain targets, such as `CompileTypeScript` or `CompileTypeScriptWithTSConfig` to allow MSBuild to determine whether or not to skip the target. For targets that have these attributes defined, MSBuild compares the timestamps of the files specified by `Inputs` with those specified by `Outputs`. Since there is not always a one-to-one mapping between input files and output files (e.g., if `--outFile` is specified), MSBuild will rebuild all output files if at least one of the input files has been updated.
 
 ## Compilation Options
 
-Similar to how the set of files to be compiled is specified, there are two ways to specify settings for the compiler. If a `tsconfig.json` exists, then it will specify the compilation settings. Otherwise, settings can be specified in the project file itself (between the imports of the props and targets files), as shown [in the TypeScript handbook](http://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html#msbuild). These settings are documented [in the handbook](http://www.typescriptlang.org/docs/handbook/compiler-options-in-msbuild.html) as well.
+Similar to how the set of input files is specified, there are two ways to specify settings for the compiler. If a `tsconfig.json` exists, then it will specify the compilation settings. Otherwise, settings can be specified in the project file itself (between the imports of the props and targets files), as shown [in the TypeScript handbook](http://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html#msbuild). These settings are documented [in the handbook](http://www.typescriptlang.org/docs/handbook/compiler-options-in-msbuild.html) as well.
