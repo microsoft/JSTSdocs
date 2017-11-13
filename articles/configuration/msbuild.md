@@ -5,6 +5,8 @@ uid: msbuild
 # MSBuild configuration
 
 ## TypeScript Tools Version
+Since a particular machine may have multiple versions of TypeScript installed, MSBuild allows you to set the TypeScriptToolsVersion property in your project file to specify which version to use.
+If this property is not set, MSBuild defaults to using the newest version of TypeScript that is installed. However, if you are using the TypeScript NuGet package instead, its version will override any setting in the project file.
 
 ## Props and Targets
 
@@ -14,8 +16,7 @@ There are two different sources of information that tell MSBuild how to handle T
 > ASP.NET Core projects implicitly include these files, so an ASP.NET Core project file will not need to import them.
 
 ## Compilation Scenarios
-<!-- In this section, we will discuss the way that MSBuild determines what TypeScript files should be compiled.  -->
-There are two ways that files can be included in the project, and therefore built with the project: either by the project file itself or by way of a tsconfig.json file.
+There are two ways that files can be recognized by and therefore built with the project: either by the project file itself or by way of a tsconfig.json file.
 ### With TSConfig
 One option for allowing MSBuild to recognize what TypeScript files are part of your project is by way of a tsconfig.json file. This configuration file can either be explicitly associated with your .csproj in the Content item list, or it can be simply included as part of the directory tree rooted at the directory containing your project file. Note that in the latter case, configuration files within a folder titled "node_modules", "bower_components", or "platforms" will not be considered in order to avoid duplicate symbol errors.
 
