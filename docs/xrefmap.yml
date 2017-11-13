@@ -2,7 +2,7 @@
 sorted: true
 references:
 - uid: msbuild
-  name: MSBuild configuration
+  name: MSBuild Configuration
   href: articles/configuration/msbuild.html
 - uid: tsconfig
   name: Using tsconfig.json for project configuration
