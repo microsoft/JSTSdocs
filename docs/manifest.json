@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/src/github/jsdocs",
+  "source_base_path": "C:/repo/jsdocs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "8f/sTS2A1bo/XshGr0J/OA=="
+          "hash": "saozrykizL1kRGLZ1mmn/Q=="
         }
       },
       "is_incremental": true,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/build/index.html",
-          "hash": "gaRZE7mNobJ+sdAmjs2qvg=="
+          "hash": "uqYt2sFOGBo0/VwV9kOLvg=="
         }
       },
       "is_incremental": true,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/build/nuget.html",
-          "hash": "YOX2Fk+caniyxn5mVxKCVg=="
+          "hash": "jgvyfGXlnLZRDeUlUjorvQ=="
         }
       },
       "is_incremental": true,
@@ -45,7 +45,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/build/tsc.html",
-          "hash": "BBbXlEOTJMMVdvdTjmQroQ=="
+          "hash": "DgCC+Wqh4CLuV8KfaR9nCQ=="
         }
       },
       "is_incremental": true,
@@ -57,7 +57,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/index.html",
-          "hash": "Aky4MRNv4Lt4ZVKsjfrtGw=="
+          "hash": "jqWfLuw6jiWjSXAq0Y963w=="
         }
       },
       "is_incremental": true,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/msbuild.html",
-          "hash": "Bj67bjeAQPtOrnaNzQYxYg=="
+          "hash": "XoVPN5je2FxH7Yg73UMxLg=="
         }
       },
       "is_incremental": true,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/tsconfig.html",
-          "hash": "qpTD1lafkjnR7IDUsJ4p7w=="
+          "hash": "esiTCrK683PlVEPpY21iFA=="
         }
       },
       "is_incremental": true,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/versioning.html",
-          "hash": "1oUoHR/SWf28pr6rldI3Lw=="
+          "hash": "cNTj4+6LE4UhNskXja1UgQ=="
         }
       },
       "is_incremental": true,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/debugging/index.html",
-          "hash": "mHaMd6clD6BlQzK5gSWwzQ=="
+          "hash": "VJs/6Abb92GQ4gngDmFChQ=="
         }
       },
       "is_incremental": true,
@@ -117,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/debugging/sourcemaps.html",
-          "hash": "U6mNp1qlluMLy98n2Wkwmg=="
+          "hash": "ZwL5KUgsngOJDoO8e7Qlcg=="
         }
       },
       "is_incremental": true,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/formatting.html",
-          "hash": "Q+dMMwWSulObxXQGmoaf6w=="
+          "hash": "AVjav9cVVCcFuBpkpMsYqQ=="
         }
       },
       "is_incremental": true,
@@ -141,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/index.html",
-          "hash": "oXtlIAShkxlzLPg37PhNjQ=="
+          "hash": "X2O2xoYp2CM4jbwqW40GNw=="
         }
       },
       "is_incremental": true,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/intellisense.html",
-          "hash": "+ZCCZcrzAHl4kg8NaRcpSA=="
+          "hash": "8Ip1os75XIggNcU5UtNJjA=="
         }
       },
       "is_incremental": true,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/linting.html",
-          "hash": "h2cqipoJxxCD+h0u7eHGlQ=="
+          "hash": "Ox8VLOK8fDJWDE82XWqHnA=="
         }
       },
       "is_incremental": true,
@@ -177,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/lists.html",
-          "hash": "T0LoValc52n2un6YuGnhMg=="
+          "hash": "fPHW+nNJdAEaIQA1E3oagg=="
         }
       },
       "is_incremental": true,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/refactoring.html",
-          "hash": "9ajOq86HxLe4xgJMmTkEtg=="
+          "hash": "PanPTrm2lgpAj6ImQPOqMg=="
         }
       },
       "is_incremental": true,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/frameworks/angular.html",
-          "hash": "/VWDnvpKUnqQYy95Cgz5lQ=="
+          "hash": "cCurKB2MbAtnMoWiLhqijw=="
         }
       },
       "is_incremental": true,
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/frameworks/gulpwebpack.html",
-          "hash": "6zRhK9oUNjoXM89l0TQLDg=="
+          "hash": "3DUzQ6HIwt3UI2OHahSXrw=="
         }
       },
       "is_incremental": true,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/frameworks/index.html",
-          "hash": "FJNo7i8KF9FeWfbCIfs0rg=="
+          "hash": "5zqoELdA5n5xwqETyP3eAA=="
         }
       },
       "is_incremental": true,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/frameworks/jsx.html",
-          "hash": "1w4ghRhi7Zq9HdQs8VGsqQ=="
+          "hash": "/KKXOJ8TXKDFkLkzUD6aLA=="
         }
       },
       "is_incremental": true,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/frameworks/vue.html",
-          "hash": "4/+aazp761OJjKNx9bK79A=="
+          "hash": "+aaNxCe6LheZ0l89l4H8rg=="
         }
       },
       "is_incremental": true,
@@ -261,10 +261,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/index.html",
-          "hash": "FnUDdVIZ9UaZ5wB1NWVySA=="
+          "hash": "zvFVbSBbWTYJN4uuU40CFg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/azure.html",
-          "hash": "DbxCkdomzkrM0lOlPuR+Kw=="
+          "hash": "GSR3XCkUT/nbVXOTi6xpdw=="
         }
       },
       "is_incremental": true,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/index.html",
-          "hash": "X0bep0TMGuQWzC7HYC0SYw=="
+          "hash": "vFk9nKvKM+pq9l81TPHZrA=="
         }
       },
       "is_incremental": true,
@@ -297,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/interactivewindow.html",
-          "hash": "xlGCoj8RYdcvHTztCsyveQ=="
+          "hash": "d/NzzqEBjKIJCcXApAQk3Q=="
         }
       },
       "is_incremental": true,
@@ -309,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/npm.html",
-          "hash": "coElY50RY3hOm78CDqZCiw=="
+          "hash": "vdBMXHDxYH5EpGzDC+IBGQ=="
         }
       },
       "is_incremental": true,
@@ -321,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/requirements.html",
-          "hash": "raha/Z73nal8dAqTHYSSCw=="
+          "hash": "boIj9LdQY4OQ+OxE3FOJdw=="
         }
       },
       "is_incremental": true,
@@ -333,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/taskexplorer.html",
-          "hash": "iKPG5u3yVvcnROjvClCQdQ=="
+          "hash": "UszliNrhL0yhEs3XcTX1lA=="
         }
       },
       "is_incremental": true,
@@ -345,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/unittesting.html",
-          "hash": "6orOm1PVuEox0fZQH6mRog=="
+          "hash": "aThKUNqE1B6DRnz5+7zIKg=="
         }
       },
       "is_incremental": true,
@@ -357,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/aspnet/aspnetclassic.html",
-          "hash": "U4e6ljQDsi01LF2gxTlaIw=="
+          "hash": "v5CJeezn8kgqPRdArSwoKw=="
         }
       },
       "is_incremental": true,
@@ -369,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/aspnet/aspnetcore.html",
-          "hash": "Q5XauwMjvi8F+8WUqf1yXw=="
+          "hash": "s4a1NvzK+jdDB+3Ac8QM/A=="
         }
       },
       "is_incremental": true,
@@ -381,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/aspnet/index.html",
-          "hash": "10Qxlg+OWqjY86k+xNhhTA=="
+          "hash": "LthF+0slwJB/PONNTqMMQQ=="
         }
       },
       "is_incremental": true,
@@ -393,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/cordova.html",
-          "hash": "sS4OCOVUzUrdLaCr2N2pHw=="
+          "hash": "qZHd1pSM7CC025ysY2Oh6Q=="
         }
       },
       "is_incremental": true,
@@ -405,7 +405,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/index.html",
-          "hash": "RpYFfRooVYySlnKI+uIqVg=="
+          "hash": "eboHdfVRTl3xlhbG3u/Bmg=="
         }
       },
       "is_incremental": true,
@@ -417,7 +417,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/nodejs.html",
-          "hash": "FpFYzKXGweERWSThXzxwaQ=="
+          "hash": "fxm6sRUNKJ5yc5ZjzUefMw=="
         }
       },
       "is_incremental": true,
@@ -429,7 +429,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/openfolder.html",
-          "hash": "eoPihMJM2bIKZc0jc0cIlw=="
+          "hash": "Y1i6RWe8EJdmxRSQh45XMQ=="
         }
       },
       "is_incremental": true,
@@ -441,7 +441,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/projects/uwp.html",
-          "hash": "voAQJV6S/3ziddMSioaBfQ=="
+          "hash": "kTTTF7eb2CrLTBPZoD6Vqg=="
         }
       },
       "is_incremental": true,
@@ -465,10 +465,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/troubleshooting/index.html",
-          "hash": "0UJK82RGkmGELjNHCNk7UA=="
+          "hash": "oQzAzqUjOqvJARAaprt2ZA=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -477,7 +477,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/troubleshooting/jsdisabled.html",
-          "hash": "CogkN1KJ5vicv0aQVNCglA=="
+          "hash": "WZqXn7+Ory6V2CwDUQcCAw=="
         }
       },
       "is_incremental": true,
@@ -489,7 +489,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/types/allowjs.html",
-          "hash": "gK53IFPynLirt+keOcRDfg=="
+          "hash": "XBz4UxZDAcfVxysZAdnpew=="
         }
       },
       "is_incremental": true,
@@ -501,7 +501,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/types/ata.html",
-          "hash": "fi2ctAJfDA6IfRlkiY4GVw=="
+          "hash": "sssvd6SEGHa7mfyJG4k8Xw=="
         }
       },
       "is_incremental": true,
@@ -513,7 +513,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/types/attypes.html",
-          "hash": "Jj6L/VbIi0dKVxppvVjJJw=="
+          "hash": "kwLv8PvlyaXa0KK/QWrDUQ=="
         }
       },
       "is_incremental": true,
@@ -525,7 +525,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/types/index.html",
-          "hash": "wplMTn5vOsrJpnH5PdnVmQ=="
+          "hash": "k+ZzrVHSz4e1J80FGg3gMQ=="
         }
       },
       "is_incremental": true,
@@ -537,10 +537,32 @@
       "output": {
         ".html": {
           "relative_path": "articles/types/jsdoc.html",
-          "hash": "+eRZHRbSq/E2DnNK1qBa3w=="
+          "hash": "HAIvzTa7J38bRjr/Ay05dw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/jsdoc-param.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/jsdoc-param.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/jsdoc-quickinfo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/jsdoc-quickinfo.png"
+        }
+      },
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -615,7 +637,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "5RheSmtiRPukcqFSNJfWzQ=="
+          "hash": "3MAfwxmT5jQvh3WXm0YsIg=="
         }
       },
       "is_incremental": true,
@@ -641,26 +663,17 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
-        "RestApiDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
+        "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         }
