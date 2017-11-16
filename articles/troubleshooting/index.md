@@ -15,9 +15,11 @@ installation, configuration, and operation should be verified first.
  - Under the VS installation folder, ensure the language service files are present. For a default 
  installation of the Enterprise Edition, this would be under
 a path similar to `"C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TypeScript"`
+Some files to specificially look for are: `Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll` and `Microsoft.VisualStudio.LanguageServices.TypeScript.dll`, 
  - Ensure the TypeScript SDK is also present. For a default installation, this would be under a path
  similar to `"C:\Program Files (x86)\Microsoft SDKs\TypeScript\2.5"` (Or the `"2.3"` folder, if on an earlier
 release than Visual Studio 2017 Update 5).
+Some files to look for here are: `build\TypeScript.Tasks.dll` and `tsserver.js`
  - In Visual Studio itself, open the `Help / About` menu, and ensure that `"TypeScript Tools"` is listed.
 
 If an installation failure is still suspected, the setup log files may prove useful. These are located
