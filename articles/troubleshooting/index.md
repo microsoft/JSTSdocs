@@ -195,7 +195,7 @@ and this may then be corrected via configuration options as outlined above.
 
 <img src="../../images/virtualprojects.png" width="370px"/>
 
-## Enabled detailed language service logging
+## Enable detailed language service logging
 
 The "brains" of the language service largely runs in a node.exe process running the `tsserver.js` script.
 Visual Studio 2017 communicates with this process to keep the project in sync, and ask questions for the
