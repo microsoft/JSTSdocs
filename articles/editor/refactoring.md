@@ -8,12 +8,12 @@ Refactorings are supported as of Visual Studio 2017 version 15.4.0.
 
 | TS Version | Effects |
 |-|-|
-|2.4.0|Convert to ES6 class|
-|2.5.0|Extract function|
-|2.6.0|Extract local|
-|2.6.1|Annotate with type from JSDoc|
-|2.6.1|Install @types for JS module|
-|TBD|Convert to default import|
+|2.4.0|[Convert to ES6 class](#convert-to-es6-class)|
+|2.5.0|[Extract function](#extract-function)|
+|2.6.0|[Extract constant](#extract-constant)|
+|2.6.1|[Annotate with type from JSDoc](#annotate-with-type-from-jsdoc)|
+|2.6.1|[Install @types for JS module](#install-types-for-js-module)|
+|TBD|[Convert to default import](#convert-to-default-import)|
 
 
 ### Code Fixes
@@ -38,3 +38,219 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.6.1|1329|Call decorator expression (?)|
 |2.6.1|7005, 7006, 7008, 7010, 7019, 7032, 7033, 7034|Annotate with inferred type|
 |2.6.1|7016|Install @types for JS module|
+
+## Examples
+
+### Refactorings
+
+#### Convert to ES6 Class
+
+**Before**
+
+```js
+function cls() {
+    this.x = 10;
+}
+cls.prototype.method = function () {
+    return 3;
+}
+```
+
+**After**
+
+```js
+class cls
+{
+    constructor()
+    {
+        this.x = 10;
+    }
+    method()
+    {
+        return 3;
+    }
+}
+```
+
+**Notes**
+
+ * Only applies in JavaScript files.
+ * The caret must be on an occurrence of the class name.
+
+#### Extract Function
+
+**Before**
+
+```ts
+function F(x: number)
+{
+    /*start*/return x + 1;/*end*/
+}
+```
+
+**After - Nested Function**
+
+```ts
+function F(x: number)
+{
+    return newFunction();
+
+    function newFunction()
+    {
+        return x + 1;
+    }
+}
+```
+
+**After - Top-Level Function**
+
+```ts
+function F(x: number)
+{
+    return newFunction(x);
+}
+function newFunction(x: number)
+{
+    return x + 1;
+}
+```
+
+**Notes**
+
+ * Extraction is best-effort - the resulting code may not compile or may behave subtly differently.
+ * After the refactoring, the caret should be at the beginning of the call to the extracted function.
+
+#### Extract Constant
+
+**Before**
+
+```ts
+const PI = 3.141;
+class Circle {
+    readonly radius = 3;
+
+    Area() {
+        return /*start*/PI * (this.radius ** 2)/*end*/;
+    }
+}
+```
+
+**After - Local**
+
+```ts
+const PI = 3.141;
+class Circle {
+    readonly radius = 3;
+
+    Area() {
+        const newLocal = PI * (this.radius ** 2);
+
+        return newLocal;
+    }
+}
+```
+
+**After - Property**
+
+```ts
+const PI = 3.141;
+class Circle {
+    readonly radius = 3;
+
+    private readonly newProperty = PI * (this.radius ** 2);
+
+    Area() {
+        return this.newProperty;
+    }
+}
+```
+
+**Notes**
+
+ * The extracted range must be an expression (exception
+ * Extraction is best-effort - the resulting code may not compile or may behave subtly differently.  In particular, evaluation order may change.
+ * After the refactoring, the caret should be at the beginning of the call to the extracted constant/property.
+
+#### Annotate with Type from JSDoc
+
+**Before**
+
+```ts
+/** @type {number} */
+var x;
+```
+
+**After**
+
+```ts
+/** @type {number} */
+var x: number;
+```
+
+**Notes**
+
+ * The caret must be on the name of the declaration to be annotated.
+
+#### Install @types for JS Module
+
+**Before**
+
+```ts
+import "left-pad";
+```
+
+**After**
+
+```ts
+import "left-pad";
+```
+
+**Notes**
+
+ * The caret must be on the name of module being imported.
+ * No change is made to the source.  Instead, the corresponding @types module for the module being imported is installed in the project.
+ * The refactoring will not be offered if no corresponding @types module is available.
+ * If there is an error, the corresponding code fix will be offered instead.
+
+#### Convert to Default Import
+
+**Before**
+
+```ts
+// @Filename: /a.d.ts
+declare const x: number;
+export = x;
+```
+
+```ts
+// @Filename: /b.ts
+import * as a from "./a";
+```
+
+```ts
+// @Filename: /c.ts
+import a = require("./a");
+```
+
+**After**
+
+```ts
+// @Filename: /a.d.ts
+declare const x: number;
+export = x;
+```
+
+```ts
+// @Filename: /b.ts
+import a from "./a";
+```
+
+```ts
+// @Filename: /c.ts
+import a from "./a";
+```
+
+**Notes**
+
+ * Currently this will only activate if `--allowSyntheticDefaultImports` is enabled.
+ * The caret must be on the name of the module being imported.
