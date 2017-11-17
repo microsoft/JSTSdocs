@@ -51,7 +51,7 @@ The same features in inline templates will work in `.ngml` template files:
 ## Additional Resources
 
 Note that some of these examples use `.html` files instead of `.ngml` and don't include instructions on setting up the Angular language service plugin.
-Refer to [https://github.com/Microsoft/angular2-in-visual-studio](the Visual Studio Angular 2) repo for information on how to modify your `tsconfig.json` appropriately.
+Refer to [the Visual Studio Angular 2](https://github.com/Microsoft/angular2-in-visual-studio) repo for information on how to modify your `tsconfig.json` appropriately.
 
  * https://angular.io/guide/quickstart - Angular quick start guide
  * https://github.com/RyanCavanaugh/angular2-ngml-seed - Angular seed project using NGML files
