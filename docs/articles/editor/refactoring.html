@@ -82,27 +82,27 @@
 <tbody>
 <tr>
 <td>2.4.0</td>
-<td>Convert to ES6 class</td>
+<td><a href="#convert-to-es6-class">Convert to ES6 class</a></td>
 </tr>
 <tr>
 <td>2.5.0</td>
-<td>Extract function</td>
+<td><a href="#extract-function">Extract function</a></td>
 </tr>
 <tr>
 <td>2.6.0</td>
-<td>Extract local</td>
+<td><a href="#extract-constant">Extract constant</a></td>
 </tr>
 <tr>
 <td>2.6.1</td>
-<td>Annotate with type from JSDoc</td>
+<td><a href="#annotate-with-type-from-jsdoc">Annotate with type from JSDoc</a></td>
 </tr>
 <tr>
 <td>2.6.1</td>
-<td>Install @types for JS module</td>
+<td><a href="#install-types-for-js-module">Install @types for JS module</a></td>
 </tr>
 <tr>
 <td>TBD</td>
-<td>Convert to default import</td>
+<td><a href="#convert-to-default-import">Convert to default import</a></td>
 </tr>
 </tbody>
 </table>
@@ -199,6 +199,146 @@
 </tr>
 </tbody>
 </table>
+<h2 id="examples">Examples</h2>
+<h3 id="refactorings-1">Refactorings</h3>
+<h4 id="convert-to-es6-class">Convert to ES6 Class</h4>
+<p><strong>Before</strong></p>
+<pre><code class="lang-js">function cls() {
+    this.x = 10;
+}
+cls.prototype.method = function () {
+    return 3;
+}
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-js">class cls
+{
+    constructor()
+    {
+        this.x = 10;
+    }
+    method()
+    {
+        return 3;
+    }
+}
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>Only applies in JavaScript files.</li>
+<li>The caret must be on an occurrence of the class name.</li>
+</ul>
+<h4 id="extract-function">Extract Function</h4>
+<p><strong>Before</strong></p>
+<pre><code class="lang-ts">function F(x: number)
+{
+    /*start*/return x + 1;/*end*/
+}
+</code></pre><p><strong>After - Nested Function</strong></p>
+<pre><code class="lang-ts">function F(x: number)
+{
+    return newFunction();
+
+    function newFunction()
+    {
+        return x + 1;
+    }
+}
+</code></pre><p><strong>After - Top-Level Function</strong></p>
+<pre><code class="lang-ts">function F(x: number)
+{
+    return newFunction(x);
+}
+function newFunction(x: number)
+{
+    return x + 1;
+}
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>Extraction is best-effort - the resulting code may not compile or may behave subtly differently.</li>
+<li>After the refactoring, the caret should be at the beginning of the call to the extracted function.</li>
+</ul>
+<h4 id="extract-constant">Extract Constant</h4>
+<p><strong>Before</strong></p>
+<pre><code class="lang-ts">const PI = 3.141;
+class Circle {
+    readonly radius = 3;
+
+    Area() {
+        return /*start*/PI * (this.radius ** 2)/*end*/;
+    }
+}
+</code></pre><p><strong>After - Local</strong></p>
+<pre><code class="lang-ts">const PI = 3.141;
+class Circle {
+    readonly radius = 3;
+
+    Area() {
+        const newLocal = PI * (this.radius ** 2);
+
+        return newLocal;
+    }
+}
+</code></pre><p><strong>After - Property</strong></p>
+<pre><code class="lang-ts">const PI = 3.141;
+class Circle {
+    readonly radius = 3;
+
+    private readonly newProperty = PI * (this.radius ** 2);
+
+    Area() {
+        return this.newProperty;
+    }
+}
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>The extracted range must be an expression (exception</li>
+<li>Extraction is best-effort - the resulting code may not compile or may behave subtly differently.  In particular, evaluation order may change.</li>
+<li>After the refactoring, the caret should be at the beginning of the call to the extracted constant/property.</li>
+</ul>
+<h4 id="annotate-with-type-from-jsdoc">Annotate with Type from JSDoc</h4>
+<p><strong>Before</strong></p>
+<pre><code class="lang-ts">/** @type {number} */
+var x;
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">/** @type {number} */
+var x: number;
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>The caret must be on the name of the declaration to be annotated.</li>
+</ul>
+<h4 id="install-types-for-js-module">Install @types for JS Module</h4>
+<p><strong>Before</strong></p>
+<pre><code class="lang-ts">import &quot;left-pad&quot;;
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">import &quot;left-pad&quot;;
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>The caret must be on the name of module being imported.</li>
+<li>No change is made to the source.  Instead, the corresponding @types module for the module being imported is installed in the project.</li>
+<li>The refactoring will not be offered if no corresponding @types module is available.</li>
+<li>If there is an error, the corresponding code fix will be offered instead.</li>
+</ul>
+<h4 id="convert-to-default-import">Convert to Default Import</h4>
+<p><strong>Before</strong></p>
+<pre><code class="lang-ts">// @Filename: /a.d.ts
+declare const x: number;
+export = x;
+</code></pre><pre><code class="lang-ts">// @Filename: /b.ts
+import * as a from &quot;./a&quot;;
+</code></pre><pre><code class="lang-ts">// @Filename: /c.ts
+import a = require(&quot;./a&quot;);
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">// @Filename: /a.d.ts
+declare const x: number;
+export = x;
+</code></pre><pre><code class="lang-ts">// @Filename: /b.ts
+import a from &quot;./a&quot;;
+</code></pre><pre><code class="lang-ts">// @Filename: /c.ts
+import a from &quot;./a&quot;;
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>Currently this will only activate if <code>--allowSyntheticDefaultImports</code> is enabled.</li>
+<li>The caret must be on the name of the module being imported.</li>
+</ul>
 </article>
           </div>
           
