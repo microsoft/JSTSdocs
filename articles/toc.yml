@@ -91,3 +91,6 @@
       href: build/nuget.md
 - name: Troubleshooting
   href: troubleshooting/index.md
+  items:
+    - name: NewtonSoft.Json versioning
+      href: troubleshooting/newtonsoft.md

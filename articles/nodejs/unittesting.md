@@ -20,7 +20,7 @@ The supported frameworks are:
 ## Writing unit tests
 
 Before adding unit tests to your project, make sure the framework you plan on using is installed **locally** in 
-your project. This is easiest using the [npm install window](npm#npmInstallWindow).
+your project. This is easiest using the [npm install window](npm.md#npmInstallWindow).
 
 You can add simple blank tests to your project, using the Add New Item dialog, both JavaScript and TypeScript are supported in the same project.
 

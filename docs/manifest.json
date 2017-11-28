@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/refactoring.html",
-          "hash": "Ri6lJbkuMRAcpvrDCW2fIQ=="
+          "hash": "o6oL3zr3ef4nl0zxz1o5QQ=="
         }
       },
       "is_incremental": true,
@@ -216,7 +216,7 @@
           "hash": "XOhjz1/vI86ELYgtaxbpzQ=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -321,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/npm.html",
-          "hash": "6bVjKvZ6AXPU4rqxb9zGIg=="
+          "hash": "bQWwIjI0ckIHmpIA6nMeHA=="
         }
       },
       "is_incremental": true,
@@ -333,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/requirements.html",
-          "hash": "raha/Z73nal8dAqTHYSSCw=="
+          "hash": "JdG9kjWfts/3bkRBn+G7gA=="
         }
       },
       "is_incremental": true,
@@ -357,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/unittesting.html",
-          "hash": "6orOm1PVuEox0fZQH6mRog=="
+          "hash": "wMM8/MCLUNhYmWohCgtpGA=="
         }
       },
       "is_incremental": true,
@@ -465,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "H5rXX4Ir7PWqq4KttQutOQ=="
+          "hash": "r4bBOzkmyQszxCbI0IWxKg=="
         }
       },
       "is_incremental": false,
@@ -493,6 +493,18 @@
         }
       },
       "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/troubleshooting/newtonsoft.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/troubleshooting/newtonsoft.html",
+          "hash": "Ap0J8F0bips5MccBKIsi9Q=="
+        }
+      },
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -557,6 +569,17 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/NewtonSoftPath.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/NewtonSoftPath.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/jslsdisabledpopup.png",
       "output": {
         "resource": {
@@ -568,10 +591,65 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/node/UnitTestsDiscoveryMocha.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/UnitTestsDiscoveryMocha.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/UnitTestsFrameworkMocha.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/UnitTestsFrameworkMocha.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/node/extraneous-npm.png",
       "output": {
         "resource": {
           "relative_path": "images/node/extraneous-npm.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/installation-nodejs-options.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/installation-nodejs-options.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/installation-nodejs-workload.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/installation-nodejs-workload.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/installation-vs-launch.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/installation-vs-launch.png"
         }
       },
       "is_incremental": false,
@@ -623,10 +701,21 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "images/node/solution-explorer-status.PNG",
+      "source_relative_path": "images/node/solution-explorer-status.png",
       "output": {
         "resource": {
-          "relative_path": "images/node/solution-explorer-status.PNG"
+          "relative_path": "images/node/solution-explorer-status.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/unit-test-add-new-item.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/unit-test-add-new-item.png"
         }
       },
       "is_incremental": false,
@@ -719,6 +808,19 @@
         "incrementalPhase": "build"
       },
       "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
         "ResourceDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
@@ -727,19 +829,6 @@
         "RestApiDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build"
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build"
-        },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }
