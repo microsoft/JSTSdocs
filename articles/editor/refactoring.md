@@ -31,7 +31,7 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.2.1|2689|[Change `extends` to `implements`](#change-extends-to-implements)|
 |2.2.1|17009|[Move `super()` call ahead of `this` access](#move-super-call-ahead-of-this-access)|
 |2.3.0|All|Suppress JS diagnostics by adding `// @ts-nocheck`|
-|2.4.0|2551, 2552|Correct misspelled name|
+|2.4.0|2551, 2552|[Correct misspelled name](#correct-misspelled-name)|
 |2.4.1|6133, 6138|Handle unused symbol (e.g. by deleting or prefixing with underscore)|
 |2.5.0|2713|Rewrite as the indexed access type (?)|
 |2.5.0|8020|Convert JSDoc type to TS type (?)|
@@ -302,21 +302,33 @@ const c = new C();
 c.Prop2 = 1; // TS2551
 ```
 
-**After - Correct Spelling**
+**After - Property**
 
 ```ts
 class C {
+    Prop2: number;
     Prop1: number;
 }
 
 const c = new C();
-c.Prop1 = 1;
+c.Prop2 = 1;
+```
+
+**After - Index Signature**
+
+```ts
+class C {
+    [x: string]: number;
+    Prop1: number;
+}
+
+const c = new C();
+c.Prop2 = 1;
 ```
 
 **Notes**
 
  * The receiver must have a class type.
- * There are restrictions on what counts as a mispelling - the lengths must match and be greater than 3, etc.
 
 #### Synthesize Missing `super()` Call
 
@@ -503,3 +515,45 @@ class Derived extends Base {
     }
 }
 ```
+
+#### Correct Misspelled Name
+
+**Before - TS2551**
+
+```ts
+class C {
+    Prop1: number;
+}
+
+const c = new C();
+c.Prop2 = 1; // TS2551
+```
+
+**After**
+
+```ts
+class C {
+    Prop1: number;
+}
+
+const c = new C();
+c.Prop1 = 1;
+```
+
+**Before - TS2552**
+
+```ts
+let variable1 = 1;
+variable2++; //TS2552
+```
+
+**After**
+
+```ts
+let variable1 = 1;
+variable1++;
+```
+
+**Notes**
+
+ * There are restrictions on what counts as a misspelling - the lengths must match and be greater than 3, etc.
