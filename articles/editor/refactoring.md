@@ -26,7 +26,7 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.2.1|2339, 2551|[Add missing member](#add-missing-member)|
 |2.2.1|2377|[Synthesize missing `super()` call](#synthesize-missing-super-call)|
 |2.2.1|2420|[Implement interface members](#implement-interface-members)|
-|2.2.1|2515, 2653|Implement abstract members from base class|
+|2.2.1|2515, 2653|[Implement abstract members from base class](#implement-abstract-members-from-base-class)|
 |2.2.1|2663|Prepend `this.` to member access|
 |2.2.1|2689|Change `extends` to `implements`|
 |2.2.1|17009|Move `super()` call ahead of `this` access|
@@ -371,5 +371,57 @@ interface I {
 
 class C implements I {
     X: number;
+}
+```
+
+#### Implement Abstract members from Base Class
+
+**Before - TS2515**
+
+```ts
+abstract class A {
+    abstract M();
+}
+
+class C extends A { //TS2515
+}
+```
+
+**After**
+
+```ts
+abstract class A {
+    abstract M();
+}
+
+class C extends A {
+    M() {
+        throw new Error("Method not implemented.");
+    }
+}
+```
+
+**Before - TS2563**
+
+```ts
+abstract class A {
+    abstract M();
+}
+
+const c = class C extends A { //TS2563
+}
+```
+
+**After**
+
+```ts
+abstract class A {
+    abstract M();
+}
+
+const c = class C extends A {
+    M() {
+        throw new Error("Method not implemented.");
+    }
 }
 ```
