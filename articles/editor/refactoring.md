@@ -25,7 +25,7 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.1.4|2304, 2503, 2552, 2686|Add an appropriate import (?)|
 |2.2.1|2339, 2551|[Add missing member](#add-missing-member)|
 |2.2.1|2377|[Synthesize missing `super()` call](#synthesize-missing-super-call)|
-|2.2.1|2420|Implement interface members|
+|2.2.1|2420|[Implement interface members](#implement-interface-members)|
 |2.2.1|2515, 2653|Implement abstract members from base class|
 |2.2.1|2663|Prepend `this.` to member access|
 |2.2.1|2689|Change `extends` to `implements`|
@@ -342,5 +342,34 @@ class Derived extends Base {
     constructor() {
         super();
     }
+}
+```
+
+**Notes**
+
+ * Always calls `super()` without arguments.
+
+#### Implement Interface Members
+
+**Before - TS2420**
+
+```ts
+interface I {
+    X: number
+}
+
+class C implements I { //TS2420
+}
+```
+
+**After**
+
+```ts
+interface I {
+    X: number
+}
+
+class C implements I {
+    X: number;
 }
 ```
