@@ -35,7 +35,7 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.4.1|6133, 6138|[Handle unused symbol](#handle-unused-symbol)|
 |2.5.0|2713|[Rewrite as indexed access type](#rewrite-as-indexed-access-type)|
 |2.5.0|8020|Convert JSDoc type to TS type (?)|
-|2.6.1|1329|Call decorator expression (?)|
+|2.6.1|1329|[Call decorator factory expression](#call-decorator-factory-expression)|
 |2.6.1|7005, 7006, 7008, 7010, 7019, 7032, 7033, 7034|Annotate with inferred type|
 |2.6.1|7016|Install @types for JS module|
 
@@ -671,3 +671,37 @@ let z: I["x"];
 **Notes**
 
  * Presently, doesn't work for classes.
+
+#### Call Decorator Factory Expression
+
+**Before - TS1329**
+
+```ts
+// { "compilerOptions": {"experimentalDecorators": true, "target": "es5"} }
+
+function DecoratorFactory() {
+    return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
+    }
+}
+
+class C {
+    @DecoratorFactory //TS1329
+    M() { }
+}
+```
+
+**After**
+
+```ts
+// { "compilerOptions": {"experimentalDecorators": true, "target": "es5"} }
+
+function DecoratorFactory() {
+    return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
+    }
+}
+
+class C {
+    @DecoratorFactory()
+    M() { }
+}
+```
