@@ -23,7 +23,7 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 | TS Version | Error Codes | Effects |
 |-|-|-|
 |2.1.4|2304, 2503, 2552, 2686|Add an appropriate import (?)|
-|2.2.1|2339, 2551|Add missing member|
+|2.2.1|2339, 2551|[Add missing member](#add-missing-member)|
 |2.2.1|2377|Synthesize missing `super()` call|
 |2.2.1|2420|Implement interface members|
 |2.2.1|2515, 2653|Implement abstract members from base class|
@@ -254,3 +254,66 @@ import a from "./a";
 
  * Currently this will only activate if `--allowSyntheticDefaultImports` is enabled.
  * The caret must be on the name of the module being imported.
+
+### Code Fixes
+
+#### Add Missing Member
+
+**Before - TS2339**
+
+```ts
+class C {
+}
+
+const c = new C();
+c.P = 1; // TS2339
+```
+
+**After - Property**
+
+```ts
+class C {
+    P: number;
+}
+
+const c = new C();
+c.P = 1;
+```
+
+**After - Index Signature**
+
+```ts
+class C {
+    [x: string]: number;
+}
+
+const c = new C();
+c.P = 1;
+```
+
+**Before - TS2551**
+
+```ts
+class C {
+    Prop1: number;
+}
+
+const c = new C();
+c.Prop2 = 1; // TS2551
+```
+
+**After - Correct Spelling**
+
+```ts
+class C {
+    Prop1: number;
+}
+
+const c = new C();
+c.Prop1 = 1;
+```
+
+**Notes**
+
+ * The receiver must have a class type.
+ * There are restrictions on what counts as a mispelling - the lengths must match and be greater than 3, etc.
