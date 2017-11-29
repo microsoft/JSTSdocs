@@ -30,7 +30,7 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.2.1|2663|[Prepend `this.` to member access](#prepend-this-to-member-access)|
 |2.2.1|2689|[Change `extends` to `implements`](#change-extends-to-implements)|
 |2.2.1|17009|[Move `super()` call ahead of `this` access](#move-super-call-ahead-of-this-access)|
-|2.3.0|All|Suppress JS diagnostics by adding `// @ts-nocheck`|
+|2.3.0|All|[Suppress JS diagnostic](#suppress-js-diagnostic)|
 |2.4.0|2551, 2552|[Correct misspelled name](#correct-misspelled-name)|
 |2.4.1|6133, 6138|Handle unused symbol (e.g. by deleting or prefixing with underscore)|
 |2.5.0|2713|Rewrite as the indexed access type (?)|
@@ -514,6 +514,34 @@ class Derived extends Base {
         this.x = 1;
     }
 }
+```
+
+#### Suppress JS Diagnostic
+
+**Before**
+
+```js
+// @ts-check
+
+x++;
+```
+
+**After - Suppress Single**
+
+```js
+// @ts-check
+
+// @ts-ignore
+x++;
+```
+
+**After - Suppress File**
+
+```js
+// @ts-nocheck
+
+
+x++;
 ```
 
 #### Correct Misspelled Name
