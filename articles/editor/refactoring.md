@@ -32,7 +32,7 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.2.1|17009|[Move `super()` call ahead of `this` access](#move-super-call-ahead-of-this-access)|
 |2.3.0|All|[Suppress JS diagnostic](#suppress-js-diagnostic)|
 |2.4.0|2551, 2552|[Correct misspelled name](#correct-misspelled-name)|
-|2.4.1|6133, 6138|Handle unused symbol (e.g. by deleting or prefixing with underscore)|
+|2.4.1|6133, 6138|[Handle unused symbol](#handle-unused-symbol)|
 |2.5.0|2713|[Rewrite as indexed access type](#rewrite-as-indexed-access-type)|
 |2.5.0|8020|Convert JSDoc type to TS type (?)|
 |2.6.1|1329|Call decorator expression (?)|
@@ -585,7 +585,67 @@ variable1++;
 **Notes**
 
  * There are restrictions on what counts as a misspelling - the lengths must match and be greater than 3, etc.
- 
+
+#### Handle Unused Symbol
+
+**Before - TS6133**
+
+```ts
+// { "compilerOptions": { "noUnusedParameters": true } }
+function F(x: number) { //TS6133
+}
+```
+
+**After - Remove Declaration**
+
+```ts
+// { "compilerOptions": { "noUnusedParameters": true } }
+function F() {
+}
+```
+
+**After - Prepend Underscore**
+
+```ts
+// { "compilerOptions": { "noUnusedParameters": true } }
+function F(_x: number) {
+}
+```
+
+**Before - TS6138**
+
+```ts
+// { "compilerOptions": { "noUnusedLocals": true } }
+class C {
+    constructor(private x: number) { //TS6138
+    }
+}
+```
+
+**After - Remove Declaration**
+
+```ts
+// { "compilerOptions": { "noUnusedLocals": true } }
+class C {
+    constructor() {
+    }
+}
+```
+
+**After - Prepend Underscore**
+
+```ts
+// { "compilerOptions": { "noUnusedLocals": true } }
+class C {
+    constructor(private _x: number) {
+    }
+}
+```
+
+**Notes**
+
+ * Prepending an underscore to a constructor parameter declaring a property doesn't fix the error.
+
 #### Rewrite as Indexed Access Type
 
 **Before - TS2713**
@@ -610,4 +670,4 @@ let z: I["x"];
 
 **Notes**
 
- * Presently, doesn't work for classes
+ * Presently, doesn't work for classes.
