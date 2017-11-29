@@ -28,7 +28,7 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.2.1|2420|[Implement interface members](#implement-interface-members)|
 |2.2.1|2515, 2653|[Implement abstract members from base class](#implement-abstract-members-from-base-class)|
 |2.2.1|2663|[Prepend `this.` to member access](#prepend-this-to-member-access)|
-|2.2.1|2689|Change `extends` to `implements`|
+|2.2.1|2689|[Change `extends` to `implements`](#change-extends-to-implements)|
 |2.2.1|17009|Move `super()` call ahead of `this` access|
 |2.3.0|All|Suppress JS diagnostics by adding `// @ts-nocheck`|
 |2.4.0|2551, 2552|Correct misspelled name|
@@ -447,5 +447,27 @@ class C {
     Increment() {
         this.x++;
     }
+}
+```
+
+#### Change `extends` to `implements`
+
+**Before - TS2689**
+
+```ts
+interface I {
+}
+
+class C extends I { //TS2689
+}
+```
+
+**After**
+
+```ts
+interface I {
+}
+
+class C implements I {
 }
 ```
