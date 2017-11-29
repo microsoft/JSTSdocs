@@ -8,7 +8,7 @@
     <title>Refactoring &amp; Quick fixes </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Refactoring &amp; Quick fixes ">
-    <meta name="generator" content="docfx 2.26.1.0">
+    <meta name="generator" content="docfx 2.27.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -125,57 +125,57 @@
 <tr>
 <td>2.2.1</td>
 <td>2339, 2551</td>
-<td>Add missing member</td>
+<td><a href="#add-missing-member">Add missing member</a></td>
 </tr>
 <tr>
 <td>2.2.1</td>
 <td>2377</td>
-<td>Synthesize missing <code>super()</code> call</td>
+<td><a href="#synthesize-missing-super-call">Synthesize missing <code>super()</code> call</a></td>
 </tr>
 <tr>
 <td>2.2.1</td>
 <td>2420</td>
-<td>Implement interface members</td>
+<td><a href="#implement-interface-members">Implement interface members</a></td>
 </tr>
 <tr>
 <td>2.2.1</td>
 <td>2515, 2653</td>
-<td>Implement abstract members from base class</td>
+<td><a href="#implement-abstract-members-from-base-class">Implement abstract members from base class</a></td>
 </tr>
 <tr>
 <td>2.2.1</td>
 <td>2663</td>
-<td>Prepend <code>this.</code> to member access</td>
+<td><a href="#prepend-this-to-member-access">Prepend <code>this.</code> to member access</a></td>
 </tr>
 <tr>
 <td>2.2.1</td>
 <td>2689</td>
-<td>Change <code>extends</code> to <code>implements</code></td>
+<td><a href="#change-extends-to-implements">Change <code>extends</code> to <code>implements</code></a></td>
 </tr>
 <tr>
 <td>2.2.1</td>
 <td>17009</td>
-<td>Move <code>super()</code> call ahead of <code>this</code> access</td>
+<td><a href="#move-super-call-ahead-of-this-access">Move <code>super()</code> call ahead of <code>this</code> access</a></td>
 </tr>
 <tr>
 <td>2.3.0</td>
 <td>All</td>
-<td>Suppress JS diagnostics by adding <code>// @ts-nocheck</code></td>
+<td><a href="#suppress-js-diagnostic">Suppress JS diagnostic</a></td>
 </tr>
 <tr>
 <td>2.4.0</td>
 <td>2551, 2552</td>
-<td>Correct misspelled name</td>
+<td><a href="#correct-misspelled-name">Correct misspelled name</a></td>
 </tr>
 <tr>
 <td>2.4.1</td>
 <td>6133, 6138</td>
-<td>Handle unused symbol (e.g. by deleting or prefixing with underscore)</td>
+<td><a href="#handle-unused-symbol">Handle unused symbol</a></td>
 </tr>
 <tr>
 <td>2.5.0</td>
 <td>2713</td>
-<td>Rewrite as the indexed access type (?)</td>
+<td><a href="#rewrite-as-indexed-access-type">Rewrite as indexed access type</a></td>
 </tr>
 <tr>
 <td>2.5.0</td>
@@ -338,6 +338,271 @@ import a from &quot;./a&quot;;
 <ul>
 <li>Currently this will only activate if <code>--allowSyntheticDefaultImports</code> is enabled.</li>
 <li>The caret must be on the name of the module being imported.</li>
+</ul>
+<h3 id="code-fixes-1">Code Fixes</h3>
+<h4 id="add-missing-member">Add Missing Member</h4>
+<p><strong>Before - TS2339</strong></p>
+<pre><code class="lang-ts">class C {
+}
+
+const c = new C();
+c.P = 1; // TS2339
+</code></pre><p><strong>After - Property</strong></p>
+<pre><code class="lang-ts">class C {
+    P: number;
+}
+
+const c = new C();
+c.P = 1;
+</code></pre><p><strong>After - Index Signature</strong></p>
+<pre><code class="lang-ts">class C {
+    [x: string]: number;
+}
+
+const c = new C();
+c.P = 1;
+</code></pre><p><strong>Before - TS2551</strong></p>
+<pre><code class="lang-ts">class C {
+    Prop1: number;
+}
+
+const c = new C();
+c.Prop2 = 1; // TS2551
+</code></pre><p><strong>After - Property</strong></p>
+<pre><code class="lang-ts">class C {
+    Prop2: number;
+    Prop1: number;
+}
+
+const c = new C();
+c.Prop2 = 1;
+</code></pre><p><strong>After - Index Signature</strong></p>
+<pre><code class="lang-ts">class C {
+    [x: string]: number;
+    Prop1: number;
+}
+
+const c = new C();
+c.Prop2 = 1;
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>The receiver must have a class type.</li>
+</ul>
+<h4 id="synthesize-missing-super-call">Synthesize Missing <code>super()</code> Call</h4>
+<p><strong>Before - TS2377</strong></p>
+<pre><code class="lang-ts">class Base {
+}
+
+class Derived extends Base {
+    constructor() { //TS2377
+    }
+}
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">class Base {
+}
+
+class Derived extends Base {
+    constructor() {
+        super();
+    }
+}
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>Always calls <code>super()</code> without arguments.</li>
+</ul>
+<h4 id="implement-interface-members">Implement Interface Members</h4>
+<p><strong>Before - TS2420</strong></p>
+<pre><code class="lang-ts">interface I {
+    X: number
+}
+
+class C implements I { //TS2420
+}
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">interface I {
+    X: number
+}
+
+class C implements I {
+    X: number;
+}
+</code></pre><h4 id="implement-abstract-members-from-base-class">Implement Abstract members from Base Class</h4>
+<p><strong>Before - TS2515</strong></p>
+<pre><code class="lang-ts">abstract class A {
+    abstract M();
+}
+
+class C extends A { //TS2515
+}
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">abstract class A {
+    abstract M();
+}
+
+class C extends A {
+    M() {
+        throw new Error(&quot;Method not implemented.&quot;);
+    }
+}
+</code></pre><p><strong>Before - TS2563</strong></p>
+<pre><code class="lang-ts">abstract class A {
+    abstract M();
+}
+
+const c = class C extends A { //TS2563
+}
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">abstract class A {
+    abstract M();
+}
+
+const c = class C extends A {
+    M() {
+        throw new Error(&quot;Method not implemented.&quot;);
+    }
+}
+</code></pre><h4 id="prepend-this-to-member-access">Prepend <code>this.</code> to Member Access</h4>
+<p><strong>Before - TS2663</strong></p>
+<pre><code class="lang-ts">class C {
+    private x: number;
+    Increment() {
+        x++; //TS2663
+    }
+}
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">class C {
+    private x: number;
+    Increment() {
+        this.x++;
+    }
+}
+</code></pre><h4 id="change-extends-to-implements">Change <code>extends</code> to <code>implements</code></h4>
+<p><strong>Before - TS2689</strong></p>
+<pre><code class="lang-ts">interface I {
+}
+
+class C extends I { //TS2689
+}
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">interface I {
+}
+
+class C implements I {
+}
+</code></pre><h4 id="move-super-call-ahead-of-this-access">Move <code>super()</code> Call Ahead of <code>this</code> Access</h4>
+<p><strong>Before - TS17009</strong></p>
+<pre><code class="lang-ts">class Base {
+}
+
+class Derived extends Base {
+    private x: number;
+    constructor() {
+        this.x = 1; //TS17009
+        super();
+    }
+}
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">class Base {
+}
+
+class Derived extends Base {
+    private x: number;
+    constructor() {
+        super();
+        this.x = 1;
+    }
+}
+</code></pre><h4 id="suppress-js-diagnostic">Suppress JS Diagnostic</h4>
+<p><strong>Before</strong></p>
+<pre><code class="lang-js">// @ts-check
+
+x++;
+</code></pre><p><strong>After - Suppress Single</strong></p>
+<pre><code class="lang-js">// @ts-check
+
+// @ts-ignore
+x++;
+</code></pre><p><strong>After - Suppress File</strong></p>
+<pre><code class="lang-js">// @ts-nocheck
+
+
+x++;
+</code></pre><h4 id="correct-misspelled-name">Correct Misspelled Name</h4>
+<p><strong>Before - TS2551</strong></p>
+<pre><code class="lang-ts">class C {
+    Prop1: number;
+}
+
+const c = new C();
+c.Prop2 = 1; // TS2551
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">class C {
+    Prop1: number;
+}
+
+const c = new C();
+c.Prop1 = 1;
+</code></pre><p><strong>Before - TS2552</strong></p>
+<pre><code class="lang-ts">let variable1 = 1;
+variable2++; //TS2552
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">let variable1 = 1;
+variable1++;
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>There are restrictions on what counts as a misspelling - the lengths must match and be greater than 3, etc.</li>
+</ul>
+<h4 id="handle-unused-symbol">Handle Unused Symbol</h4>
+<p><strong>Before - TS6133</strong></p>
+<pre><code class="lang-ts">// { &quot;compilerOptions&quot;: { &quot;noUnusedParameters&quot;: true } }
+function F(x: number) { //TS6133
+}
+</code></pre><p><strong>After - Remove Declaration</strong></p>
+<pre><code class="lang-ts">// { &quot;compilerOptions&quot;: { &quot;noUnusedParameters&quot;: true } }
+function F() {
+}
+</code></pre><p><strong>After - Prepend Underscore</strong></p>
+<pre><code class="lang-ts">// { &quot;compilerOptions&quot;: { &quot;noUnusedParameters&quot;: true } }
+function F(_x: number) {
+}
+</code></pre><p><strong>Before - TS6138</strong></p>
+<pre><code class="lang-ts">// { &quot;compilerOptions&quot;: { &quot;noUnusedLocals&quot;: true } }
+class C {
+    constructor(private x: number) { //TS6138
+    }
+}
+</code></pre><p><strong>After - Remove Declaration</strong></p>
+<pre><code class="lang-ts">// { &quot;compilerOptions&quot;: { &quot;noUnusedLocals&quot;: true } }
+class C {
+    constructor() {
+    }
+}
+</code></pre><p><strong>After - Prepend Underscore</strong></p>
+<pre><code class="lang-ts">// { &quot;compilerOptions&quot;: { &quot;noUnusedLocals&quot;: true } }
+class C {
+    constructor(private _x: number) {
+    }
+}
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>Prepending an underscore to a constructor parameter declaring a property doesn&#39;t fix the error.</li>
+</ul>
+<h4 id="rewrite-as-indexed-access-type">Rewrite as Indexed Access Type</h4>
+<p><strong>Before - TS2713</strong></p>
+<pre><code class="lang-ts">interface I {
+    x: number;
+}
+
+let z: I.x; //TS2713
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">interface I {
+    x: number;
+}
+
+let z: I[&quot;x&quot;];
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>Presently, doesn&#39;t work for classes.</li>
 </ul>
 </article>
           </div>
