@@ -29,7 +29,7 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.2.1|2515, 2653|[Implement abstract members from base class](#implement-abstract-members-from-base-class)|
 |2.2.1|2663|[Prepend `this.` to member access](#prepend-this-to-member-access)|
 |2.2.1|2689|[Change `extends` to `implements`](#change-extends-to-implements)|
-|2.2.1|17009|Move `super()` call ahead of `this` access|
+|2.2.1|17009|[Move `super()` call ahead of `this` access](#move-super-call-ahead-of-this-access)|
 |2.3.0|All|Suppress JS diagnostics by adding `// @ts-nocheck`|
 |2.4.0|2551, 2552|Correct misspelled name|
 |2.4.1|6133, 6138|Handle unused symbol (e.g. by deleting or prefixing with underscore)|
@@ -469,5 +469,37 @@ interface I {
 }
 
 class C implements I {
+}
+```
+
+#### Move `super()` Call Ahead of `this` Access
+
+**Before - TS17009**
+
+```ts
+class Base {
+}
+
+class Derived extends Base {
+    private x: number;
+    constructor() {
+        this.x = 1; //TS17009
+        super();
+    }
+}
+```
+
+**After**
+
+```ts
+class Base {
+}
+
+class Derived extends Base {
+    private x: number;
+    constructor() {
+        super();
+        this.x = 1;
+    }
 }
 ```
