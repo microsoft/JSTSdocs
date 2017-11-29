@@ -33,7 +33,7 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.3.0|All|[Suppress JS diagnostic](#suppress-js-diagnostic)|
 |2.4.0|2551, 2552|[Correct misspelled name](#correct-misspelled-name)|
 |2.4.1|6133, 6138|Handle unused symbol (e.g. by deleting or prefixing with underscore)|
-|2.5.0|2713|Rewrite as the indexed access type (?)|
+|2.5.0|2713|[Rewrite as indexed access type](#rewrite-as-indexed-access-type)|
 |2.5.0|8020|Convert JSDoc type to TS type (?)|
 |2.6.1|1329|Call decorator expression (?)|
 |2.6.1|7005, 7006, 7008, 7010, 7019, 7032, 7033, 7034|Annotate with inferred type|
@@ -585,3 +585,29 @@ variable1++;
 **Notes**
 
  * There are restrictions on what counts as a misspelling - the lengths must match and be greater than 3, etc.
+ 
+#### Rewrite as Indexed Access Type
+
+**Before - TS2713**
+
+```ts
+interface I {
+    x: number;
+}
+
+let z: I.x; //TS2713
+```
+
+**After**
+
+```ts
+interface I {
+    x: number;
+}
+
+let z: I["x"];
+```
+
+**Notes**
+
+ * Presently, doesn't work for classes
