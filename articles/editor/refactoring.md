@@ -24,7 +24,7 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |-|-|-|
 |2.1.4|2304, 2503, 2552, 2686|Add an appropriate import (?)|
 |2.2.1|2339, 2551|[Add missing member](#add-missing-member)|
-|2.2.1|2377|Synthesize missing `super()` call|
+|2.2.1|2377|[Synthesize missing `super()` call](#synthesize-missing-super-call)|
 |2.2.1|2420|Implement interface members|
 |2.2.1|2515, 2653|Implement abstract members from base class|
 |2.2.1|2663|Prepend `this.` to member access|
@@ -317,3 +317,30 @@ c.Prop1 = 1;
 
  * The receiver must have a class type.
  * There are restrictions on what counts as a mispelling - the lengths must match and be greater than 3, etc.
+
+#### Synthesize Missing `super()` Call
+
+**Before - TS2377**
+
+```ts
+class Base {
+}
+
+class Derived extends Base {
+    constructor() { //TS2377
+    }
+}
+```
+
+**After**
+
+```ts
+class Base {
+}
+
+class Derived extends Base {
+    constructor() {
+        super();
+    }
+}
+```
