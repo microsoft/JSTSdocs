@@ -180,12 +180,12 @@
 <tr>
 <td>2.5.0</td>
 <td>8020</td>
-<td>Convert JSDoc type to TS type (?)</td>
+<td><a href="#convert-jsdoc-type-to-ts-type">Convert JSDoc type to TS type</a></td>
 </tr>
 <tr>
 <td>2.6.1</td>
 <td>1329</td>
-<td>Call decorator expression (?)</td>
+<td><a href="#call-decorator-factory-expression">Call decorator factory expression</a></td>
 </tr>
 <tr>
 <td>2.6.1</td>
@@ -604,7 +604,49 @@ let z: I[&quot;x&quot;];
 <ul>
 <li>Presently, doesn&#39;t work for classes.</li>
 </ul>
-</article>
+<h4 id="convert-jsdoc-type-to-ts-type">Convert JSDoc Type to TS Type</h4>
+<p><strong>Before - TS8020</strong></p>
+<pre><code class="lang-ts">// { &quot;compilerOptions&quot;: {&quot;strictNullChecks&quot;: true} }
+
+let x: ?number; //TS8020
+</code></pre><p><strong>After - null</strong></p>
+<pre><code class="lang-ts">// { &quot;compilerOptions&quot;: {&quot;strictNullChecks&quot;: true} }
+
+let x: number | null;
+</code></pre><p><strong>After - null, undefined</strong></p>
+<pre><code class="lang-ts">// { &quot;compilerOptions&quot;: {&quot;strictNullChecks&quot;: true} }
+
+let x: number | null | undefined;
+</code></pre><p><strong>Notes</strong></p>
+<ul>
+<li>Not offered in JS files.</li>
+</ul>
+<h4 id="call-decorator-factory-expression">Call Decorator Factory Expression</h4>
+<p><strong>Before - TS1329</strong></p>
+<pre><code class="lang-ts">// { &quot;compilerOptions&quot;: {&quot;experimentalDecorators&quot;: true, &quot;target&quot;: &quot;es5&quot;} }
+
+function DecoratorFactory() {
+    return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
+    }
+}
+
+class C {
+    @DecoratorFactory //TS1329
+    M() { }
+}
+</code></pre><p><strong>After</strong></p>
+<pre><code class="lang-ts">// { &quot;compilerOptions&quot;: {&quot;experimentalDecorators&quot;: true, &quot;target&quot;: &quot;es5&quot;} }
+
+function DecoratorFactory() {
+    return function (target, propertyKey: string, descriptor: PropertyDescriptor) {
+    }
+}
+
+class C {
+    @DecoratorFactory()
+    M() { }
+}
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
