@@ -7,3 +7,6 @@ references:
 - uid: tsconfig
   name: Using tsconfig.json for project configuration
   href: articles/configuration/tsconfig.html
+- uid: tsnuget
+  name: Building via NuGet
+  href: articles/build/nuget.html
