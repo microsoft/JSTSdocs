@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Automatic Type Acquisition </title>
+    <title>Automatic type acquisition </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Automatic Type Acquisition ">
-    <meta name="generator" content="docfx 2.27.0.0">
+    <meta name="title" content="Automatic type acquisition ">
+    <meta name="generator" content="docfx 2.26.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -67,63 +67,9 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="automatic-type-acquisition">Automatic Type Acquisition</h1>
+<h1 id="automatic-type-acquisition">Automatic type acquisition</h1>
 
-<h2 id="overview">Overview</h2>
-<p>In Visual Studio and Visual Studio Code, type declarations for JavaScript libraries will automatically be downloaded.
-These type declarations are used to populate completion lists, signature help, and documentation in JS files.
-You can seamlessly write JS code and get great Intellisense for most commonly used JavaScript libraries.</p>
-<p>These declaration files are provided by the DefinitelyTyped community effort.
-Declarations may be incomplete or missing; always refer to your library&#39;s documentation as the final word.</p>
-<h2 id="acquisition-triggers">Acquisition Triggers</h2>
-<p>Visual Studio will only download types for libaries you&#39;re using in your project.
-Detection of which libraries you&#39;re using occurs based on minified files in your project and imports in your code.</p>
-<h4 id="minified-files">Minified Files</h4>
-<p>When a file named <em>something</em>.min.js is in your project, Visual Studio will exclude this file from code analysis and instead attempt to download types for the <em>something</em> library.
-Most variants of common minified filenames (such as <code>jquery.5.2.min.js</code>) are recognized by this check.</p>
-<h4 id="imports">Imports</h4>
-<p>When your code contains imports such as</p>
-<pre><code class="lang-ts">var yargs = require(&#39;yargs&#39;);
-</code></pre><p>or</p>
-<pre><code class="lang-ts">import React from &#39;react&#39;;
-</code></pre><p>Visual Studio will automatically download types for the imported libraries.</p>
-<h2 id="caveats">Caveats</h2>
-<p>Automatic type acquisition works for almost every popular library, but there are some things to keep in mind.</p>
-<ul>
-<li>The download process is not instantaneous. You may have to wait a few moments after importing a module before its types are available.</li>
-<li>Not every library has types. Check <a href="https://aka.ms/types">https://aka.ms/types</a> to see if a types package for a library exists. When a library doesn&#39;t have types, you&#39;ll see the default completion list, which is just a list of tokens in the current file.</li>
-<li>Automatic type acquisition will always download the declaration file for the latest version of a library. If you&#39;re using a different version, there may be mismatches between what&#39;s shown in Intellisense and what&#39;s actually available at runtime</li>
-<li>Declaration files are provided by the community and may not be 100% accurate or complete. Always refer to official documentation if you&#39;re unsure.</li>
-</ul>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>If you&#39;re not seeing Intellisense features for a library, you might try one or more of the following troubleshooting procedures.</p>
-<h4 id="reload-the-solution">Reload the Solution</h4>
-<p>If the JavaScript language service encounters an error, it may fail to recognize new types.
-Reloading the solution will typically fix the problem.</p>
-<h4 id="clearing-the-cache">Clearing the Cache</h4>
-<p>In rare instances, the NPM installation of the local types cache may be corrupted.
-Close any running instances of Visual Studio and delete the folder <code>%LOCALAPPDATA%\Microsoft\TypeScript</code>.</p>
-<h2 id="configuration">Configuration</h2>
-<p>You can change how type acquisition works by including a <code>jsconfig.json</code> file in the root of the project.
-See the <a href="https://code.visualstudio.com/docs/languages/jsconfig">VS Code documentation</a> for more information on this file.
-In your jsconfig, you can include a <code>typeAcqusition</code> property to change acquisition settings:</p>
-<pre><code class="lang-json">{
-    &quot;typeAcquisition&quot;: {
-        &quot;enable&quot;: true,
-        &quot;include&quot;: [&quot;react&quot;],
-        &quot;exclude&quot;: [&quot;leftpad&quot;]
-    }
-
-}
-</code></pre><h4 id="enable"><code>enable</code></h4>
-<p>The default is <code>true</code>.
-You can set <code>enable</code> to <code>false</code> to completely disable type acquisition.</p>
-<h4 id="exclude"><code>exclude</code></h4>
-<p>If you need any libraries to not get types acquired automatically (for example, you may have a local version), you can add an entry to the <code>exclude</code> array.
-Items in this list will not have their types acquired or included in the project.
-However, minified files (as described above) will still be excluded from the project.</p>
-<h4 id="include"><code>include</code></h4>
-<p>Conversely, <code>include</code> will add types to the project, even if they&#39;re not otherwise used.</p>
+<p>TODO</p>
 </article>
           </div>
           
