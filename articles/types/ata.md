@@ -57,7 +57,7 @@ Close any running instances of Visual Studio and delete the folder `%LOCALAPPDAT
 ## Configuration
 
 You can change how type acquisition works by including a `tsconfig.json` file in the root of the project.
-See the [VS Code documentation](https://code.visualstudio.com/docs/languages/jsconfig) for more information on this file.
+See the [tsconfig documentation](xref:tsconfig) for more information on this file.
 In your tsconfig, you can include a `typeAcqusition` property to change acquisition settings:
 ```json
 {
