@@ -79,8 +79,9 @@ You can set `enable` to `false` to completely disable type acquisition.
 
 If you need any libraries to not get types acquired automatically (for example, you may have a local version), you can add an entry to the `exclude` array.
 Items in this list will not have their types acquired or included in the project.
+However, minified files (as described above) will still be excluded from the project.
 
 #### `include`
 
-Conversely, `include` will add types to the project.
+Conversely, `include` will add types to the project, even if they're not otherwise used.
 
