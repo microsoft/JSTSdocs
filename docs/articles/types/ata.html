@@ -120,9 +120,10 @@ In your jsconfig, you can include a <code>typeAcqusition</code> property to chan
 You can set <code>enable</code> to <code>false</code> to completely disable type acquisition.</p>
 <h4 id="exclude"><code>exclude</code></h4>
 <p>If you need any libraries to not get types acquired automatically (for example, you may have a local version), you can add an entry to the <code>exclude</code> array.
-Items in this list will not have their types acquired or included in the project.</p>
+Items in this list will not have their types acquired or included in the project.
+However, minified files (as described above) will still be excluded from the project.</p>
 <h4 id="include"><code>include</code></h4>
-<p>Conversely, <code>include</code> will add types to the project.</p>
+<p>Conversely, <code>include</code> will add types to the project, even if they&#39;re not otherwise used.</p>
 </article>
           </div>
           
