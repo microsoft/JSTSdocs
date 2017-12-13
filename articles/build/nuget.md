@@ -112,6 +112,6 @@ As an alternative to using the TypeScript SDK with MSBuild to compile TypeScript
 
         This folder contains `tsc.exe` and all dependency files required to execute the exe.
         On Windows, `TypeScript.Tasks.dll` uses the `tsc.exe` to build projects.
-        On non-Windows, `TypeScript.Tasks.dll` uses NodeJS to run `tsc.js` - implying that it is required for NodeJS to be installed on these platforms.
+        On non-Windows, `TypeScript.Tasks.dll` uses Node.js to run `tsc.js` - implying that it is required for Node.js to be installed on these platforms.
         > [!NOTE]
-        > Since we use NodeJS to run the compiler on non-Windows platforms, NodeJS must be installed in this scenario.
+        > Since we use Node.js to run the compiler on non-Windows platforms, Node.js must be installed in this scenario.
