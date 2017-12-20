@@ -5,10 +5,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>NPM and package management </title>
+    <title>npm and package management </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="NPM and package management ">
-    <meta name="generator" content="docfx 2.27.0.0">
+
+    <meta name="title" content="npm and package management ">
+    <meta name="generator" content="docfx 2.26.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -67,9 +68,65 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="npm-and-package-management">NPM and package management</h1>
+<h1 id="npm-and-package-management">npm and package management</h1>
 
-<p>TODO</p>
+<p>npm allows you to install and manage packages for use in your Node.js applications. If you&#39;re unfamiliar with
+npm, and want to learn more, go to the <a href="https://docs.npmjs.com/">npm Documentation</a>.</p>
+<p>There are several ways you can work with npm in Node.js tools for Visual Studio:</p>
+<ol>
+<li><a href="#npmInstallWindow">npm install window</a></li>
+<li><a href="#solutionExplorer">Managing installed packages in the Solution Explorer</a></li>
+<li><a href="#interactive"><code>.npm</code> in the Node.js Interactive Window</a></li>
+</ol>
+<p>These all work together and synchronize with the project system, and the <code>package.json</code> in the project.</p>
+<h2 id="npmInstallWindow">npm install window</h2>
+<p>The easiest way to install npm packages is through npm Install Window. To access that right-click on the npm node in the project and select Install New npm Packages.</p>
+<p><img src="../../images/node/solution-explorer-install-package.png" alt="Install new npm package from solution explorer"></p>
+<p>In the window you can search for a package, specify options, and install. </p>
+<p><img src="../../images/node/search-package.png" alt="Search npm package"></p>
+<ul>
+<li><strong>Dependency type</strong> - allows you to chose between Standard, Development, and Optional. 
+Standard indicates the package is a runtime dependency, where 
+Development indicates it&#39;s only required during development.</li>
+<li><strong>Add to package.json</strong> - Deprecated</li>
+<li><strong>Selected version</strong> - Allows you to select which version of the package you want to install.</li>
+<li><strong>Other npm arguments</strong> - Any other npm arguments you want to specify, e.g. <code>@~0.8</code> if you want to install 
+a specific version not in the versions list.</li>
+</ul>
+<p>You can see the progress of the installation in the npm tab in the output window.</p>
+<div class="TIP"><h5>Tip</h5><p>You can search for scoped packages by prepending the search query with the scope you&#39;re interested in, 
+e.g. <code>@types/mocha</code></p>
+</div>
+<div class="TIP"><h5>Tip</h5><p>When installing type definitions for TypeScript, specify the TypeScript version you&#39;re targetting by adding
+<code>@ts2.6</code> in the npm argument field.</p>
+</div>
+<h2 id="solutionExplorer">Managing installed packages in the Solution Explorer</h2>
+<p>npm packages are shown in the solution explorer, and mimics the dependencies in the packages.json.</p>
+<p><img src="../../images/node/solution-explorer-status.png" alt="Search npm package"></p>
+<h3 id="package-status">Package status</h3>
+<ul>
+<li><img src="../../images/node/installed-npm.png" alt="Installed package"> installed and listed in package.json</li>
+<li><img src="../../images/node/extraneous-npm.png" alt="Extraneous package"> installed, but not explicitly 
+listed in package.json</li>
+<li><img src="../../images/node/missing-npm.png" alt="Missing package"> not installed, but listed in package.json</li>
+</ul>
+<p>Right-click on a package node or the npm node to do the following:</p>
+<ul>
+<li><strong>Install missing packages</strong> that are listed in package.json</li>
+<li><strong>Update packages</strong> to the latest version</li>
+<li><strong>Uninstall a package</strong> and remove from the package.json</li>
+</ul>
+<h2 id="interactive">.npm in the Node.js Interactive Window</h2>
+<p>You can also use the <code>.npm</code> command in the <a href="interactivewindow.html">Node.js Interactive Window</a> to execute
+ npm commands. </p>
+<p><code>.npm install azure@4.2.3</code></p>
+<div class="TIP"><h5>Tip</h5><p>By default, npm will execute in your project&#39;s home directory. If you have multiple projects 
+in your solution specify the name or the path of the project in brackets. 
+ <code>.npm [MyProjectNameOrPath] install azure@4.2.3</code></p>
+</div>
+<div class="TIP"><h5>Tip</h5><p>If your project doesn&#39;t contain a package.json file, use <code>.npm init -y</code> to create a new package.json file
+  with default entries. </p>
+</div>
 </article>
           </div>
           

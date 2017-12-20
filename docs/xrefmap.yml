@@ -1,3 +1,12 @@
 ### YamlMime:XRefMap
 sorted: true
-references: []
+references:
+- uid: msbuild
+  name: MSBuild Configuration
+  href: articles/configuration/msbuild.html
+- uid: tsconfig
+  name: Using tsconfig.json for project configuration
+  href: articles/configuration/tsconfig.html
+- uid: tsnuget
+  name: Building via NuGet
+  href: articles/build/nuget.html

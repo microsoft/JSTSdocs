@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>MSBuild configuration </title>
+    <title>MSBuild Configuration </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="MSBuild configuration ">
-    <meta name="generator" content="docfx 2.27.0.0">
+    <meta name="title" content="MSBuild Configuration ">
+    <meta name="generator" content="docfx 2.26.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -66,10 +66,36 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="msbuild-configuration">MSBuild configuration</h1>
+            <article class="content wrap" id="_content" data-uid="msbuild">
+<h1 id="msbuild-configuration">MSBuild Configuration</h1>
 
-<p>TODO</p>
+<h2 id="props-and-targets">Props and Targets</h2>
+<p>There are two different sources of information that tell MSBuild how to handle TypeScript. The first, <code>Microsoft.TypeScript.Default.props</code>, establishes some default TypeScript compilation settings. The second, <code>Microsoft.TypeScript.targets</code>, gives instructions on how to handle TypeScript files as part of the building and cleaning processes. To include these in your project, you will need to (in most cases) import <code>Microsoft.TypeScript.Default.props</code> at the beginning of your project file and <code>Microsoft.TypeScript.targets</code> at the end, as shown <a href="http://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html#msbuild">in the TypeScript handbook</a>.</p>
+<div class="NOTE"><h5>Note</h5><p>ASP.NET Core projects implicitly include these files, so an ASP.NET Core project file will not need to import them.</p>
+</div>
+<h2 id="typescript-tools-version">TypeScript Tools Version</h2>
+<p>Since a particular machine may have multiple versions of TypeScript installed, MSBuild allows you to set the <code>TypeScriptToolsVersion</code> property in your project file to specify which version to use, as shown in the example below. If this property is not set, MSBuild defaults to using the newest version of TypeScript that is installed. However, if you are using the TypeScript NuGet package instead, its version will override any setting in the project file. This setting must occur before the import of <code>Microsoft.TypeScript.targets</code> to properly work.</p>
+<pre><code class="lang-xml">&lt;TypeScriptToolsVersion&gt;2.5&lt;/TypeScriptToolsVersion&gt;
+</code></pre><h2 id="input-files">Input Files</h2>
+<p>There are two ways of including TypeScript files in the compilation: either using a tsconfig.json file or the <code>TypeScriptCompile</code> MSBuild item type.</p>
+<h3 id="with-tsconfig">With TSConfig</h3>
+<p>One option for allowing MSBuild to recognize what TypeScript files are part of your project is by way of a tsconfig.json file. This configuration file can either be explicitly associated with your .csproj in the Content item list, as shown in the example below, or it can be simply included as part of the directory tree rooted at the directory containing your project file. </p>
+<pre><code class="lang-xml">&lt;ItemGroup&gt;
+    &lt;Content Include=&quot;myfolder/tsconfig.json&quot; /&gt;
+&lt;/ItemGroup&gt;
+</code></pre><p>Note that in the latter case, configuration files within a folder titled &quot;node_modules&quot;, &quot;bower_components&quot;, or &quot;platforms&quot; will not be considered in order to avoid duplicate symbol errors.</p>
+<p>The tsconfig.json can either explicitly enumerate the input files (in the &quot;includes&quot; property) or it can exclude files that should not be compiled (in the &quot;excludes&quot; property). The file also allows you to set compile options that will override those set in the TypeScript Build page of your project&#39;s Properties. For more details, refer to <a class="xref" href="tsconfig.html">the discussion of tsconfig.json files</a>.</p>
+<h3 id="typescriptcompile-items"><code>TypeScriptCompile</code> Items</h3>
+<p>If there is no discoverable tsconfig.json, MSBuild relies on the project file to determine what files to include. For this scenario, TypeScript files must be included using the <code>TypeScriptCompile</code> item type, as shown in the following example.</p>
+<pre><code class="lang-xml">&lt;ItemGroup&gt;
+    &lt;TypeScriptCompile Include=&quot;myfolder/file1.ts&quot; /&gt;
+&lt;/ItemGroup&gt;
+</code></pre><h2 id="incremental-build">Incremental Build</h2>
+<p>Starting with the TypeScript 2.7 SDK, we use the <code>Inputs</code> and <code>Outputs</code> attributes of certain targets, such as <code>CompileTypeScript</code> or <code>CompileTypeScriptWithTSConfig</code> to allow MSBuild to determine whether or not to skip the target. For targets that have these attributes defined, MSBuild compares the timestamps of the files specified by <code>Inputs</code> with those specified by <code>Outputs</code>. Since there is not always a one-to-one mapping between input files and output files (e.g., if <code>--outFile</code> is specified), MSBuild will rebuild all output files if at least one of the input files has been updated.</p>
+<h2 id="compilation-options">Compilation Options</h2>
+<p>Similar to how the set of input files is specified, there are two ways to specify settings for the compiler. If a <code>tsconfig.json</code> exists, then it will specify the compilation settings. Otherwise, settings can be specified in the project file itself (between the imports of the props and targets files), as shown <a href="http://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html#msbuild">in the TypeScript handbook</a>. These settings are documented <a href="http://www.typescriptlang.org/docs/handbook/compiler-options-in-msbuild.html">in the handbook</a> as well.</p>
+<h2 id="third-party-build-tool-support">Third-Party Build Tool Support</h2>
+<p>If you are using a different build tool to build your project (e.g. gulp, grunt , etc.) and VS for the development and debugging experience, set <code>&lt;TypeScriptCompileBlocked&gt;true&lt;/TypeScriptCompileBlocked&gt;</code> in your project. This will give support for editing TypeScript files but will not include them in the build process.</p>
 </article>
           </div>
           

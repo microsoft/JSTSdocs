@@ -80,10 +80,12 @@ installation, configuration, and operation should be verified first.</p>
 <ul>
 <li>Under the VS installation folder, ensure the language service files are present. For a default 
 installation of the Enterprise Edition, this would be under
-a path similar to <code>&quot;C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TypeScript&quot;</code></li>
+a path similar to <code>&quot;C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\CommonExtensions\Microsoft\TypeScript&quot;</code>
+Some files to specificially look for are: <code>Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll</code> and <code>Microsoft.VisualStudio.LanguageServices.TypeScript.dll</code>, </li>
 <li>Ensure the TypeScript SDK is also present. For a default installation, this would be under a path
 similar to <code>&quot;C:\Program Files (x86)\Microsoft SDKs\TypeScript\2.5&quot;</code> (Or the <code>&quot;2.3&quot;</code> folder, if on an earlier
-release than Visual Studio 2017 Update 5).</li>
+release than Visual Studio 2017 Update 5).
+Some files to look for here are: <code>build\TypeScript.Tasks.dll</code> and <code>tsserver.js</code></li>
 <li>In Visual Studio itself, open the <code>Help / About</code> menu, and ensure that <code>&quot;TypeScript Tools&quot;</code> is listed.</li>
 </ul>
 <p>If an installation failure is still suspected, the setup log files may prove useful. These are located
@@ -233,7 +235,7 @@ for each context created, that shows all the files contained within it.</p>
 <p>Analyzing the contexts created may highlight an area where more source is being included than expected,
 and this may then be corrected via configuration options as outlined above.</p>
 <p><img src="../../images/virtualprojects.png" width="370px"></p>
-<h2 id="enabled-detailed-language-service-logging">Enabled detailed language service logging</h2>
+<h2 id="enable-detailed-language-service-logging">Enable detailed language service logging</h2>
 <p>The &quot;brains&quot; of the language service largely runs in a node.exe process running the <code>tsserver.js</code> script.
 Visual Studio 2017 communicates with this process to keep the project in sync, and ask questions for the
 editor. This communication can be logged, which can be very helpful in identifying where issues might be

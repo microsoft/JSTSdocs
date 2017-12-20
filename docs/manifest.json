@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/msbuild.html",
-          "hash": "XoVPN5je2FxH7Yg73UMxLg=="
+          "hash": "a+OwZJWVHZ3gYYvUh0u0Hg=="
         }
       },
       "is_incremental": true,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/tsconfig.html",
-          "hash": "esiTCrK683PlVEPpY21iFA=="
+          "hash": "Q+ANlmm9hg7CJxzoOK4cwA=="
         }
       },
       "is_incremental": true,
@@ -93,7 +93,19 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/versioning.html",
-          "hash": "cNTj4+6LE4UhNskXja1UgQ=="
+          "hash": "MvP9wSSopF2qe/owByechA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/debugging/clientSideDebugging.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/debugging/clientSideDebugging.html",
+          "hash": "easzc2cEIdyPB98WuR5jvQ=="
         }
       },
       "is_incremental": true,
@@ -117,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/debugging/sourcemaps.html",
-          "hash": "ZwL5KUgsngOJDoO8e7Qlcg=="
+          "hash": "gSnZQmSnY78OQMKKLLGbiw=="
         }
       },
       "is_incremental": true,
@@ -189,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/refactoring.html",
-          "hash": "PanPTrm2lgpAj6ImQPOqMg=="
+          "hash": "2+/HJhbCYkTy5y4FxYuZdg=="
         }
       },
       "is_incremental": true,
@@ -201,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/frameworks/angular.html",
-          "hash": "cCurKB2MbAtnMoWiLhqijw=="
+          "hash": "XOhjz1/vI86ELYgtaxbpzQ=="
         }
       },
       "is_incremental": true,
@@ -237,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/frameworks/jsx.html",
-          "hash": "/KKXOJ8TXKDFkLkzUD6aLA=="
+          "hash": "oelfQeEs6oFtRW2kn8TY5Q=="
         }
       },
       "is_incremental": true,
@@ -309,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/npm.html",
-          "hash": "vdBMXHDxYH5EpGzDC+IBGQ=="
+          "hash": "bQWwIjI0ckIHmpIA6nMeHA=="
         }
       },
       "is_incremental": true,
@@ -321,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/requirements.html",
-          "hash": "boIj9LdQY4OQ+OxE3FOJdw=="
+          "hash": "JdG9kjWfts/3bkRBn+G7gA=="
         }
       },
       "is_incremental": true,
@@ -345,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/unittesting.html",
-          "hash": "aThKUNqE1B6DRnz5+7zIKg=="
+          "hash": "wMM8/MCLUNhYmWohCgtpGA=="
         }
       },
       "is_incremental": true,
@@ -453,7 +465,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "X31bj/3yaJxmBtM+WIkkRw=="
+          "hash": "r4bBOzkmyQszxCbI0IWxKg=="
         }
       },
       "is_incremental": false,
@@ -465,7 +477,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/troubleshooting/index.html",
-          "hash": "oQzAzqUjOqvJARAaprt2ZA=="
+          "hash": "USVmnl6l5MEzdHlroj6cLw=="
         }
       },
       "is_incremental": true,
@@ -481,6 +493,18 @@
         }
       },
       "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/troubleshooting/newtonsoft.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/troubleshooting/newtonsoft.html",
+          "hash": "Ap0J8F0bips5MccBKIsi9Q=="
+        }
+      },
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -567,10 +591,153 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/NewtonSoftPath.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/NewtonSoftPath.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/jslsdisabledpopup.png",
       "output": {
         "resource": {
           "relative_path": "images/jslsdisabledpopup.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/UnitTestsDiscoveryMocha.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/UnitTestsDiscoveryMocha.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/UnitTestsFrameworkMocha.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/UnitTestsFrameworkMocha.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/extraneous-npm.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/extraneous-npm.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/installation-nodejs-options.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/installation-nodejs-options.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/installation-nodejs-workload.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/installation-nodejs-workload.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/installation-vs-launch.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/installation-vs-launch.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/installed-npm.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/installed-npm.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/missing-npm.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/missing-npm.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/search-package.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/search-package.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/solution-explorer-install-package.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/solution-explorer-install-package.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/solution-explorer-status.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/solution-explorer-status.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/unit-test-add-new-item.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/unit-test-add-new-item.png"
         }
       },
       "is_incremental": false,
@@ -663,11 +830,6 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
@@ -675,6 +837,20 @@
         },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "RestApiDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }

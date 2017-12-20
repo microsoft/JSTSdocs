@@ -78,7 +78,9 @@
 - name: Debugging
   href: debugging/index.md
   items:
-    - name: Using sourcemaps
+    - name: Client-side debugging
+      href: debugging/clientSideDebugging.md
+    - name: Using source maps
       href: debugging/sourcemaps.md
 - name: Building & publishing
   href: build/index.md
@@ -89,3 +91,6 @@
       href: build/nuget.md
 - name: Troubleshooting
   href: troubleshooting/index.md
+  items:
+    - name: NewtonSoft.Json versioning
+      href: troubleshooting/newtonsoft.md

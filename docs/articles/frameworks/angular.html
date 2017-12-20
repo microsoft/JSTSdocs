@@ -69,7 +69,52 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="angular-support">Angular support</h1>
 
-<p>TODO</p>
+<p>You can use Visual Studio to edit Angular projects.
+With the Angular Language Service plugin installed, you can use Visual Studio in Angular projects to:</p>
+<ul>
+<li>Navigate between templates and code</li>
+<li>See Intellisense information in inline templates and template files</li>
+<li>Get immediate error feedback for errors in Angular syntax</li>
+<li>Write JavaScript or TypeScript code</li>
+</ul>
+<p>See the sample repo at <a href="https://github.com/Microsoft/angular2-in-visual-studio">https://github.com/Microsoft/angular2-in-visual-studio</a> for setup instructions and a complete walkthrough.</p>
+<p>Note that your project should use the <code>.ngml</code> file extension rather than <code>.html</code>. Angular will understand templates with any extension and this convention allows VS to load custom Angular behavior for these files.</p>
+<h2 id="feature-overview">Feature Overview</h2>
+<p>In addition to the normal Visual Studio features when writing TypeScript or JavaScript, you&#39;ll see new behavior for Angular code in both kinds of tempaltes.</p>
+<h3 id="inline-templates">Inline Templates</h3>
+<p>You&#39;ll see Intellisense, including errors, Quick Info, and completion lists for inline template strings:</p>
+<pre><code class="lang-ts">@Component({
+  selector: &#39;app&#39;,
+  template: &#39;&lt;span&gt;{{prop1.toLowerCase()}}&lt;/span&gt;&#39;,
+})
+export class InlineComponent {
+  prop1 = &#39;hello&#39;;
+  prop2 = &#39;world&#39;;
+}
+</code></pre><h3 id="template-files">Template Files</h3>
+<p>The same features in inline templates will work in <code>.ngml</code> template files:</p>
+<pre><code class="lang-html">&lt;h3&gt;
+  Angular 2 Seed
+&lt;/h3&gt;
+&lt;nav&gt;
+    &lt;a [routerLink]=&quot;[&#39;/&#39;]&quot; title={{prop1}}&gt;
+    Home
+  &lt;/a&gt;
+  |
+    &lt;a [routerLink]=&quot;[&#39;/about&#39;]&quot;&gt;
+    About
+  &lt;/a&gt;
+  |
+    &lt;a [routerLink]=&quot;[&#39;/github&#39;, &#39;angular&#39;]&quot;&gt;
+</code></pre><h2 id="additional-resources">Additional Resources</h2>
+<p>Note that some of these examples use <code>.html</code> files instead of <code>.ngml</code> and don&#39;t include instructions on setting up the Angular language service plugin.
+Refer to <a href="https://github.com/Microsoft/angular2-in-visual-studio">the Visual Studio Angular 2</a> repo for information on how to modify your <code>tsconfig.json</code> appropriately.</p>
+<ul>
+<li><a href="https://angular.io/guide/quickstart">https://angular.io/guide/quickstart</a> - Angular quick start guide</li>
+<li><a href="https://github.com/RyanCavanaugh/angular2-ngml-seed">https://github.com/RyanCavanaugh/angular2-ngml-seed</a> - Angular seed project using NGML files</li>
+<li><a href="https://adrientorris.github.io/aspnet-core/how-setup-angular-2-typescript-project-visual-studio-2017.html">https://adrientorris.github.io/aspnet-core/how-setup-angular-2-typescript-project-visual-studio-2017.html</a> - Tutorial</li>
+<li><a href="http://www.mithunvp.com/angular-2-in-asp-net-5-typescript-visual-studio-2015/">http://www.mithunvp.com/angular-2-in-asp-net-5-typescript-visual-studio-2015/</a> - Another walkthrough</li>
+</ul>
 </article>
           </div>
           

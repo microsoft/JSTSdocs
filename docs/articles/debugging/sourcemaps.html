@@ -5,10 +5,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Using sourcemaps </title>
+    <title>Using Source Maps </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Using sourcemaps ">
-    <meta name="generator" content="docfx 2.27.0.0">
+
+    <meta name="title" content="Using Source Maps ">
+    <meta name="generator" content="docfx 2.26.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -67,9 +68,45 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="using-sourcemaps">Using sourcemaps</h1>
+<h1 id="using-source-maps">Using Source Maps</h1>
 
-<p>TODO</p>
+<p>Visual Studio has the capability to use and generate source maps on JavaScript source files. This is often required if your source is minified or created by a transpiler like TypeScript. By default it will generate it for you.</p>
+<div class="NOTE"><h5>Note</h5><p>We&#39;re going to assume you already know about source maps. If not, we suggest to read the page <a href="https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/">Introduction to JavaScript Source Maps</a>.</p>
+</div>
+<p>See below if you&#39;ll like to know how to configure more advance settings. You can use either a tsconfig.json or the project settings, but not both.</p>
+<h2 id="configure-source-maps-using-tsconfigjson-file">Configure source maps using tsconfig.json file</h2>
+<p>By adding a <em>tsconfig.json</em> file to your project you will indicate that the directory root is a TypeScript project. Just right click <em>project &gt; Add &gt; New Item &gt; Web &gt; Scripts &gt; TypeScript JSON Configuration File</em> to generate a file like below:</p>
+<p>tsconfig.json:</p>
+<pre><code class="lang-json">{
+  &quot;compilerOptions&quot;: {
+    &quot;noImplicitAny&quot;: false,
+    &quot;noEmitOnError&quot;: true,
+    &quot;removeComments&quot;: false,
+    &quot;sourceMap&quot;: true,
+    &quot;target&quot;: &quot;es5&quot;
+  },
+  &quot;exclude&quot;: [
+    &quot;node_modules&quot;,
+    &quot;wwwroot&quot;
+  ]
+}
+</code></pre><h3 id="tsconfig-compiler-options">tsconfig compiler options</h3>
+<ul>
+<li><strong>inlineSourceMap</strong>: Emit a single file with source maps instead of having a separate file.</li>
+<li><strong>inlineSources</strong>: Emit the source alongside the sourcemaps within a single file; requires <em>inlineSourceMap</em> or <em>sourceMap</em> to be set.</li>
+<li><strong>mapRoot</strong>: Specifies the location where debugger should locate map files instead of generated locations. Use this flag if the .map files will be located at run-time in a different location than the .js files. The location specified will be embedded in the sourceMap to direct the debugger where the map files will be located.</li>
+<li><strong>sourceMap</strong>: Generates corresponding .map file.</li>
+<li><strong>sourceRoot</strong>: Specifies the location where debugger should locate TypeScript files instead of source locations. Use this flag if the sources will be located at run-time in a different location than that at design-time. The location specified will be embedded in the sourceMap to direct the debugger where the source files will be located.</li>
+</ul>
+<p>For more details about the compiler options check the page <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">Compiler Options</a> on the TypeScript Handbook.</p>
+<h2 id="configure-source-maps-using-project-settings">Configure source maps using project settings</h2>
+<p>You can also configure the souce map settings on the project properties by right click <em>Project &gt; Properties &gt; TypeScript Build &gt; Debugging</em>.</p>
+<h3 id="project-settings">Project settings</h3>
+<ul>
+<li><strong>Generate source maps</strong> (sourceMap tsconfig.json equivalent): Generates corresponding .map file.</li>
+<li><strong>Specify root directory of source maps</strong> (mapRoot tsconfig.json equivalent): Specifies the location where debugger should locate map files instead of generated locations. Use this flag if the .map files will be located at run-time in a different location than the .js files. The location specified will be embedded in the sourceMap to direct the debugger where the map files will be located.</li>
+<li><strong>Specify root directory of TypeScript files</strong> (sourceRoot tsconfig.json equivalent): Specifies the location where debugger should locate TypeScript files instead of source locations. Use this flag if the sources will be located at run-time in a different location than that at design-time. The location specified will be embedded in the sourceMap to direct the debugger where the source files will be located.</li>
+</ul>
 </article>
           </div>
           
