@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/build/nuget.html",
-          "hash": "jgvyfGXlnLZRDeUlUjorvQ=="
+          "hash": "qlsTXWBtXIamqqUBcHPRPA=="
         }
       },
       "is_incremental": true,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/msbuild.html",
-          "hash": "a+OwZJWVHZ3gYYvUh0u0Hg=="
+          "hash": "Lt8iDc4h+I40hPOzZt9Rhw=="
         }
       },
       "is_incremental": true,
@@ -81,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/tsconfig.html",
-          "hash": "Q+ANlmm9hg7CJxzoOK4cwA=="
+          "hash": "EdmHyXGSvI1xO9fNAmOKAA=="
         }
       },
       "is_incremental": true,
@@ -93,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/configuration/versioning.html",
-          "hash": "MvP9wSSopF2qe/owByechA=="
+          "hash": "RZBMtHJHpOPL/E/kZ9CPzg=="
         }
       },
       "is_incremental": true,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/debugging/clientSideDebugging.html",
-          "hash": "easzc2cEIdyPB98WuR5jvQ=="
+          "hash": "UQLf84avaxnJOZ4znENmvA=="
         }
       },
       "is_incremental": true,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/debugging/sourcemaps.html",
-          "hash": "gSnZQmSnY78OQMKKLLGbiw=="
+          "hash": "ZeSNHW5C0nvYxkY36Cyv0w=="
         }
       },
       "is_incremental": true,
@@ -213,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/frameworks/angular.html",
-          "hash": "XOhjz1/vI86ELYgtaxbpzQ=="
+          "hash": "xQkq4FoFxzEMe/RLtAx6qg=="
         }
       },
       "is_incremental": true,
@@ -249,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/frameworks/jsx.html",
-          "hash": "oelfQeEs6oFtRW2kn8TY5Q=="
+          "hash": "J/3fEpiyniuz8GWb5/k/rg=="
         }
       },
       "is_incremental": true,
@@ -321,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/npm.html",
-          "hash": "bQWwIjI0ckIHmpIA6nMeHA=="
+          "hash": "PmokqTNz2UzqpQ7wUFlWig=="
         }
       },
       "is_incremental": true,
@@ -333,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/requirements.html",
-          "hash": "JdG9kjWfts/3bkRBn+G7gA=="
+          "hash": "sPzuiLlVlXva0ALubtWatA=="
         }
       },
       "is_incremental": true,
@@ -357,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/unittesting.html",
-          "hash": "wMM8/MCLUNhYmWohCgtpGA=="
+          "hash": "ycI6NKDuwdpip2ondmwScA=="
         }
       },
       "is_incremental": true,
@@ -477,7 +477,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/troubleshooting/index.html",
-          "hash": "USVmnl6l5MEzdHlroj6cLw=="
+          "hash": "60j1ZD62D381aIgHePpdsA=="
         }
       },
       "is_incremental": true,
@@ -501,10 +501,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/troubleshooting/newtonsoft.html",
-          "hash": "Ap0J8F0bips5MccBKIsi9Q=="
+          "hash": "Lq8o6qjqKgy0XlDJmYpklw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -525,7 +525,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/types/ata.html",
-          "hash": "sssvd6SEGHa7mfyJG4k8Xw=="
+          "hash": "K/Cp+Ho4Jxvn/MDHkEIHhg=="
         }
       },
       "is_incremental": true,
@@ -561,7 +561,18 @@
       "output": {
         ".html": {
           "relative_path": "articles/types/jsdoc.html",
-          "hash": "HAIvzTa7J38bRjr/Ay05dw=="
+          "hash": "oa9iQvXX9gNwzntYYxoiYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/NewtonSoftPath.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/NewtonSoftPath.png"
         }
       },
       "is_incremental": false,
@@ -591,10 +602,10 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "images/NewtonSoftPath.png",
+      "source_relative_path": "images/jslsdisabledpopup.png",
       "output": {
         "resource": {
-          "relative_path": "images/NewtonSoftPath.png"
+          "relative_path": "images/jslsdisabledpopup.png"
         }
       },
       "is_incremental": false,
@@ -602,10 +613,21 @@
     },
     {
       "type": "Resource",
-      "source_relative_path": "images/jslsdisabledpopup.png",
+      "source_relative_path": "images/mygetAddSource.PNG",
       "output": {
         "resource": {
-          "relative_path": "images/jslsdisabledpopup.png"
+          "relative_path": "images/mygetAddSource.PNG"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/mygetMSBuild.PNG",
+      "output": {
+        "resource": {
+          "relative_path": "images/mygetMSBuild.PNG"
         }
       },
       "is_incremental": false,
@@ -745,6 +767,17 @@
     },
     {
       "type": "Resource",
+      "source_relative_path": "images/nugetMSBuild.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/nugetMSBuild.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
       "source_relative_path": "images/taskmanager.png",
       "output": {
         "resource": {
@@ -830,27 +863,18 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "TocDocumentProcessor": {
+        "ResourceDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build"
-        },
-        "ResourceDocumentProcessor": {
+        "TocDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
-        "RestApiDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }

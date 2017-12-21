@@ -70,27 +70,28 @@
 <h1 id="jsdoc-support">JsDoc support</h1>
 
 <p>Programs written in JavaScript and TypeScript can be annotated with (JsDoc comments)[<a href="http://usejsdoc.org/index.html">http://usejsdoc.org/index.html</a>]
-to give type information and quick-info descriptions of identifiers.</p>
-<p>In the following example, the text between the opening <code>/**</code> and closing <code>/*</code> are considered JsDoc comments.</p>
+to give type information and quickinfo descriptions of identifiers.</p>
+<p>In the following example, the text between the opening <code>/**</code> and closing <code>*/</code> are considered JsDoc comments.</p>
 <pre><code class="lang-js">/**
- * @param {&quot;cat&quot; | &quot;dog&quot;} kind  The type of animal to create.
- * @param name {string}
- * @param {number} weight The weight, in pounds, of animal.
- * @param {...string} extraProps Any extra properties to tack on the animal.
- * @return {{[index: string]: string | number}} Any extra properties to tack on the animal.
+ * Creates a new animal object.
+ * @param {string} name The name of the new animal.
+ * @param {number} weight
+ * @param {&quot;cat&quot; | &quot;dog&quot;} kind
+ * @return {{name: string, weight: number, kind: &quot;cat&quot; | &quot;dog&quot;}} A brand new animal!
  */
-function createAnimal(kind, name, weight, ...extraProps)
+function createAnimal(name, weight, kind)
 {
     // ...
 }
 </code></pre><p>As you can see, we can prefix sections in JsDoc with terms such as <code>@param</code> and <code>@return</code> to describe the behavior of the <code>createAnimal</code> function.
 In JsDoc, terms beginning with <code>@</code> have special meanings, and are called <em>tags</em>. The text between curly braces are descriptions of <em>types</em>,
-which can be used by the developer to check that they are using a variable correctly -- they can go either before or after the construct&#39;s <em>name</em>.
+which can be used by the developer to check that they are using a variable correctly &mdash;  they should precede the <em>name</em> of the construct being described, if applicable.
 In the example above, knowing that <code>weight</code> is a number can inform the developer to avoid calling <code>weight.length</code>.
-Moreover, if the result of <code>createAnimal</code> is assigned to a variable, the return type of createAnimal propogates to the assigned value.</p>
-<p>Finally, the text after the parameter names are <em>descriptions</em>, which show up as part of <em>quickinfo</em> anytime you hover over a construct that is documented</p>
+Moreover, if the result of <code>createAnimal</code> is assigned to a variable, the return type of createAnimal propagates to the assigned value.</p>
+<p>The type annotations supported include both jsdoc and TypeScript syntax. For example, <code>kind</code> is described as a union of string-literals, and the return type is an object containing each of the parameters as properties. We give details in (section link?) below.</p>
+<p>Finally, the text spans before the first tag and after parameter names are <em>descriptions</em>, which shows up as part of quickinfo anytime you hover over a construct that is documented</p>
 <p><img src="../../images/jsdoc-quickinfo.png" width="1000px"></p>
-<p>and while filling in the paramters in a function call.</p>
+<p>and while filling in the paramaters in a function call.</p>
 <p><img src="../../images/jsdoc-param.png" width="1000px"></p>
 <p>Different constructs in JavaScript can use different forms of documentation, as described below.</p>
 <p>Visual Studio offers a rich editing experience inside JsDoc comments. The editor offers auto-completion on tags, names, and types as well as auto-indentation. You can use F12 and Shift+F12 for Go-to-definition and Find-All-References, respectively, as well hovering for quickinfo.</p>
@@ -98,7 +99,7 @@ Moreover, if the result of <code>createAnimal</code> is assigned to a variable, 
 <p>Any tag may be used for documentation, but Visual Studio treats some tags specially to improve the editor&#39;s ability to catch errors and help with refactoring.
 The following tags are handled specially. Each tag is followed by a description and example.</p>
 <ul>
-<li><code>@param</code> -- describes a parameter to a callable construct (eg: a function). Type annotations and descriptions are optional.</li>
+<li><code>@param</code> &mdash; describes a parameter to a function. Type annotations and descriptions are optional.</li>
 </ul>
 <pre><code class="lang-ts">/**
  * Repeats a string a certain number of times.
@@ -126,7 +127,7 @@ function repeatString(string, times) {
   return repeated;
 }
 </code></pre><ul>
-<li><code>@return</code> -- describes the return value of a callable construct (eg: a function). Type annotations and descriptions are optional.</li>
+<li><code>@return</code> &mdash; describes the return value of a function. Type annotations and descriptions are optional.</li>
 </ul>
 <pre><code class="lang-ts">/**
  * Determine if the string ends with the specified substring.
@@ -139,7 +140,7 @@ function endsWith(haystack, needle) {
   return haystack.slice(-needle.length) === needle;
 }
 </code></pre><ul>
-<li><code>@class</code> -- tells Visual Studio to treat the next construct as a constructor. (Only available in JavaScript files)</li>
+<li><code>@class</code> &mdash; tells Visual Studio to treat the next function as a constructor. (Only available in JavaScript files)</li>
 </ul>
 <pre><code class="lang-ts">var Cell = /** @class */ (function () {
     function Cell() {
@@ -147,8 +148,11 @@ function endsWith(haystack, needle) {
     return Cell;
 }());
 </code></pre><ul>
-<li><code>@augments</code> and <code>@extends</code> -- in JsDoc for class-like declarations, specifies which class the upcoming construct extends. Note that <code>@augments</code> and <code>@extends</code> are synonyms.</li>
+<li><code>@augments</code> and <code>@extends</code> &mdash; if the next construct is a class declaration, specifies which class the upcoming declaration extends. Note that <code>@augments</code> and <code>@extends</code> are synonyms.
+Like the <code>@class</code> tag above, these tags are useful with pre-ES6 javacsript, as in the following example:</li>
 </ul>
+<pre><code class="lang-ts">
+</code></pre><p>The following advanced example shows how to use <code>@augments</code> to instantiate a type parameter.</p>
 <pre><code class="lang-ts">// @Filename: declarations.d.ts
  declare class Thing&lt;T&gt; {
      mine: T;
@@ -165,7 +169,7 @@ function endsWith(haystack, needle) {
      }
  }
 </code></pre><ul>
-<li><code>@template</code> -- used to specify type parameters for the following construct (c.f. polymorphism in JavaScript)</li>
+<li><code>@template</code> &mdash; used to specify type parameters for the following function (c.f. generic programming)</li>
 </ul>
 <pre><code class="lang-ts">/**
  * @param {T} a
@@ -176,12 +180,12 @@ function f(a) {
 }
 let n = f(1)();
 </code></pre><ul>
-<li><code>@type</code> -- declares the type of the next construct:</li>
+<li><code>@type</code> &mdash; declares the type of the next construct:</li>
 </ul>
 <pre><code class="lang-ts">/** @type {{key: &quot;value&quot;}} */
 var x = JSON.parse(JSON.stringify({key: &quot;value&quot;}));
 </code></pre><ul>
-<li><code>@typedef</code> -- Typedef tags can be used to declare types referenced in other JsDoc comments.
+<li><code>@typedef</code> &mdash; Typedef tags can be used to declare types referenced in other JsDoc comments.
 If a type is specified inline (in the same style as <code>@param</code>), that describes the shape of the <code>@typedef</code>&#39;d name.
 Alternatively, A JsDoc beginning with a <code>@typedef</code> tag and name can be followed by <code>@property</code> and <code>@member</code> tags to describe the shape of the named type.</li>
 </ul>
@@ -197,24 +201,25 @@ Alternatively, A JsDoc beginning with a <code>@typedef</code> tag and name can b
 /** @type {Foo1} */
 const x = { foo: 0 };
 </code></pre><ul>
-<li><code>@property</code> and <code>@memeber</code> -- used to describe properties as part of a <code>@typedef</code> type declaration. See above for an example.</li>
+<li><code>@property</code> and <code>@member</code> &mdash; used to describe properties as part of a <code>@typedef</code> type declaration. See above for an example.</li>
 </ul>
 <h2 id="type-syntax">Type Syntax</h2>
-<p>TODO.</p>
+<p>Visual Studio supports both <a href="http://usejsdoc.org/tags-type.html#overview">JsDoc</a> and <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html">TypeScript</a> syntax for type annotations. Since TypeScript <a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html">has a more expressive type system</a>, we recommend using the latter.</p>
+<h3 id="generic-programming">Generic Programming</h3>
 <h2 id="jsdoc-scaffolding-support">JsDoc Scaffolding Support</h2>
 <p>If you would like to add JsDoc comments to an existing javascript construct, typing <code>/**</code> in front of a construct in Visual Studio will trigger scaffolding generation, which will stub out
 JsDoc for the next construct:</p>
-<p>Scaffolding-gneration is supported for the following constructs:</p>
+<p>Scaffolding-generation is supported for the following constructs:</p>
 <ul>
 <li>function declarations</li>
 <li>method declarations</li>
 <li>constructor declarations</li>
 <li>method signatures</li>
 <li>variable statements</li>
-<li>most property assignments -- module import and export statements are excluded</li>
+<li>most property assignments &mdash; module import and export statements are excluded</li>
 </ul>
 <h2 id="bugs">Bugs</h2>
-<p>Known issues and feature suggestiong fo JSDoc-related issues are tracked <a href="https://github.com/Microsoft/TypeScript/labels/Domain%3A%20JSDoc">here</a>. If you run into an issue with JsDoc, please first search for and upvote an existing issue. If none exists, please file a new issue.</p>
+<p>Known issues and feature suggestions for JSDoc-related issues are tracked <a href="https://github.com/Microsoft/TypeScript/labels/Domain%3A%20JSDoc">here</a>. If you run into an issue with JsDoc, please first search for and upvote an existing issue. If none exists, please file a new issue.</p>
 </article>
           </div>
           
