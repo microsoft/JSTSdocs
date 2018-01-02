@@ -8,7 +8,7 @@
     <title>Building via NuGet </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Building via NuGet ">
-    <meta name="generator" content="docfx 2.26.1.0">
+    <meta name="generator" content="docfx 2.27.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -66,10 +66,107 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="tsnuget">
 <h1 id="building-via-nuget">Building via NuGet</h1>
 
-<p>TODO</p>
+<p>As an alternative to using the TypeScript SDK with MSBuild to compile TypeScript, you can also use the TypeScript NuGet package <code>Microsoft.TypeScript.MSBuild</code>. This allows you to install a particular version of TypeScript locally to your project.</p>
+<div class="NOTE"><h5>Note</h5><p>One common use case for the NuGet package is for compiling TypeScript using the .NET Core CLI. Unless you are willing to hand-edit your project file to import build targets from a TypeScript SDK installation, the NuGet package is the only way to enable TypeScript compilation using .NET Core CLI commands such as <code>dotnet build</code> and <code>dotnet publish</code>.</p>
+</div>
+<div class="CAUTION"><h5>Caution</h5><p>If you are using the NuGet package for MSBuild support for a given project, that project file must not itself import <code>Microsoft.TypeScript.Default.props</code> or <code>Microsoft.TypeScript.targets</code>. 
+These will be imported by the NuGet package, so including them separately could cause unintended behavior. See <a href="#removing-default-imports">Removing Default Imports</a> for details on what to remove.</p>
+</div>
+<h2 id="installing-major-releases-via-nuget-httpswwwnugetorg">Installing major releases via NuGet (<a href="https://www.nuget.org">https://www.nuget.org</a>)</h2>
+<ul>
+<li>Right-Click -&gt; Manage NuGet Packages</li>
+<li><p>Search for <code>Microsoft.TypeScript.MSBuild</code></p>
+<p>  <img src="../../images/nugetMSBuild.png" width="100%" alt="Search for NuGet Package"></p>
+</li>
+<li><p>Hit <code>Install</code></p>
+</li>
+<li>When install is complete, rebuild!</li>
+</ul>
+<h2 id="installing-nightly-drops-httpswwwmygetorg">Installing nightly drops (<a href="https://www.myget.org">https://www.myget.org</a>)</h2>
+<ol>
+<li><p>Add a new Package Source </p>
+<ul>
+<li>Go to <code>Tools</code> -&gt; <code>Options</code> -&gt; <code>NuGet Package Manager</code> -&gt; <code>Package Sources</code></li>
+<li>Create a new Source:</li>
+<li>Name: <code>TypeScript Nightly</code></li>
+<li><p>Source: <code>https://www.myget.org/F/typescript-preview/</code></p>
+<p>   <img src="../../images/mygetAddSource.PNG" width="700px" alt="Add New Package Source"></p>
+</li>
+</ul>
+</li>
+<li><p>Use the new Package Source</p>
+<ul>
+<li>On Project node Right-Click -&gt; <code>Manage NuGet Packages</code></li>
+<li><p>Search for <code>Microsoft.TypeScript.MSBuild</code></p>
+<p>   <img src="../../images/mygetMSBuild.PNG" width="700px" alt="Search for NuGet Nightly Build Package"></p>
+</li>
+<li><p>Hit <code>Install</code></p>
+</li>
+<li>When install is complete, rebuild!</li>
+</ul>
+</li>
+</ol>
+<h2 id="removing-default-imports">Removing default imports</h2>
+<ul>
+<li>Right-Click -&gt; <code>Unload Project</code></li>
+<li>Right-Click -&gt; <code>Edit &lt;project file name&gt;</code></li>
+<li><p>Remove references to</p>
+<ul>
+<li><p><code>Microsoft.TypeScript.Default.props</code></p>
+<p>The import should look something like:</p>
+<pre><code class="lang-XML">&lt;Import
+    Project=&quot;$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props&quot;
+    Condition=&quot;Exists(&#39;$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props&#39;)&quot; /&gt;
+</code></pre></li>
+<li><p><code>Microsoft.TypeScript.targets</code></p>
+<p>The import should look something like:</p>
+<pre><code class="lang-XML">&lt;Import
+   Project=&quot;$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets&quot;
+   Condition=&quot;Exists(&#39;$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets&#39;)&quot; /&gt;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h2 id="package-structure-details">Package structure details</h2>
+<p><code>Microsoft.TypeScript.MSBuild.nupkg</code> contains two main folders:</p>
+<ul>
+<li><p><code>build</code> folder</p>
+<p>  Two files are located in this folder.
+  Both are entry points - for the main TypeScript target file and props file respectively.</p>
+<ol>
+<li><p>Microsoft.TypeScript.MSBuild.targets</p>
+<p> This file sets variables that specify the run-time platform, such as a path to <code>TypeScript.Tasks.dll</code>, before importing <code>Microsoft.TypeScript.targets</code> from the <code>tools</code> folder.</p>
+</li>
+<li><p>Microsoft.TypeScript.MSBuild.props</p>
+<p> This file imports <code>Microsoft.TypeScript.Default.props</code> from the <code>tools</code> folder and sets properties indicating that the build has been initiated through NuGet.</p>
+</li>
+</ol>
+</li>
+<li><p><code>tools</code> folder</p>
+<p>  Versions prior to 2.3 only contain a tsc folder. <code>Microsoft.TypeScript.targets</code> and <code>TypeScript.Tasks.dll</code> are located at the root level.</p>
+<p>  In versions 2.3 and later, the root level contains <code>Microsoft.TypeScript.targets</code> and <code>Microsoft.TypeScript.Default.props</code>. See <a class="xref" href="../configuration/msbuild.html">MSBuild Configuration</a> for more details on these files.</p>
+<p>  Additionally, the folder contains three subfolders:</p>
+<ol>
+<li><p><code>net45</code></p>
+<p> This folder contains <code>TypeScript.Tasks.dll</code> and other DLLs on which it depends.
+ When building a project on a Windows platform, MSBuild uses the DLLs from this folder.</p>
+</li>
+<li><p><code>netstandard1.3</code></p>
+<p> This folder contains another version of <code>TypeScript.Tasks.dll</code>, which is used when building projects on a non-Windows machine.</p>
+</li>
+<li><p><code>tsc</code></p>
+<p> This folder contains <code>tsc.exe</code> and all dependency files required to execute the exe.
+ On Windows, <code>TypeScript.Tasks.dll</code> uses the <code>tsc.exe</code> to build projects.
+ On non-Windows, <code>TypeScript.Tasks.dll</code> uses Node.js to run <code>tsc.js</code> - implying that it is required for Node.js to be installed on these platforms.</p>
+<div class="NOTE"><h5>Note</h5><p>Since we use Node.js to run the compiler on non-Windows platforms, Node.js must be installed in this scenario.</p>
+</div>
+</li>
+</ol>
+</li>
+</ul>
 </article>
           </div>
           
