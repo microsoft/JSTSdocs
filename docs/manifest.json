@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/repo/jsdocs",
+  "source_base_path": "C:/github/jsdocs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -36,7 +36,7 @@
           "hash": "qlsTXWBtXIamqqUBcHPRPA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -72,7 +72,7 @@
           "hash": "Lt8iDc4h+I40hPOzZt9Rhw=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -204,7 +204,7 @@
           "hash": "2+/HJhbCYkTy5y4FxYuZdg=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -276,7 +276,7 @@
           "hash": "zvFVbSBbWTYJN4uuU40CFg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -561,10 +561,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/types/jsdoc.html",
-          "hash": "oa9iQvXX9gNwzntYYxoiYw=="
+          "hash": "sTFiBiXLrfxrcttOeMRY2g=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -573,28 +573,6 @@
       "output": {
         "resource": {
           "relative_path": "images/NewtonSoftPath.png"
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/jsdoc-param.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/jsdoc-param.png"
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "Resource",
-      "source_relative_path": "images/jsdoc-quickinfo.png",
-      "output": {
-        "resource": {
-          "relative_path": "images/jsdoc-quickinfo.png"
         }
       },
       "is_incremental": false,
