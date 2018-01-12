@@ -21,13 +21,13 @@ function createAnimal(name, weight, kind)
 
 As you can see, we can prefix sections in JsDoc with terms such as `@param` and `@return` to describe the behavior of the `createAnimal` function.
 In JsDoc, terms beginning with `@` have special meanings, and are called *tags*. The text between curly braces are descriptions of *types*,
-which can be used by the developer to check that they are using a variable correctly &mdash;  they should precede the *name* of the construct being described, if applicable.
+which can be used by the developer to check that they are using a variable correctly &mdash; they should precede the *name* of the construct being described, if applicable.
 In the example above, knowing that `weight` is a number can inform the developer to avoid calling `weight.length`.
 Moreover, if the result of `createAnimal` is assigned to a variable, the return type of createAnimal propagates to the assigned value.
 
-The type annotations supported include both jsdoc and TypeScript syntax. For example, `kind` is described as a union of string-literals, and the return type is an object containing each of the parameters as properties. We give details in (section link?) below.
+Both Jsdoc and TypeScript type annotations are supported. For example, `kind` is described as a union of string literals using TypeScript syntax.
 
-Finally, the text spans before the first tag and after parameter names are *descriptions*, which shows up as part of quickinfo anytime you hover over a construct that is documented
+Finally, the text spans before the first tag and after parameter names are *descriptions*, which shows up as part of quickinfo anytime you hover over a construct that is documented.
 
 <img src="../../images/jsdoc-quickinfo.png" width="1000px"/>
 
@@ -100,17 +100,11 @@ var Cell = /** @class */ (function () {
 ```
 
 * `@augments` and `@extends` &mdash; if the next construct is a class declaration, specifies which class the upcoming declaration extends. Note that `@augments` and `@extends` are synonyms.
-Like the `@class` tag above, these tags are useful with pre-ES6 javacsript, as in the following example:
-
-```ts
-
-```
-
-The following advanced example shows how to use `@augments` to instantiate a type parameter.
+The following advanced example shows how to use `@augments` to instantiate a generic class from a TypeScript file
 
 ```ts
 // @Filename: declarations.d.ts
- declare class Thing<T> {
+class Thing<T> {
      mine: T;
  }
 
@@ -168,8 +162,6 @@ const x = { foo: 0 };
 ## Type Syntax
 
 Visual Studio supports both [JsDoc](http://usejsdoc.org/tags-type.html#overview) and [TypeScript](https://www.typescriptlang.org/docs/handbook/basic-types.html) syntax for type annotations. Since TypeScript [has a more expressive type system](https://www.typescriptlang.org/docs/handbook/advanced-types.html), we recommend using the latter.
-
-### Generic Programming
 
 ## JsDoc Scaffolding Support
 
