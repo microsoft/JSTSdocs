@@ -237,9 +237,10 @@ with Administrative rights, and run the following commands:
 2. `SET ETWPROV=*TypeScriptEventSource,*Microsoft-VisualStudio-Common`
 3. `PerfView -KernelEvents:FileIOInit,ThreadTime -Providers:%ETWPROV% run "%VSEXE%"`
 
-Visual Studio should launch. Reproduce the issue, then stop the PerfView trace. The zip file created
-contains detailed logging of file access, asynchronous tasks, Visual Studio internal events, and events
-from the TypeScript/JavaScript language service.
+Visual Studio should launch. Reproduce the issue, then stop the PerfView trace by closing Visual Studio
+and allowing the trace to finish packaging. Do not hit Cancel in PerfView, as this will make the trace unusable. 
+The zip file created contains detailed logging of file access, asynchronous tasks, Visual Studio internal
+events, and events from the TypeScript/JavaScript language service.
 
 > [!CAUTION]
 > The log file created can be extremely large - in the order of hundreds of megabytes per minute - and
