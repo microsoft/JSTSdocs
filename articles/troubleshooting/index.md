@@ -235,7 +235,7 @@ with Administrative rights, and run the following commands:
 
 1. `SET VSEXE=%VSINSTALLDIR%Common7\IDE\devenv.exe`
 2. `SET ETWPROV=*TypeScriptEventSource,*Microsoft-VisualStudio-Common`
-3. `PerfView -KernelEvents:FileIOInit,ThreadTime -Providers:%ETWPROV% run "%VSEXE%"`
+3. `PerfView -KernelEvents:FileIOInit,ThreadTime -Providers:%ETWPROV% -CircularMB:4096 -BufferSizeMB:256 run "%VSEXE%"`
 
 Visual Studio should launch. Reproduce the issue, then stop the PerfView trace by closing Visual Studio
 and allowing the trace to finish packaging. Do not hit Cancel in PerfView, as this will make the trace unusable. 
