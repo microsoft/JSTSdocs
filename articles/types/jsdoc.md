@@ -1,6 +1,6 @@
 # JsDoc support
 
-Programs written in JavaScript and TypeScript can be annotated with (JsDoc comments)[http://usejsdoc.org/index.html]
+Programs written in JavaScript and TypeScript can be annotated with [JsDoc comments](http://usejsdoc.org/index.html)
 to give type information and quickinfo descriptions of identifiers.
 
 In the following example, the text between the opening `/**` and closing `*/` are considered JsDoc comments.

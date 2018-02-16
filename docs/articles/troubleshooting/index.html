@@ -8,7 +8,7 @@
     <title>Troubleshooting </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Troubleshooting ">
-    <meta name="generator" content="docfx 2.27.0.0">
+    <meta name="generator" content="docfx 2.31.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -266,11 +266,12 @@ with Administrative rights, and run the following commands:</p>
 <ol>
 <li><code>SET VSEXE=%VSINSTALLDIR%Common7\IDE\devenv.exe</code></li>
 <li><code>SET ETWPROV=*TypeScriptEventSource,*Microsoft-VisualStudio-Common</code></li>
-<li><code>PerfView -KernelEvents:FileIOInit,ThreadTime -Providers:%ETWPROV% run &quot;%VSEXE%&quot;</code></li>
+<li><code>PerfView -KernelEvents:FileIOInit,ThreadTime -Providers:%ETWPROV% -CircularMB:4096 -BufferSizeMB:256 run &quot;%VSEXE%&quot;</code></li>
 </ol>
-<p>Visual Studio should launch. Reproduce the issue, then stop the PerfView trace. The zip file created
-contains detailed logging of file access, asynchronous tasks, Visual Studio internal events, and events
-from the TypeScript/JavaScript language service.</p>
+<p>Visual Studio should launch. Reproduce the issue, then stop the PerfView trace by closing Visual Studio
+and allowing the trace to finish packaging. Do not hit Cancel in PerfView, as this will make the trace unusable. 
+The zip file created contains detailed logging of file access, asynchronous tasks, Visual Studio internal
+events, and events from the TypeScript/JavaScript language service.</p>
 <div class="CAUTION"><h5>Caution</h5><p>The log file created can be extremely large - in the order of hundreds of megabytes per minute - and
 contains system-wide details including call-stacks, file access, etc. Ensure you have sufficient
 disk space, stop logging promptly after reproducing the problem, and do not share the trace if it may
