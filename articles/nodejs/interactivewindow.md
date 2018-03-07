@@ -23,31 +23,21 @@ And finally you can Right-Click on the Node.js project node, and select the inte
 The interactive window has several built-in commands, which start with a dot prefix, to distinguish them from 
 any JavaScript function you declare.
 
+### .cls, .clear
+Clears the contents of the editor window, leaving history and execution context intact.
+
 ### .help
-Show a list of REPL commands.
-
-### .clear
-Resets the context object to an empty object and clears any multi-line expression.
-
-### .cls
-Clears the contents of the REPL editor window.
-
-### .echo
-Suppress or unsuppress output to the buffer.
+Display help on specified command, or all available commands and key bindings if none specified.
 
 ### .info
 Show information about the current used Node.js executable.
 
 ### .npm
-Executes npm command. If solution contains multiple projects, specify target project using 
-`.npm [ProjectName] <npm arguments>`. 
-You can find more information in the [npm section](npm.md#interactiv).
+Executes npm command. If solution contains multiple projects, specify target project using `.npm [ProjectName] <npm arguments>`
 
 ### .reset
-Reset to an empty execution engine, but keep REPL history.
+Reset the execution environment to the initial state, keep history.
 
 ### .save
-Clears the contents of the REPL editor window.
-
-### .wait
-Wait for at least the specified number of milliseconds.
+ Save the current REPL session to a file.
+ 
