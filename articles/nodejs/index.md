@@ -1,20 +1,17 @@
 # Node.js developing in Visual Studio
 
-Visual Studio supported developing and debugging JavaScript and TypeScript applications on Node.js without the need to install any additional components besides 
-your preferred version of Node.js.
+Visual Studio supports developing and debugging JavaScript and TypeScript applications in Node.js without the need to install any additional components other than your preferred version of Node.js.
 
-You can find everything you need to know to setup your environment, 
-and start working in the [Requirements](requirements.md) section. Then you are ready to create your first
-project, information about the various templates is available in the [Projects section](..\projects\nodejs.md).
+Everything you need to know to setup your environment and start working is in the [Requirements](requirements.md) section. 
+When you are ready to create your first project, see the [projects section](..\projects\nodejs.md) for information on available project templates.
 
-In a project you can easily (work with npm packages)[npm.md], and use the 
-(interactive window)[interactivewindow.md] to experiment with code.
-Finally there is extensive support for various (unit test frameworks)[unittesting.md].
+There are two main ways to work on Node.js projects in Visual Studio:
 
-If you prefer to work without creating a project, Visual Studio also supports just 
-[opening a folder](..\projects\openfolder.md) with code. In that scenario editing, debugging, and managing npm
-packages is supported. 
+**Using a project file** - Project file provide additional meta data for the editor and enable you to easily [manage npm packages](npm.md), use the [interactive window](interactivewindow.md) to experiment with code, and run and debug tests for several [unit test frameworks](unittesting.md).
+
+**Open any folder of code** - If you prefer to work without a project file, Visual Studio also supports just [opening a folder](..\projects\openfolder.md) of code.
+In this scenario editing, debugging, and managing npm packages is supported.
 
 ## Contributing
-Node Tools for Visual Studio is an open source component, more information about ways you can contribute to can
-be found in our [GitHub repo](https://github.com/microsoft/nodejstools).
+Node Tools for Visual Studio is an open source. 
+For more information about ways to contribute, see our [GitHub repo](https://github.com/microsoft/nodejstools).
