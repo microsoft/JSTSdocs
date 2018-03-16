@@ -74,6 +74,19 @@ required (e.g. see image below).
 
  - Click the "Create" button to create the App Service. It may take a few minutes
 to deploy.
+ - Once created, go to the "Application settings" section, and add a setting with a
+name of "SCM_SCRIPT_GENERATOR_ARGS" and a value of "--node".
+
+<img width="575px" src="../../images/linux-appservice/script-generator-args.png"/>
+
+> [!WARNING]
+> Deploying to an App Service uses a set of heuristics to determine which type of
+> application to try and run. If a *.sln file is detected in the deployed content,
+> it will assume an MSBuild based project is being deployed. The setting added above
+> overrides this logic and specifies explicitly this is a Node.js application. Without
+> this setting the Node.js application will fail to deploy if the .sln file is part
+> of the repository being deployed to the App Service.
+
  - Once created, open the App Service and select "Deployment Options".
 
 <img width="250px" src="../../images/linux-appservice/deployment-options.png"/>
@@ -84,7 +97,7 @@ to deploy.
 
  - Select the repository and branch to publish, and select "OK".
 
-<img width="316px" src="../../images/linux-appservice/repo-and-branch.png"/>
+<img width="450px" src="../../images/linux-appservice/repo-and-branch.png"/>
 
  - The "Deployment options" page should appear as below while syncing. Once done
 a check mark will appear.
@@ -96,14 +109,39 @@ The site should now be running the Node.js application from the GitHub repositor
 and accessible at the URL created for the App Service (by default the name given
 to the App Service followed by ".azurewebsites.net").
 
-## Further steps
+### Push further changes
 
+Add the below code in "app.ts" after the line `app.use('/users', users);`. This
+will add a REST API at the URL "/api".
+
+```typescript
+app.use('/api', (req, res, next) => {
+    res.json({"result": "success"});
+});
+```
+
+Build the code and test it locally, then check it in and push to GitHub. In the Azure
+portal, the changes at the GitHub repo should be detected within a few moments, and
+a new sync of the deployment should occur. This will look similar to the below.
+
+<img width="594px" src="../../images/linux-appservice/changes-detected.png"/>
+
+Once complete, navigate to the public site and append "/api" to the URL. The JSON
+repsonse should be returned.
+
+## Notes
+
+ - If the node.exe process dies (i.e. unhandled exception), the container will restart.
  - When the container starts up, it runs through various heuristics to figure out
 how to start the Node.js process. Details of the implementation can be seen at 
 https://github.com/Azure-App-Service/node/blob/master/8.9.4/startup/generateStartupCommand.js
  - The running container can be connected to via SSH for investigations.
 This is easiest done via the Azure Portal. Select the App Service, and scroll down
 the list of tools until reaching "SSH" under the "Development Tools" section.
+ - To aid in troubleshooting, it is recommended to go to the "Diagnostics logs"
+settings for the App Service, and change the "Docker Container logging" setting
+from "Off" to "File System". Logs will be created in the container under "/home/LogFiles/*_docker.log",
+and can be accessed on the box via SSH or FTP(S).
  - A custom domain name may be assigned to the site, rather than the *.azurewebsites.net
 URL assigned by default. For more details, see the topic [Map Custom Domain](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-domain)
  - Deploying to a staging site for further testing before moving into production is
