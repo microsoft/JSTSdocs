@@ -8,7 +8,7 @@
     <title>The Node.js interactive window </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="The Node.js interactive window ">
-    <meta name="generator" content="docfx 2.31.0.0">
+    <meta name="generator" content="docfx 2.26.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -69,7 +69,31 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="the-nodejs-interactive-window">The Node.js interactive window</h1>
 
-<p>TODO</p>
+<p>Node.js Tools for Visual Studio includes an interactive window for the installed Node.js runtime. This allows you
+to enter JavaScript and see the results immediatly, as well as execute npm commands to interact with the current 
+project. The interactive window is also known as a REPL (<strong>R</strong>ead/<strong>E</strong>valuate/<strong>P</strong>rint <strong>L</strong>oop).</p>
+<p><img src="../../images/node/interactivewindow.png" alt="Node.js interactive window"></p>
+<h2 id="opening-the-interactive-window">Opening the interactive window</h2>
+<p>The default short-cut keys for the Node.js interactive window are [CTRL] + K, N.</p>
+<p>You can also find it in the View - Other Windows menu.</p>
+<p><img src="../../images/node/viewmenu-interactivewindow.png" alt="Node.js interactive window in view menu"></p>
+<p>And finally you can Right-Click on the Node.js project node, and select the interactive window.</p>
+<p><img src="../../images/node/project-interactivewindow.png" alt="Node.js interactive window in project context menu"></p>
+<h2 id="commands">Commands</h2>
+<p>The interactive window has several built-in commands, which start with a dot prefix, to distinguish them from 
+any JavaScript function you declare.</p>
+<h3 id="cls-clear">.cls, .clear</h3>
+<p>Clears the contents of the editor window, leaving history and execution context intact.</p>
+<h3 id="help">.help</h3>
+<p>Display help on specified command, or all available commands and key bindings if none specified.</p>
+<h3 id="info">.info</h3>
+<p>Show information about the current used Node.js executable.</p>
+<h3 id="npm">.npm</h3>
+<p>Executes npm command. If solution contains multiple projects, specify target project using <code>.npm [ProjectName] &lt;npm arguments&gt;</code></p>
+<h3 id="reset">.reset</h3>
+<p>Reset the execution environment to the initial state, keep history.</p>
+<h3 id="save">.save</h3>
+<p> Save the current REPL session to a file.</p>
 </article>
           </div>
           

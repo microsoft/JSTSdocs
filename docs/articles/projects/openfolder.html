@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Open folder </title>
+    <title>Open Folder projects in JavaScript and TypeScript </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Open folder ">
-    <meta name="generator" content="docfx 2.31.0.0">
+    <meta name="title" content="Open Folder projects in JavaScript and TypeScript ">
+    <meta name="generator" content="docfx 2.26.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -67,9 +67,40 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="open-folder">Open folder</h1>
+<h1 id="open-folder-projects-in-javascript-and-typescript">Open Folder projects in JavaScript and TypeScript</h1>
 
-<p>TODO</p>
+<p>Visual Studio 2017 introduces the ability to <a href="https://docs.microsoft.com/en-us/visualstudio/ide/develop-code-in-visual-studio-without-projects-or-solutions">develop code without projects or solutions</a>, 
+which enables you to open a folder of code and immediately start working with rich editor support such as IntelliSense, search, refactoring, debugging, and more.
+In addition to these features, the Node Tools workload adds support
+for building TypeScript files, managing npm packages, and running npm scripts.</p>
+<p>To get started, select <em>Open Folder</em> from the Start Page, or select <em>File | Open | Folder</em> from the main menu.
+The Solution Explorer will immediately display all the files in the folder, and you can open any to begin editing.
+In the background, Visual Studio will index the files to enable the npm, build, and debug functionality.</p>
+<h2 id="npm-integration">npm Integration</h2>
+<p>If the folder you opened contains a <code>package.json</code> file, right-clicking that file will show a npm specific context menu item. </p>
+<p><img src="../../images/node/solution-explorer-npm-ctx.png" alt="npm menu in solution explorer"> </p>
+<p>In the menu you can manage the packages installed by npm in the same way you 
+<a href="../nodejs/npm.html">manage npm packages</a> when using a project file.</p>
+<p>In addition the menu also allows you to run scripts defined in the scripts element in <code>package.json</code>.
+These scripts will use the version of Node.js available on the <code>PATH</code>, and run in a new window. 
+This is a great way to execute build or run scripts.</p>
+<h2 id="build-and-debug">Build and Debug</h2>
+<h3 id="packagejson">package.json</h3>
+<p>If the <code>package.json</code> in the folder specifies a <code>main</code> element, <code>Debug</code> will be available in the right click context menu. 
+Clicking this will start <code>node.exe</code> with the specified script as its argument.</p>
+<h3 id="javascript-files">JavaScript files</h3>
+<p>JavaScript files can be debugged by right-clicking them, and selecting <code>Debug</code> from the menu. This will start <code>node.exe</code> with that script as its argument.</p>
+<h3 id="typescript-files-and-tsconfigjson">TypeScript files and tsconfig.json</h3>
+<p>If there is no <code>tsconfig.json</code> present in the folder, right-clicking a TypeScript file will you give you the option to build and debug that file using <code>tsc.exe</code> with default options. (You need to build the file before you can debug.)</p>
+<div class="NOTE"><h5>Note</h5><p>For building TypeScript code we use the newest version installed in 
+<code>C:\Program Files (x86)\Microsoft SDKs\TypeScript</code></p>
+</div>
+<p>If there is a <code>tsconfig.json</code> file present in the folder, right-clicking a TypeScript file will give you the option to debug that TypeScript file, only if there is no <code>outFile</code> specified. 
+If an <code>outFile</code> is specified, you can debug that file by right-clicking on the <code>tsconfig.json</code> file. 
+The <code>tsconfig.json</code> file will also give you a build option to allow you specify compiler options.</p>
+<div class="NOTE"><h5>Note</h5><p>More information about <code>tsconfig.json</code> can be found in the 
+<a href="https://www.typescriptlang.org/docs/handbook/tsconfig-json.html">tsconfig.json TypeScript Handbook page</a>.</p>
+</div>
 </article>
           </div>
           
