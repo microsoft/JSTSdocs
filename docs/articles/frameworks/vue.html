@@ -69,7 +69,98 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="vuejs-support">Vue.js support</h1>
 
-<p>TODO</p>
+<p>Visual Studio improved support for <a href="https://vuejs.org/">Vue.js</a> framework, which enhances the experience when developing an application with Vue.js, JavaScript and TypeScript.</p>
+<h2 id="feature-overview">Feature overview</h2>
+<p>In addition to the normal Visual Studio features when writing TypeScript or JavaScript, you&#39;ll see new behavior for Vue.js specific features:</p>
+<ul>
+<li>Supported Script, Style and Template blocks in .vue files.</li>
+<li>Recognize lang attribute on .vue files.</li>
+</ul>
+<h2 id="create-a-vuejs-project-with-the-vue-cli">Create a Vue.js project with the vue-cli</h2>
+<p>Vue.js provides and official CLI for quickly scaffolding projects. If you&#39;ll like to use it to create your application, follow the steps below to setup your developer environment.</p>
+<div class="NOTE"><h5>Note</h5><p>This steps assumes you already have some knowledge about the Vue.js framework. If not, we suggest to visit <a href="https://vuejs.org/">Vue.js</a> for details about it.</p>
+</div>
+<h3 id="create-a-new-visual-studio-project">Create a new Visual Studio project</h3>
+<p>We use an Empty ASP.NET Core Application (C#) for this example, but you can choose from a variety of projects and languages of your choice.</p>
+<h5 id="create-an-empty-project">Create an Empty project:</h5>
+<ol>
+<li>Open Visual Studio and choose <strong>File &gt; New &gt; Project</strong> from the main menu.</li>
+<li>Under <strong>Visual C# &gt; Web</strong>, choose <strong>ASP.NET Core Web Application</strong> and click OK.</li>
+<li>Select <strong>Empty</strong>, click OK.</li>
+</ol>
+<h5 id="configure-the-project-startup">Configure the project startup:</h5>
+<ol>
+<li>Open the file <strong>./Startup.cs</strong>, and add the following lines to the Configure method:</li>
+</ol>
+<pre><code class="lang-c#">app.UseDefaultFiles() // Enables default file mapping on the web root.
+app.UseStaticFiles(); // Marks files on the web root as servable.
+</code></pre><h3 id="install-the-vue-cli">Install the vue-cli</h3>
+<p>To install the vue-cli, open a Command Prompt and type <code>npm install --g vue-cli</code> or <code>npm install -g @vue/cli</code> for version 3.0 (currently in beta).</p>
+<h4 id="use-the-vue-cli-to-scaffold-a-new-client-application">Use the vue-cli to scaffold a new client application:</h4>
+<ol>
+<li>Go to your Command Prompt and change directory to your project root folder.</li>
+<li>Type <code>vue init webpack ClientApp</code> and follow the additional questions.</li>
+</ol>
+<h5 id="tweak-the-webpack-config-to-output-the-built-files-to-wwwroot">Tweak the webpack config to output the built files to wwwroot:</h5>
+<ol>
+<li>Open the file <strong>./ClientApp/config/index.js</strong>, and change the <code>build.index</code> and <code>build.assetsRoot</code> to wwwroot path:</li>
+</ol>
+<pre><code class="lang-js">// Template for index.html
+index: path.resolve(__dirname, &#39;../../wwwroot/index.html&#39;),
+
+// Paths
+assetsRoot: path.resolve(__dirname, &#39;../../wwwroot&#39;),
+</code></pre><h5 id="indicate-the-project-to-build-the-clientapp-everytime-building-is-triggered">Indicate the project to build the ClientApp everytime building is triggered:</h5>
+<ol>
+<li>Go to <strong>Project properties &gt; Build Events</strong></li>
+<li>On <strong>Pre-build event command line</strong> type <code>npm --prefix ./ClientApp run build</code>.</li>
+</ol>
+<h5 id="configure-webpacks-output-module-names">Configure webpack&#39;s output module names:</h5>
+<ol>
+<li>Open the file <strong>./ClientApp/build/webpack.base.conf.js</strong>, and add the following properties to the output property:</li>
+</ol>
+<pre><code class="lang-js">devtoolModuleFilenameTemplate: &#39;[absolute-resource-path]&#39;,
+devtoolFallbackModuleFilenameTemplate: &#39;[absolute-resource-path]?[hash]&#39;
+</code></pre><h4 id="use-the-vue-cli-30-currently-in-beta-with-typescript">Use the vue-cli 3.0 (currently in beta) with TypeScript</h4>
+<ol>
+<li>Go to your Command Prompt and change directory to your project root folder.</li>
+<li>Type <code>vue create ClientApp</code> and choose <strong>Manually select features</strong>.</li>
+<li>Choose Typescript and any other options desired.</li>
+<li>Follow the additional questions.</li>
+</ol>
+<h5 id="configure-vuejs-typescript-project">Configure Vue.js-TypeScript project</h5>
+<ol>
+<li>Open the file <strong>./ClientApp/tsconfig.json</strong> and add to the compiler options <code>noEmit:true</code> for avoiding cluttering your project everytime you build on Visual Studio.</li>
+<li><p>Create a vue.config.js file on ./ClientApp/ as below, for configuring webpack and setting the wwwroot folder:</p>
+<pre><code class="lang-js">module.exports = {
+ outputDir: &#39;../wwwroot&#39;,
+
+ configureWebpack: {
+     output: {
+         devtoolModuleFilenameTemplate: &#39;[absolute-resource-path]&#39;,
+         devtoolFallbackModuleFilenameTemplate: &#39;[absolute-resource-path]?[hash]&#39;
+     }
+ }
+};
+</code></pre></li>
+</ol>
+<h5 id="building-with-vue-cli-30">Building with vue-cli 3.0</h5>
+<p>There is an unknown issue with the vue-cli 3.0 that prevents automating the build process. Everytime you wish to refresh the wwwroot folder you will need to run the command <code>npm run build</code> on the ClientApp folder.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>Lang attribute only supports JavaScript and TypeScript languages.</li>
+<li>Lang attribute doesn&#39;t work with template or style tags.</li>
+<li>Debugging .vue files is not supported due to its preprocessed nature.</li>
+<li>.vue files are not recognized as modules. Shimming *.vue files is necessary (vue-cli 3.0 template already includes this file).</li>
+<li>Running the command <code>npm run build</code> as a precompile task doesn&#39;t work when using vue-cli 3.0, for an unknown reason.</li>
+</ul>
+<h2 id="additional-resources">Additional resources</h2>
+<ul>
+<li><a href="https://vuejs.org/v2/guide">https://vuejs.org/v2/guide</a> - Vue get started guide.</li>
+<li><a href="https://github.com/vuejs/vue-cli">https://github.com/vuejs/vue-cli</a> - Vue CLI project.</li>
+<li><a href="https://webpack.js.org/configuration/">https://webpack.js.org/configuration/</a> - Webpack configuration documentation.</li>
+<li><a href="https://github.com/madskristensen/vuepack2017">https://github.com/madskristensen/vuepack2017</a> - Popular Vue.js extension for Visual Studio</li>
+</ul>
 </article>
           </div>
           
