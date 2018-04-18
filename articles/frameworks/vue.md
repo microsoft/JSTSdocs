@@ -11,7 +11,7 @@ In addition to the normal Visual Studio features when writing TypeScript or Java
 
 ## Create a Vue.js project with the vue-cli
 
-Vue.js provides and official CLI for quickly scaffolding projects. If you'll like to use it to create your application, follow the steps below to setup your developer environment.
+Vue.js provides an official CLI for quickly scaffolding projects. If you would like to use it to create your application, follow the steps below to setup your development environment.
 
 > [!NOTE]
 > This steps assumes you already have some knowledge about the Vue.js framework. If not, we suggest to visit [Vue.js](https://vuejs.org/) for details about it.
@@ -91,14 +91,20 @@ There is an unknown issue with the vue-cli 3.0 that prevents automating the buil
 
 ## Limitations
 
-* Lang attribute only supports JavaScript and TypeScript languages.
+* Lang attribute only supports JavaScript and TypeScript languages. The accepted values are: js, jsx, ts and tsx.
 * Lang attribute doesn't work with template or style tags.
-* Debugging .vue files is not supported due to its preprocessed nature.
-* .vue files are not recognized as modules. Shimming \*.vue files is necessary (vue-cli 3.0 template already includes this file).
-* Running the command `npm run build` as a precompile task doesn't work when using vue-cli 3.0, for an unknown reason.
+* Debugging script blocks in .vue files is not supported due to its preprocessed nature.
+* TypeScript doesn't recognize .vue files as modules. A file like below is needed to tell TypeScript what a .vue files look like (vue-cli 3.0 template already includes this file).
+```js
+// ./ClientApp/vue-shims.d.ts
+declare module "*.vue" {
+    import Vue from "vue";
+    export default Vue;
+}
+```
+* Running the command `npm run build` as a pre-build event on the project properties doesn't work when using vue-cli 3.0.
 
 ## Additional resources
 * https://vuejs.org/v2/guide - Vue get started guide.
 * https://github.com/vuejs/vue-cli - Vue CLI project.
 * https://webpack.js.org/configuration/ - Webpack configuration documentation.
-* https://github.com/madskristensen/vuepack2017 - Popular Vue.js extension for Visual Studio

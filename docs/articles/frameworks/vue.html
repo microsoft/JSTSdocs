@@ -77,7 +77,7 @@
 <li>Recognize lang attribute on .vue files.</li>
 </ul>
 <h2 id="create-a-vuejs-project-with-the-vue-cli">Create a Vue.js project with the vue-cli</h2>
-<p>Vue.js provides and official CLI for quickly scaffolding projects. If you&#39;ll like to use it to create your application, follow the steps below to setup your developer environment.</p>
+<p>Vue.js provides an official CLI for quickly scaffolding projects. If you would like to use it to create your application, follow the steps below to setup your development environment.</p>
 <div class="NOTE"><h5>Note</h5><p>This steps assumes you already have some knowledge about the Vue.js framework. If not, we suggest to visit <a href="https://vuejs.org/">Vue.js</a> for details about it.</p>
 </div>
 <h3 id="create-a-new-visual-studio-project">Create a new Visual Studio project</h3>
@@ -148,18 +148,23 @@ devtoolFallbackModuleFilenameTemplate: &#39;[absolute-resource-path]?[hash]&#39;
 <p>There is an unknown issue with the vue-cli 3.0 that prevents automating the build process. Everytime you wish to refresh the wwwroot folder you will need to run the command <code>npm run build</code> on the ClientApp folder.</p>
 <h2 id="limitations">Limitations</h2>
 <ul>
-<li>Lang attribute only supports JavaScript and TypeScript languages.</li>
+<li>Lang attribute only supports JavaScript and TypeScript languages. The accepted values are: js, jsx, ts and tsx.</li>
 <li>Lang attribute doesn&#39;t work with template or style tags.</li>
-<li>Debugging .vue files is not supported due to its preprocessed nature.</li>
-<li>.vue files are not recognized as modules. Shimming *.vue files is necessary (vue-cli 3.0 template already includes this file).</li>
-<li>Running the command <code>npm run build</code> as a precompile task doesn&#39;t work when using vue-cli 3.0, for an unknown reason.</li>
+<li>Debugging script blocks in .vue files is not supported due to its preprocessed nature.</li>
+<li>TypeScript doesn&#39;t recognize .vue files as modules. A file like below is needed to tell TypeScript what a .vue files look like (vue-cli 3.0 template already includes this file).
+<code>js
+// ./ClientApp/vue-shims.d.ts
+declare module &quot;*.vue&quot; {
+  import Vue from &quot;vue&quot;;
+  export default Vue;
+}</code></li>
+<li>Running the command <code>npm run build</code> as a pre-build event on the project properties doesn&#39;t work when using vue-cli 3.0.</li>
 </ul>
 <h2 id="additional-resources">Additional resources</h2>
 <ul>
 <li><a href="https://vuejs.org/v2/guide">https://vuejs.org/v2/guide</a> - Vue get started guide.</li>
 <li><a href="https://github.com/vuejs/vue-cli">https://github.com/vuejs/vue-cli</a> - Vue CLI project.</li>
 <li><a href="https://webpack.js.org/configuration/">https://webpack.js.org/configuration/</a> - Webpack configuration documentation.</li>
-<li><a href="https://github.com/madskristensen/vuepack2017">https://github.com/madskristensen/vuepack2017</a> - Popular Vue.js extension for Visual Studio</li>
 </ul>
 </article>
           </div>
