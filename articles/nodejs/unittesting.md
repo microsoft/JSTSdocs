@@ -19,7 +19,13 @@ If your favorite framework is not supported, see [Add support for a unit test fr
 
 Before adding unit tests to your project, make sure the framework you plan to use is installed **locally** in your project. This is easiest using the [npm install window](npm.md#npmInstallWindow).
 
-You can add simple blank tests to your project, using the **Add** > **New Item** dialog box. Both JavaScript and TypeScript are supported in the same project.
+The preferred way to add unit tests to your project is by creating a `tests` folder in
+your project, and setting that as the test root in project properties. You also need
+to select the test framework you want to use.
+
+![Set test root and test framework](../../images/node/unit-test-project-properties.png)
+
+You can add simple blank tests to your project, using the Add New Item dialog, both JavaScript and TypeScript are supported in the same project.
 
 ![Add new unit test](../../images/node/unit-test-add-new-item.png)
 
