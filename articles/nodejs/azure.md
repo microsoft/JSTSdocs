@@ -67,15 +67,14 @@ The next steps show you how to publish from this repository to an Azure App Serv
 
 <img width="618px" src="../../images/linux-appservice/create-appservice-annotated.png"/>
 
-5. Click **Create** to create the App Service. It may take a few minutes
-to deploy.
+5. Click **Create** to create the App Service. It may take a few minutes to deploy.
 
 6. Once created, go to the **Application settings** section, and add a setting with a name of `SCM_SCRIPT_GENERATOR_ARGS` and a value of `--node`.
 
     <img width="575px" src="../../images/linux-appservice/script-generator-args.png"/>
 
 > [!WARNING]
-> The App Service deployment process uses a set of heuristics to determine which type of application to try and run. If a **.sln* file is detected in the deployed content, it will assume an MSBuild based project is being deployed. The setting added above overrides this logic and specifies explicitly that this is a Node.js application. Without this setting, the Node.js application will fail to deploy if the *.sln* file is part of the repository being deployed to the App Service.
+> The App Service deployment process uses a set of heuristics to determine which type of application to try and run. If a **.sln** file is detected in the deployed content, it will assume an MSBuild based project is being deployed. The setting added above overrides this logic and specifies explicitly that this is a Node.js application. Without this setting, the Node.js application will fail to deploy if the *.sln* file is part of the repository being deployed to the App Service.
 
 7. Once created, open the App Service and select **Deployment options**.
 

@@ -8,7 +8,7 @@
     <title>Unit testing in Node.js </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Unit testing in Node.js ">
-    <meta name="generator" content="docfx 2.26.1.0">
+    <meta name="generator" content="docfx 2.36.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -20,7 +20,7 @@
     
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -78,18 +78,15 @@ frameworks without the need to switch to a command prompt.</p>
 <li>Tape (<a href="https://github.com/substack/tape">github.com/substack/tape</a>)</li>
 <li>Export Runner (a Node.js tools specific framework)</li>
 </ul>
-<div class="WARNING"><h5>Warning</h5><p>There is currently an issue in Tape which prevents tests from running.
-If <a href="https://github.com/substack/tape/pull/361">this PR</a> is merged that should be resolved.</p>
+<div class="WARNING"><h5>Warning</h5><p>An issue in Tape currently prevents Tape tests from running.
+If <a href="https://github.com/substack/tape/pull/361">this PR</a> is merged, the issue should be resolved.</p>
 </div>
-<div class="TIP"><h5>Tip</h5><p>If your favorite framework is not supported see <a href="#addingFramework">adding support for a unit test framework</a>
-on how to add support. </p>
-</div>
-<h2 id="writing-unit-tests">Writing unit tests</h2>
-<p>Before adding unit tests to your project, make sure the framework you plan on using is installed <strong>locally</strong> in 
-your project. This is easiest using the <a href="npm.html#npmInstallWindow">npm install window</a>.</p>
-<p>You can add simple blank tests to your project, using the Add New Item dialog, both JavaScript and TypeScript are supported in the same project.</p>
+<p>If your favorite framework is not supported, see <a href="#addingFramework">Add support for a unit test framework</a> for information on adding support. </p>
+<h2 id="write-unit-tests">Write unit tests</h2>
+<p>Before adding unit tests to your project, make sure the framework you plan to use is installed <strong>locally</strong> in your project. This is easiest using the <a href="npm.html#npmInstallWindow">npm install window</a>.</p>
+<p>You can add simple blank tests to your project, using the <strong>Add</strong> &gt; <strong>New Item</strong> dialog box. Both JavaScript and TypeScript are supported in the same project.</p>
 <p><img src="../../images/node/unit-test-add-new-item.png" alt="Add new unit test"></p>
-<p>For a Mocha unit test the file will contain the following code.</p>
+<p>For a Mocha unit test, use the following code:</p>
 <pre><code class="lang-javascript">var assert = require(&#39;assert&#39;);
 
 describe(&#39;Test Suite 1&#39;, function() {
@@ -102,25 +99,21 @@ describe(&#39;Test Suite 1&#39;, function() {
         assert.ok(false, &quot;This should fail&quot;);
     })
 })
-</code></pre><p>And the Test Framework property is set to &#39;Mocha&#39;.</p>
+</code></pre><p>You must also set the <strong>Test Framework</strong> property to <strong>Mocha</strong>.</p>
 <p><img src="../../images/node/UnitTestsFrameworkMocha.png" alt="Test Framework"></p>
-<p>After opening the Test Explorer (from the Test, Windows, Test Explorer menu), the tests will be discovered and
-displayed. If they&#39;re not showing initially rebuild the project to refresh the list.</p>
+<p>After opening Test Explorer (from the <strong>Test</strong> &gt; <strong>Windows</strong> &gt; <strong>Test Explorer</strong> menu), tests are discovered and
+displayed. If tests are not showing initially, then rebuild the project to refresh the list.</p>
 <p><img src="../../images/node/UnitTestsDiscoveryMocha.png" alt="Test Explorer"></p>
-<div class="NOTE"><h5>Note</h5><p>If you use the <code>outdir</code> or <code>outfile</code> option in <code>tsconfig.json</code>, the Text Explorer won&#39;t be able to find your
-unit tests in TypeScript files.</p>
+<div class="NOTE"><h5>Note</h5><p>Do not use the <code>outdir</code> or <code>outfile</code> option in <em>tsconfig.json</em>, because Test Explorer won&#39;t be able to find your unit tests in TypeScript files.</p>
 </div>
-<h2 id="running-tests">Running tests</h2>
-<p>Tests can be run in Visual Studio 2017, or from the command line.</p>
-<h3 id="running-tests-in-visual-studio-2017">Running tests in Visual Studio 2017</h3>
-<p>You can run the tests by clicking the &#39;Run All&#39; link in the Test Explorer window, or by selecting one or more 
-tests or groups, right-clicking and selecting &#39;Run Selected Tests&#39;. Tests will be run in the background, and the
-display will update and show the results. Furhter you can also debug selected tests by selecting
-&#39;Debug Selected Tests&#39;.</p>
-<div class="NOTE"><h5>Note</h5><p>Currently we don&#39;t support profiling tests, or code coverage.</p>
+<h2 id="run-tests">Run tests</h2>
+<p>You can run tests in Visual Studio 2017 or from the command line.</p>
+<h3 id="run-tests-in-visual-studio-2017">Run tests in Visual Studio 2017</h3>
+<p>You can run the tests by clicking the <strong>Run All</strong> link in the Test Explorer window. Or, you can run tests by selecting one or more tests or groups, right-clicking, and selecting <strong>Run Selected Tests</strong> from the shorcut menu. Tests run in the background, and Test Explorer automatically updates and shows the results. Further, you can also debug selected tests by selecting <strong>Debug Selected Tests</strong>.</p>
+<div class="NOTE"><h5>Note</h5><p>We don&#39;t currently support profiling tests, or code coverage.</p>
 </div>
-<h3 id="running-tests-from-the-command-line">Running tests from the command line</h3>
-<p>You can run the tests from the &#39;Developer Command for VS 2017&quot; using the following:</p>
+<h3 id="run-tests-from-the-command-line">Run tests from the command line</h3>
+<p>You can run the tests from the Developer Command Prompt for VS 2017 using the following command:</p>
 <pre><code>vstest.console.exe &lt;path to project file&gt;\NodejsConsoleApp23.njsproj /TestAdapterPath:&lt;VisualStudioFolder&gt;\Common7\IDE\Extensions\Microsoft\NodeJsTools\TestAdapter
 </code></pre><p>This should show output similar to:</p>
 <pre><code>Microsoft (R) Test Execution Command Line Tool Version 15.5.0
@@ -146,28 +139,20 @@ Standard Output Messages:
 Total tests: 2. Passed: 1. Failed: 1. Skipped: 0.
 Test Run Failed.
 Test execution time: 1.5731 Seconds
-</code></pre><div class="NOTE"><h5>Note</h5><p>If you get an error that <code>vstest.console.exe</code> can not be found make sure you&#39;ve openend the Developer Command 
-Prompt and not a regular command prompt. </p>
+</code></pre><div class="NOTE"><h5>Note</h5><p>If you get an error indicating that <em>vstest.console.exe</em> cannot be found, make sure you&#39;ve opened the Developer Command Prompt and not a regular command prompt. </p>
 </div>
-<h2 id="addingFramework">Adding support for a unit test framework</h2>
-<p>You can extend the support for additional test frameworks by implementing the discovery and execution logic
-using JavaScript.
-In the following location: 
-<visualstudiofolder>\Common7\IDE\Extensions\Microsoft\NodeJsTools\TestAdapter\TestFrameworks
-You&#39;ll see folders for the various supported test frameworks.
-Under each folder, a JavaScript file named after the folder contains 2 exported functions:<p>
+<h2 id="addingFramework">Add support for a unit test framework</h2>
+<p>You can extend the support for additional test frameworks by implementing the discovery and execution logic using JavaScript. In the following location:</p>
+<p><em><visualstudiofolder>\Common7\IDE\Extensions\Microsoft\NodeJsTools\TestAdapter\TestFrameworks</visualstudiofolder></em></p>
+<p>You see folders for the supported test frameworks. Under each folder, a JavaScript file named after the folder contains two exported functions:</p>
 <ul>
 <li><code>find_tests</code></li>
 <li><code>run_tests</code></li>
 </ul>
-<p>See the implementation of Mocha for examples of <code>find_tests</code> and <code>run_tests</code> implementations.</p>
-<div class="NOTE"><h5>Note</h5><p>The name of the folder must match the name of the .js file. Discovery of test frameworks happens at VS start.
-If a framework is added while VS is running, VS must be restarted for detection to occur.</p>
-</div>
-<div class="NOTE"><h5>Note</h5><p>Be sure to set the TestFramework property on your test file(s) to match the name of the subfolder under
-TestFrameworks.</p>
-</div>
-</visualstudiofolder></article>
+<p>For examples of <code>find_tests</code> and <code>run_tests</code> implementations, see the implementation of Mocha.</p>
+<p>The name of the folder must match the name of the <em>.js</em> file. Discovery of test frameworks occurs at Visual Studio start. If a framework is added while Visual Studio is running, restart Visual Studio to detect the framework.</p>
+<p>Make sure to set the <strong>TestFramework</strong> property on your test file(s) to match the name of the subfolder under TestFrameworks.</p>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -195,7 +180,7 @@ TestFrameworks.</p>
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
