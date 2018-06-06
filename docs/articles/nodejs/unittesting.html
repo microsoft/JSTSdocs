@@ -84,7 +84,11 @@ If <a href="https://github.com/substack/tape/pull/361">this PR</a> is merged, th
 <p>If your favorite framework is not supported, see <a href="#addingFramework">Add support for a unit test framework</a> for information on adding support. </p>
 <h2 id="write-unit-tests">Write unit tests</h2>
 <p>Before adding unit tests to your project, make sure the framework you plan to use is installed <strong>locally</strong> in your project. This is easiest using the <a href="npm.html#npmInstallWindow">npm install window</a>.</p>
-<p>You can add simple blank tests to your project, using the <strong>Add</strong> &gt; <strong>New Item</strong> dialog box. Both JavaScript and TypeScript are supported in the same project.</p>
+<p>The preferred way to add unit tests to your project is by creating a <code>tests</code> folder in
+your project, and setting that as the test root in project properties. You also need
+to select the test framework you want to use.</p>
+<p><img src="../../images/node/unit-test-project-properties.png" alt="Set test root and test framework"></p>
+<p>You can add simple blank tests to your project, using the Add New Item dialog, both JavaScript and TypeScript are supported in the same project.</p>
 <p><img src="../../images/node/unit-test-add-new-item.png" alt="Add new unit test"></p>
 <p>For a Mocha unit test, use the following code:</p>
 <pre><code class="lang-javascript">var assert = require(&#39;assert&#39;);

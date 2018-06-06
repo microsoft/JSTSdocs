@@ -288,7 +288,7 @@
           "hash": "3B9ScA6syB8Scbsito+pWg=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -357,7 +357,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/nodejs/unittesting.html",
-          "hash": "uNf0pUvJYV1uxg6WyOD8Rw=="
+          "hash": "wgjJRKXpR2v+TcEq72WT6g=="
         }
       },
       "is_incremental": true,
@@ -925,6 +925,17 @@
       "output": {
         "resource": {
           "relative_path": "images/node/unit-test-add-new-item.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/node/unit-test-project-properties.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/node/unit-test-project-properties.png"
         }
       },
       "is_incremental": false,
