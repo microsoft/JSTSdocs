@@ -4,6 +4,7 @@ The Node.js Tools For Visual Studio allows you to write and run unit tests using
 frameworks without the need to switch to a command prompt.
 
 The supported frameworks are:
+
 * Mocha ([mochajs.org](http://mochajs.org/))
 * Jasmine ([Jasmine.github.io](https://jasmine.github.io/))
 * Tape ([github.com/substack/tape](https://github.com/substack/tape))
@@ -15,34 +16,24 @@ The supported frameworks are:
 
 > [!Tip]
 > If your favorite framework is not supported see [adding support for a unit test framework](#addingFramework)
-> on how to add support. 
+> on how to add support.
 
 ## Writing unit tests
 
-Before adding unit tests to your project, make sure the framework you plan on using is installed **locally** in 
+Before adding unit tests to your project, make sure the framework you plan on using is installed **locally** in
 your project. This is easiest using the [npm install window](npm.md#npmInstallWindow).
 
-You can add simple blank tests to your project, using the Add New Item dialog, both JavaScript and TypeScript are supported in the same project.
+The preferred way to add unit tests to your project is by creating a `tests` folder in
+your project, and setting that as the test root in project properties. You also need
+to select the test framework you want to use.
+
+![Set test root and test framework](../../images/node/unit-test-project-properties.png)
+
+Alternatively you can add simple blank tests to your project, using the Add New Item dialog, both JavaScript and TypeScript are supported in the same project.
 
 ![Add new unit test](../../images/node/unit-test-add-new-item.png)
 
-For a Mocha unit test the file will contain the following code.
-
-```javascript
-var assert = require('assert');
-
-describe('Test Suite 1', function() {
-    it('Test 1', function() {
-        assert.ok(true, "This shouldn't fail");
-    })
-
-    it('Test 2', function() {
-        assert.ok(1 === 1, "This shouldn't fail");
-        assert.ok(false, "This should fail");
-    })
-})
-```
-And the Test Framework property is set to 'Mocha'.
+And set the Test Framework property on the file to the required test framework.
 
 ![Test Framework](../../images/node/UnitTestsFrameworkMocha.png)
 
@@ -61,7 +52,7 @@ Tests can be run in Visual Studio 2017, or from the command line.
 
 ### Running tests in Visual Studio 2017
 
-You can run the tests by clicking the 'Run All' link in the Test Explorer window, or by selecting one or more 
+You can run the tests by clicking the 'Run All' link in the Test Explorer window, or by selecting one or more
 tests or groups, right-clicking and selecting 'Run Selected Tests'. Tests will be run in the background, and the
 display will update and show the results. Furhter you can also debug selected tests by selecting
 'Debug Selected Tests'.
@@ -72,6 +63,7 @@ display will update and show the results. Furhter you can also debug selected te
 ### Running tests from the command line
 
 You can run the tests from the 'Developer Command for VS 2017" using the following:
+
 ```
 vstest.console.exe <path to project file>\NodejsConsoleApp23.njsproj /TestAdapterPath:<VisualStudioFolder>\Common7\IDE\Extensions\Microsoft\NodeJsTools\TestAdapter
 ```
@@ -105,17 +97,18 @@ Test execution time: 1.5731 Seconds
 ```
 
 > [!Note]
-> If you get an error that `vstest.console.exe` can not be found make sure you've openend the Developer Command 
-> Prompt and not a regular command prompt. 
+> If you get an error that `vstest.console.exe` can not be found make sure you've openend the Developer Command
+> Prompt and not a regular command prompt.
 
 ## <a name="addingFramework"></a>Adding support for a unit test framework
 
 You can extend the support for additional test frameworks by implementing the discovery and execution logic
 using JavaScript.
-In the following location: 
+In the following location:
 <VisualStudioFolder>\Common7\IDE\Extensions\Microsoft\NodeJsTools\TestAdapter\TestFrameworks
 You'll see folders for the various supported test frameworks.
 Under each folder, a JavaScript file named after the folder contains 2 exported functions:
+
 * `find_tests`
 * `run_tests`
 
