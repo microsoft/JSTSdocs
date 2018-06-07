@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Repos/jsdocs",
+  "source_base_path": "C:/src/github/jsdocs",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -261,10 +261,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/frameworks/vue.html",
-          "hash": "CKByEHP394136fMVUOEn2A=="
+          "hash": "4/+aazp761OJjKNx9bK79A=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
@@ -288,7 +288,7 @@
           "hash": "gg7oQGINzbnlLqTwkVhDdA=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -1049,17 +1049,17 @@
           "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
-        "TocDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
-          "incrementalPhase": "build"
-        },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build"
         },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }
