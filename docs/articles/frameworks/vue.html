@@ -75,12 +75,29 @@
 <ul>
 <li>Supported Script, Style and Template blocks in .vue files.</li>
 <li>Recognize lang attribute on .vue files.</li>
+<li>Preconfigured Vue.js project and file templates.</li>
 </ul>
-<h2 id="create-a-vuejs-project-with-the-vue-cli">Create a Vue.js project with the vue-cli</h2>
+<h2 id="using-the-vuejs-project-and-file-templates">Using the Vue.js project and file templates</h2>
+<p>Visual Studio comes preconfigured with basic Vue.js templates. To use them you need to have installed the Node.js workload. If you don&#39;t have it installed yet, follow the steps localed on <a href="../nodejs/requirements.html">Node.js requirements</a>.</p>
+<h4 id="create-a-basic-vuejs-project">Create a basic Vue.js project</h4>
+<ol>
+<li>Open Visual Studio and choose <strong>File &gt; New &gt; Project</strong> from the main menu.</li>
+<li>Under <strong>JavaScript &gt; Node.js</strong> or <strong>TypeScript &gt; Node.js</strong>, choose <strong>Basic Vue.js Web Application</strong> and click OK.</li>
+</ol>
+<h4 id="adding-a-vue-file">Adding a .vue file</h4>
+<ol>
+<li>Right click on any folder on <strong>Solution Explorer &gt; Add &gt; New Item</strong>.</li>
+<li>Select either <strong>JavaScript Vue Single File Component</strong> or <strong>TypeScript Vue Single File Component</strong>, click Add.</li>
+</ol>
+<h4 id="building-and-debugging">Building and debugging</h4>
+<p>The Vue.js project template uses the build npm script by using a post build event. If you wish to modify this setting, open the project file and locate the PostBuildEvent below:</p>
+<pre><code class="lang-xml">&lt;PostBuildEvent&gt;npm run build&lt;/PostBuildEvent&gt;
+</code></pre><p>Debugging runs <code>node_modules\@vue\cli-service\bin\vue-cli-service.js serve</code>. You can see and modify this settings on the project properties.</p>
+<h2 id="create-a-vuejs-project-with-aspnet-core-and-the-vue-cli">Create a Vue.js project with ASP.NET Core and the vue-cli</h2>
 <p>Vue.js provides an official CLI for quickly scaffolding projects. If you would like to use it to create your application, follow the steps below to setup your development environment.</p>
 <div class="NOTE"><h5>Note</h5><p>This steps assumes you already have some knowledge about the Vue.js framework. If not, we suggest to visit <a href="https://vuejs.org/">Vue.js</a> for details about it.</p>
 </div>
-<h3 id="create-a-new-visual-studio-project">Create a new Visual Studio project</h3>
+<h3 id="create-a-new-aspnet-core-project">Create a new ASP.NET Core project</h3>
 <p>We use an Empty ASP.NET Core Application (C#) for this example, but you can choose from a variety of projects and languages of your choice.</p>
 <h5 id="create-an-empty-project">Create an Empty project:</h5>
 <ol>
