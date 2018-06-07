@@ -8,15 +8,35 @@ In addition to the normal Visual Studio features when writing TypeScript or Java
 
 * Supported Script, Style and Template blocks in .vue files.
 * Recognize lang attribute on .vue files.
+* Preconfigured Vue.js project and file templates.
 
-## Create a Vue.js project with the vue-cli
+## Using the Vue.js project and file templates
+
+Visual Studio comes preconfigured with basic Vue.js templates. To use them you need to have installed the Node.js workload. If you don't have it installed yet, follow the steps localed on [Node.js requirements](../nodejs/requirements.md).
+
+#### Create a basic Vue.js project
+1. Open Visual Studio and choose **File > New > Project** from the main menu.
+1. Under **JavaScript > Node.js** or **TypeScript > Node.js**, choose **Basic Vue.js Web Application** and click OK.
+
+#### Adding a .vue file
+1. Right click on any folder on **Solution Explorer > Add > New Item**.
+2. Select either **JavaScript Vue Single File Component** or **TypeScript Vue Single File Component**, click Add.
+
+#### Building and debugging
+The Vue.js project template uses the build npm script by configuring a post build event. If you wish to modify this setting, open the project file and locate the line below:
+```xml
+<PostBuildEvent>npm run build</PostBuildEvent>
+```
+Debugging runs `node_modules\@vue\cli-service\bin\vue-cli-service.js serve`. You can see and modify this settings on the project properties.
+
+## Create a Vue.js project with ASP.NET Core and the vue-cli
 
 Vue.js provides an official CLI for quickly scaffolding projects. If you would like to use it to create your application, follow the steps below to setup your development environment.
 
 > [!NOTE]
 > This steps assumes you already have some knowledge about the Vue.js framework. If not, we suggest to visit [Vue.js](https://vuejs.org/) for details about it.
 
-### Create a new Visual Studio project
+### Create a new ASP.NET Core project
 
 We use an Empty ASP.NET Core Application (C#) for this example, but you can choose from a variety of projects and languages of your choice.
 
