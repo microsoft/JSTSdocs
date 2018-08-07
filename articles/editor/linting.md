@@ -13,7 +13,7 @@ In order to enforce style concerns or help ensure correctness, you may want to u
 
 ## ESLint
 
-Visual Studio natively supports ESLint for linting JavaScript files, JSX files, and JavaScript contained in script blocks in HTML files. By default, Visual Studio installs ESLint 4 and uses it to lint all .js files, .jsx files, and files containing JavaScript code in script blocks that are included in your project or solution. The set of rules that are used to lint your files is configured by the global ESLint configuration file (.eslintrc) in the User Home folder. Files are linted as you type, and results are shown in the error list and as squiggles in the editor. Information concerning ESLint rules and usage can be found in [the ESLint documentation](https://eslint.org/docs/user-guide/configuring).
+Visual Studio natively supports ESLint for linting JavaScript files, JSX files, and JavaScript contained in script blocks in HTML files. By default, Visual Studio installs ESLint 4 and uses it to lint all open .js files, .jsx files, and files containing JavaScript code in script blocks. The set of rules that are used to lint your files is configured by default using the global ESLint configuration file (.eslintrc) in the User Home folder. Files are linted as you type, and results are shown in the error list and as squiggles in the editor. Information concerning ESLint rules and usage can be found in [the ESLint documentation](https://eslint.org/docs/user-guide/configuring).
 
 ### Configuration
 
@@ -25,7 +25,7 @@ As mentioned above, by default, ESLint will provide results based on the global 
 
 #### Configuring the version of ESLint
 
-Visual Studio will use its installation of ESLint 4 by default. However, if you would like to use a different version, Visual Studio will pick up a local installation of ESLint and use it instead. In particular, if any parent directory of the file you want to be linted contains a `node_modules` folder with an installation of ESLint, then it will use that copy of the linter. Visual Studio is designed to be backwards compatible to ESLint 2.
+Visual Studio will use its installation of ESLint 4 by default. However, if you would like to use a different version, Visual Studio will pick up a local installation of ESLint and use it instead. In particular, if any parent directory of the file you want to be linted contains a `package.json` that lists ESLint as a dependency, as well as a `node_modules` folder with an installation of ESLint, then it will use that copy of the linter. Visual Studio is designed to be backwards compatible to ESLint 2.
 
 > [!WARNING]
 > Before version 4, ESLint did not provide full location information for its results. Therefore, if you are using a version of ESLint earlier than 4, squiggles will appear under the first character of any error location, rather than underneath the whole error.
@@ -43,7 +43,7 @@ Since Visual Studio now lints all files in your project or solution, you may wan
 ### Settings
 ESLint support can be enabled or disabled under Tools -> Options -> Text Editor -> JavaScript/TypeScript -> Linting. Here, you can also reset the global ESLint configuration file to the default recommended by Visual Studio.
 
-Additionally, you can choose to only lint open files (as opposed to your whole project or solution) by selecting "Only report diagnostics for files opened in the editor" under Tools -> Options -> Text Editor -> JavaScript/TypeScript -> Linting.
+Additionally, you can choose to lint your whole project or solution (as opposed to only open files) by selecting "Lint all files included in project, even closed files" under Tools -> Options -> Text Editor -> JavaScript/TypeScript -> Linting.
 
 ## TSLint
 Currently, TSLint is not supported directly by Visual Studio. However, there are extensions available, or it can be used as a command-line tool.
