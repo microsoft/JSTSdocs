@@ -1,6 +1,9 @@
 ### YamlMime:XRefMap
 sorted: true
 references:
+- uid: linting
+  name: JavaScript Linting in Visual Studio
+  href: articles/editor/linting.html
 - uid: msbuild
   name: MSBuild Configuration
   href: articles/configuration/msbuild.html

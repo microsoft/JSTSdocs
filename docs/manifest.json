@@ -177,10 +177,10 @@
       "output": {
         ".html": {
           "relative_path": "articles/editor/linting.html",
-          "hash": "rEo4BZ61730+QS5H5aDVyA=="
+          "hash": "y7FTOqQUQ0Bih+E10yaX9Q=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/frameworks/vue.html",
-          "hash": "DvcwCtKnMUtd0dIkIgfYXQ=="
+          "hash": "CVDiH7p3okR2YAK/E+6ZKw=="
         }
       },
       "is_incremental": true,
@@ -1050,6 +1050,11 @@
         "incrementalPhase": "build"
       },
       "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
@@ -1057,11 +1062,6 @@
         },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
-          "incrementalPhase": "build"
-        },
-        "ResourceDocumentProcessor": {
-          "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }

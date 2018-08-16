@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Linting </title>
+    <title>JavaScript Linting in Visual Studio </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Linting ">
+    <meta name="title" content="JavaScript Linting in Visual Studio ">
     <meta name="generator" content="docfx 2.36.1.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -66,14 +66,31 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="linting">
 <h1 id="linting">Linting</h1>
 
-<p>We have two languages, but only built in support for one linter.</p>
+<p>In order to enforce style concerns or help ensure correctness, you may want to use a linter. Here, we will discuss support in Visual Studio for linting JavaScript and TypeScript code.</p>
 <h2 id="eslint">ESLint</h2>
-<p>Switch it on / off in Tools / Options</p>
+<p>Visual Studio natively supports ESLint for linting JavaScript files, JSX files, and JavaScript contained in script blocks in HTML files. By default, Visual Studio installs ESLint 4 and uses it to lint all open .js files, .jsx files, and files containing JavaScript code in script blocks. The set of rules that are used to lint your files is configured by default using the global ESLint configuration file (.eslintrc) in the User Home folder. Files are linted as you type, and results are shown in the error list and as squiggles in the editor. Information concerning ESLint rules and usage can be found in <a href="https://eslint.org/docs/user-guide/configuring">the ESLint documentation</a>.</p>
+<h3 id="configuration">Configuration</h3>
+<p>Visual Studio offers several ways that you can configure its support for ESLint.</p>
+<h4 id="configuring-rules-enforced-by-eslint">Configuring rules enforced by ESLint</h4>
+<p>As mentioned above, by default, ESLint will provide results based on the global ESLint configuration file, and you can configure your results by editing this file. However, if you would like to use a specific ESLint configuration for a particular directory, you can add a configuration file to that directory, and all files contained in that folder or any subdirectory will use that configuration file instead of the global one. More details can be found in <a href="https://eslint.org/docs/user-guide/configuring#using-configuration-files">the ESLint documentation</a>.</p>
+<h4 id="configuring-the-version-of-eslint">Configuring the version of ESLint</h4>
+<p>Visual Studio will use its installation of ESLint 4 by default. However, if you would like to use a different version, Visual Studio will pick up a local installation of ESLint and use it instead. In particular, if any parent directory of the file you want to be linted contains a <code>package.json</code> that lists ESLint as a dependency, as well as a <code>node_modules</code> folder with an installation of ESLint, then it will use that copy of the linter. Visual Studio is designed to be backwards compatible to ESLint 2.</p>
+<div class="WARNING"><h5>Warning</h5><p>Before version 4, ESLint did not provide full location information for its results. Therefore, if you are using a version of ESLint earlier than 4, squiggles will appear under the first character of any error location, rather than underneath the whole error.</p>
+</div>
+<h4 id="configuring-files-to-be-ignored">Configuring files to be ignored</h4>
+<p>Since Visual Studio now lints all files in your project or solution, you may want to choose some files or directories for it to ignore. To do so, Visual Studio supports the <code>.eslintignore</code> file. When such a file is located in a project&#39;s root directory, ESLint will use it to exclude the requested files or directories from linting. More information on usage of the <code>.eslintignore</code> file can be found in <a href="https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories">the ESLint documentation</a>.</p>
+<div class="NOTE"><h5>Note</h5><p>When using a <code>jsconfig.json</code> file or a <code>tsconfig.json</code> file, the location of that file is considered to be the project root. Otherwise, the location of the project file (e.g., a <code>.csproj</code> file) is considered to be the project root. In scenarios without such a file, such as when using Open Folder, an <code>.eslintignore</code> file in the User Home folder will be recognized.</p>
+</div>
+<div class="NOTE"><h5>Note</h5><p>Since ASP.NET Core projects frequently include JavaScript libraries in the <code>wwwroot\lib</code> directory, files in that directory will not be linted by default. If you do want these files to be linted, you can re-include that directory or any file or subdirectory it contains by using an <code>.eslintignore</code> file.</p>
+</div>
+<h3 id="settings">Settings</h3>
+<p>ESLint support can be enabled or disabled under Tools -&gt; Options -&gt; Text Editor -&gt; JavaScript/TypeScript -&gt; Linting. Here, you can also reset the global ESLint configuration file to the default recommended by Visual Studio.</p>
+<p>Additionally, you can choose to lint your whole project or solution (as opposed to only open files) by selecting &quot;Lint all files included in project, even closed files&quot; under Tools -&gt; Options -&gt; Text Editor -&gt; JavaScript/TypeScript -&gt; Linting.</p>
 <h2 id="tslint">TSLint</h2>
-<p>Not provided in VS, but extensions are available.</p>
+<p>Currently, TSLint is not supported directly by Visual Studio. However, there are extensions available, or it can be used as a command-line tool.</p>
 </article>
           </div>
           
