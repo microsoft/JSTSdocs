@@ -13,7 +13,7 @@ In order to enforce style concerns or help ensure correctness, you may want to u
 
 ## ESLint
 
-Visual Studio natively supports ESLint for linting JavaScript files, JSX files, and JavaScript contained in script blocks in HTML files. By default, Visual Studio installs ESLint 4 and uses it to lint all open .js files, .jsx files, and files containing JavaScript code in script blocks. The set of rules that are used to lint your files is configured by default using the global ESLint configuration file (.eslintrc) in the User Home folder. Files are linted as you type, and results are shown in the error list and as squiggles in the editor. Information concerning ESLint rules and usage can be found in [the ESLint documentation](https://eslint.org/docs/user-guide/configuring).
+Visual Studio natively supports ESLint for linting JavaScript files and JSX files. By default, Visual Studio installs ESLint 4 and uses it to lint all open .js files and .jsx files. The set of rules that are used to lint your files is configured by default using the global ESLint configuration file (.eslintrc) in the User Home folder. Files are linted as you type, and results are shown in the error list and as squiggles in the editor. Information concerning ESLint rules and usage can be found in [the ESLint documentation](https://eslint.org/docs/user-guide/configuring).
 
 ### Configuration
 
@@ -35,7 +35,7 @@ Visual Studio will use its installation of ESLint 4 by default. However, if you 
 Since Visual Studio now lints all files in your project or solution, you may want to choose some files or directories for it to ignore. To do so, Visual Studio supports the `.eslintignore` file. When such a file is located in a project's root directory, ESLint will use it to exclude the requested files or directories from linting. More information on usage of the `.eslintignore` file can be found in [the ESLint documentation](https://eslint.org/docs/user-guide/configuring#ignoring-files-and-directories).
 
 > [!NOTE]
-> When using a `jsconfig.json` file or a `tsconfig.json` file, the location of that file is considered to be the project root. Otherwise, the location of the project file (e.g., a `.csproj` file) is considered to be the project root. In scenarios without such a file, such as when using Open Folder, an `.eslintignore` file in the User Home folder will be recognized.
+> When using a `jsconfig.json` file, or when using a `tsconfig.json` file with `allowJS` enabled, the location of that file is considered to be the project root. Otherwise, the location of the project file (e.g., a `.csproj` file) is considered to be the project root. In scenarios without such a file, such as when using Open Folder or when the rooting `tsconfig.json` does not have `allowJS` enabled, an `.eslintignore` file in the User Home folder will be recognized.
 
 > [!NOTE]
 > Since ASP.NET Core projects frequently include JavaScript libraries in the `wwwroot\lib` directory, files in that directory will not be linted by default. If you do want these files to be linted, you can re-include that directory or any file or subdirectory it contains by using an `.eslintignore` file.
