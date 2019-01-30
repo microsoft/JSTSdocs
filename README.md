@@ -2,6 +2,10 @@
 
 This repository contains documentation for using the JavaScript and TypeScript languages in VS 2017 and 2019.
 
+- Overview
+    - [Visual Studio 2019](articles/index-2019.md) 
+    - [Visual Studio 2017](articles/index.md)
+
 
 - Build
     - [Building via Nuget](articles/build/nuget.md)
