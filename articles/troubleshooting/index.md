@@ -206,7 +206,7 @@ Logging is easiest enabled by setting an environment variable. This can be set v
 on the command line before launching Visual Studio. Below describes how to do it via the command-line.
 
 1. Open an instance of the `"Developer Command Prompt for VS 2017"`.
-2. Set the environment variable with a command such as: `SET TSS_LOG=-level verbose -file C:\temp\logs\tsserver.log`
+2. Set the environment variable with a command such as: `SET TSS_LOG=-level verbose -file C:\temp\logs\tsserver.PID.log`
 3. Launch VS 2017 from the same command prompt by running `devenv.exe`.
 
 > [!NOTE]
