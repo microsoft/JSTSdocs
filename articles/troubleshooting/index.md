@@ -212,8 +212,8 @@ on the command line before launching Visual Studio. Below describes how to do it
 > [!NOTE]
 > The folder to contain the log file referenced in step 2 should already exist
 
-After reproducing the problem, log files should be created in the folder specified. (There will be a `tsserver.log` file
-created for the langauge service process, and a `ti-<ProcId>.log` file created for any types installer processes).
+After reproducing the problem, log files should be created in the folder specified. (There will be a `tsserver.<ProcId>.log` file
+created for each langauge service process, and a `ti-<ProcId>.log` file created for any types installer processes).
 
 > [!WARNING]
 > The log file may contain sensitive information, such as file paths, segments of code, and 
