@@ -24,7 +24,7 @@ As an alternative to using the TypeScript SDK with MSBuild to compile TypeScript
 * Right-Click -> Manage NuGet Packages
 * Search for `Microsoft.TypeScript.MSBuild`
 
-    <img src="../../images/nugetMsBuild.png" width="100%" alt="Search for NuGet Package"/>
+    <img src="../../images/nugetMSBuild.png" width="100%" alt="Search for NuGet Package"/>
 
 * Hit `Install`
 * When install is complete, rebuild!
@@ -37,13 +37,13 @@ As an alternative to using the TypeScript SDK with MSBuild to compile TypeScript
   * Name: `TypeScript Nightly`
   * Source: `https://www.myget.org/F/typescript-preview/`
 
-        <img src="../../images/mygetAddSource.png" width="700px" alt="Add New Package Source"/>
+       <img src="../../images/mygetAddSource.PNG" width="700px" alt="Add New Package Source"/>
 
 2. Use the new Package Source
  * On Project node Right-Click -> `Manage NuGet Packages`
  * Search for `Microsoft.TypeScript.MSBuild`
         
-        <img src="../../images/mygetMSBuild.png" width="700px" alt="Search for NuGet Nightly Build Package"/>
+      <img src="../../images/mygetMSBuild.PNG" width="700px" alt="Search for NuGet Nightly Build Package"/>
 
  * Hit `Install`
  * When install is complete, rebuild!
@@ -110,8 +110,8 @@ As an alternative to using the TypeScript SDK with MSBuild to compile TypeScript
 
     3. `tsc`
 
-        This folder contains `tsc.exe` and all dependency files required to execute the exe.
-        On Windows, `TypeScript.Tasks.dll` uses the `tsc.exe` to build projects.
-        On non-Windows, `TypeScript.Tasks.dll` uses Node.js to run `tsc.js` - implying that it is required for Node.js to be installed on these platforms.
+        This folder contains `tsc.js`, `tsserver.js` and all dependency files required to run them as node scripts.
         > [!NOTE]
-        > Since we use Node.js to run the compiler on non-Windows platforms, Node.js must be installed in this scenario.
+        > If Visual Studio is installed then the `node.exe` bundled with it will automatically be picked up. Otherwise Node.js must be installed on the machine.
+        
+        Versions prior to 3.1 contained a `tsc.exe` executable to run the compilation. In version 3.1 this was removed in favor of using `node.exe`.
