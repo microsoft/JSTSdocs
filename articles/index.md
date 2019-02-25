@@ -10,12 +10,11 @@ The language service underlying the JavaScript experience is all new for Visual 
 the same engine that provides TypeScript support. This provides for a level of feature support, richness,
 and integration that was not possible with the previous JavaScript language service.
 
-> [!WARNING]
-> With the new JavaScript language service, while many new features were enabled, some features
+> :warning: With the new JavaScript language service, while many new features were enabled, some features 
 > were also removed. In particular, [IntelliSense extensions](https://msdn.microsoft.com/en-us/library/hh874692.aspx)
 > based on the prior language service will not run in the new language service, and the
->  [XML documentation comments](https://msdn.microsoft.com/en-us/library/hh524453.aspx) format is no longer recognized.
-> See the [Editor IntelliSense](editor/intellisense.md) and [JsDoc](types/jsdoc.md) topics for alternatives.
+> [XML documentation comments](https://msdn.microsoft.com/en-us/library/hh524453.aspx) format is no longer recognized.
+> See the [JsDoc](types/jsdoc.md) topic for alternatives.
 
 The below provides a high-level overview of various feature areas, with links to more in-depth documentation.
 
@@ -25,8 +24,6 @@ While JavaScript or TypeScript files can be directly added to many project types
 provide an enhanced experience via preconfigured new project templates, rich build support, integrated
 debuggers, etc. These include ASP.NET & ASP.NET Core projects for web development, Node.js project support,
 Cordova for mobile development, and features to support UWP applications.
-
-See the [Projects](projects/index.md) documentation for more information.
 
 ## Custom configuration
 
@@ -38,15 +35,11 @@ IntelliSense for, configuration settings for source-map support, settings to con
 Since Visual Studio 2017 Update 2, side-by-side versions of the language service are supported. This enables
 different projects to target different versions of the language.
 
-See the [Configuration](configuration/index.md) documentation for more information.
-
 ## Advanced editing features
 
 The JavaScript and TypeScript languages use the same [Roslyn](https://github.com/dotnet/roslyn)-powered
 editor in Visual Studio 2017 that is used for languages such as C#, Visual Basic, etc. This provides a
 rich and consistent experience in which to view, edit, and navigate code.
-
-See the [Editor](editor/index.md) documentation for more information.
 
 ## Rich type information
 
@@ -56,8 +49,6 @@ JavaScript frameworks that have been authored [by the community](https://github.
 Using these type definitions, or type definitions from elsewhere (including your own), IntelliSense
 can provide rich and accurate suggestions, and type checking can catch errors in code. For JavaScript projects,
 by default, many of the type definitions needed can be automatically detected and added to the project.
-
-See the [Types](types/index.md) documentation for more information.
 
 ## First class Node.js support
 
@@ -75,8 +66,6 @@ that have had an outsized impact on the community, among them React, Angular, Vu
 to name a few. Visual Studio 2017 provides direct support for a number of these, with others support
 via easily configured extensions.
 
-See the [Frameworks](frameworks/index.md) documentation for more information.
-
 ## Integrated debugging for multiple platforms
 
 Integrated into Visual Studio 2017 is support for debugging several JavaScript engines; among these
@@ -86,8 +75,6 @@ the new post-Node.js 8.0 debugger).
 These debuggers also have various levels of support for consuming "source-maps", which provide a format
 and mechanism to map from one set of source code to another. For example, from the original TypeScript
 code the author wrote, to the minified JavaScript output by WebPack that a debugger consumes.
-
-See the [Debugger](debugging/index.md) documentation for more information.
 
 ## Integrated build environment
 
@@ -99,5 +86,3 @@ feature, enabling the output to stay up-to-date as the developer works, without 
 Beyond the MSBuild support provided by the installation
 of Visual Studio, there is also a [TypeScript NuGet package](https://www.nuget.org/packages/Microsoft.TypeScript.MSBuild/)
 to provide for cross-platform build.
-
-See the [Build](build/index.md) documentation for more information.
