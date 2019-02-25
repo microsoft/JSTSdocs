@@ -24,5 +24,6 @@ This repository contains documentation for using the JavaScript and TypeScript l
 - Troubleshooting
     - [Language service disabled](articles/troubleshooting/jsdisabled.md)
     - [Newtonsoft.json versioning](articles/troubleshooting/newtonsoft.md)
+    - [Missing or unexpected errors](articles/troubleshooting/diagnostics.md)
 
 - FAQ
