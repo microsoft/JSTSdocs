@@ -212,6 +212,9 @@ on the command line before launching Visual Studio. Below describes how to do it
 > [!NOTE]
 > The folder to contain the log file referenced in step 2 should already exist
 
+> [!NOTE]
+> If your TypeScript version is less than 3.1, please `Disable dedicated syntax process` under Tools > Options > Text Editor > JavaScript/TypeScript > Language Service and restart Visual Studio
+
 After reproducing the problem, log files should be created in the folder specified. (There will be a `tsserver.<ProcId>.log` file
 created for each langauge service process, and a `ti-<ProcId>.log` file created for any types installer processes).
 
