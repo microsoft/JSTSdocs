@@ -26,7 +26,7 @@ Since a particular machine may have multiple versions of TypeScript installed, M
 ## Input files
 There are two ways of including TypeScript files in the compilation: either using a tsconfig.json file or the `TypeScriptCompile` MSBuild item type.
 ### With TSConfig
-One option for allowing MSBuild to recognize what TypeScript files are part of your project is by way of a tsconfig.json file. This configuration file can either be explicitly associated with your .csproj in the Content item list, as shown in the example below, or it can be simply included as part of the directory tree rooted at the directory containing your project file. 
+One option for allowing MSBuild to recognize what TypeScript files are part of your project is by way of a tsconfig.json file. This configuration file can registered for build configuration by being explicitly associated with your .csproj in the Content item list, as shown in the example below. Otherwise, if your project has no items included as part of the Content item list, it can be simply included as part of the directory tree rooted at the directory containing your project file. 
 ```xml
 <ItemGroup>
     <Content Include="myfolder/tsconfig.json" />
