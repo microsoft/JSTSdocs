@@ -1,6 +1,6 @@
 # Intellisense
 
-> [!NOTE]
+> :pushpin:
 > Cover using .d.ts files to fund intellisense.
 
 Intellisense is a broad topic. Let's get started...

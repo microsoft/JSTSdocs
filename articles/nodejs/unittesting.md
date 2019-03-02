@@ -9,11 +9,11 @@ The supported frameworks are:
 * Tape ([github.com/substack/tape](https://github.com/substack/tape))
 * Export Runner (a Node.js tools specific framework)
 
-> [!Warning]
+> :warning:
 > An issue in Tape currently prevents Tape tests from running.
 > If [this PR](https://github.com/substack/tape/pull/361) is merged, the issue should be resolved.
 
-If your favorite framework is not supported, see [Add support for a unit test framework](#addingFramework) for information on adding support. 
+If your favorite framework is not supported, see [Add support for a unit test framework](#addingFramework) for information on adding support.
 
 ## Write unit tests
 
@@ -55,7 +55,7 @@ displayed. If tests are not showing initially, then rebuild the project to refre
 
 ![Test Explorer](../../images/node/UnitTestsDiscoveryMocha.png)
 
-> [!NOTE]
+> :pushpin:
 > Do not use the `outdir` or `outfile` option in *tsconfig.json*, because Test Explorer won't be able to find your unit tests in TypeScript files.
 
 ## Run tests
@@ -66,7 +66,7 @@ You can run tests in Visual Studio 2017 or from the command line.
 
 You can run the tests by clicking the **Run All** link in the Test Explorer window. Or, you can run tests by selecting one or more tests or groups, right-clicking, and selecting **Run Selected Tests** from the shorcut menu. Tests run in the background, and Test Explorer automatically updates and shows the results. Further, you can also debug selected tests by selecting **Debug Selected Tests**.
 
-> [!NOTE]
+> :pushpin:
 > We don't currently support profiling tests, or code coverage.
 
 ### Run tests from the command line
@@ -105,13 +105,13 @@ Test Run Failed.
 Test execution time: 1.5731 Seconds
 ```
 
-> [!NOTE]
-> If you get an error indicating that *vstest.console.exe* cannot be found, make sure you've opened the Developer Command Prompt and not a regular command prompt. 
+> :pushpin:
+> If you get an error indicating that *vstest.console.exe* cannot be found, make sure you've opened the Developer Command Prompt and not a regular command prompt.
 
 ## <a name="addingFramework"></a>Add support for a unit test framework
 
 You can extend the support for additional test frameworks by implementing the discovery and execution logic using JavaScript. In the following location:
- 
+
 *<VisualStudioFolder>\Common7\IDE\Extensions\Microsoft\NodeJsTools\TestAdapter\TestFrameworks*
 
 You see folders for the supported test frameworks. Under each folder, a JavaScript file named after the folder contains two exported functions:

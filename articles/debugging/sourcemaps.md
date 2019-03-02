@@ -2,7 +2,7 @@
 
 Visual Studio has the capability to use and generate source maps on JavaScript source files. This is often required if your source is minified or created by a transpiler like TypeScript. By default it will generate it for you.
 
-> [!NOTE]
+> :pushpin:
 > We're going to assume you already know about source maps. If not, we suggest to read the page [Introduction to JavaScript Source Maps](https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/).
 
 See below if you'll like to know how to configure more advance settings. You can use either a tsconfig.json or the project settings, but not both.

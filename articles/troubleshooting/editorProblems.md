@@ -1,6 +1,6 @@
 # Editor Problems
 
-> [!NOTE]
+> :pushpin:
 > This page attempts to explain that the "why" as well as the "how", as investigations are
 > often more fruitful when the underlying mechanics and the reason for changes are understood.
 > Many of the details below may be skipped over if not useful or interesting.
@@ -35,7 +35,7 @@ If the above and below investigations don't help, try repairing Visual Studio. T
  Search for `"TypeScript"` and ensure the TypeScript Tools are listed, and are not disabled. Do the same for the
  `"Visual Studio extension for TextMate grammars"` (which is used to provide syntax highlighting).
 
- > [!NOTE]
+ > :pushpin:
  > Currently there is also a bug whereby if the `"Azure Functions and Web Jobs Tools"` extension is
  > disabled, then this can break the JavaScript & TypeScript language service. Please check this also.
 

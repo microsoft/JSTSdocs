@@ -1,13 +1,13 @@
 # Node.js requirements
 
-To install support for developing Node.js application in Visual Studio 2017, follow the instructions for selecting the Node.js workload in the Visual Studio 2017 installer, and downloading and installing the 
+To install support for developing Node.js application in Visual Studio 2017, follow the instructions for selecting the Node.js workload in the Visual Studio 2017 installer, and downloading and installing the
 Node.js runtime.
 
-To quickly test the Node.js support after following the installation steps, open the Node.js Interactive 
+To quickly test the Node.js support after following the installation steps, open the Node.js Interactive
 Window by pressing Alt-K,N and entering `2+2`. If you don't see the output of `4`, recheck your steps.
 For details, see [Using the Interactive Window](interactivewindow.md).
 
-> [!Note]
+> :pushpin:
 > Node.js support is not presently available in Visual Studio for Mac, but is available on Mac and Linux
 through Visual Studio Code.
 
@@ -20,7 +20,7 @@ through Visual Studio Code.
     (https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15&utm_source=docs&utm_medium=clickbutton)
 
     >[!Tip]
-    > The Community edition is for individual developers, classroom learning, academic research, and open source development. For other uses, install [Visual Studio 2017 Professional](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Professional&rel=15&utm_source=docs&utm_medium=clickbutton) 
+    > The Community edition is for individual developers, classroom learning, academic research, and open source development. For other uses, install [Visual Studio 2017 Professional](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Professional&rel=15&utm_source=docs&utm_medium=clickbutton)
     or [Visual Studio 2017 Enterprise](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Enterprise&rel=15&utm_source=docs&utm_medium=clickbutton).
 
 1. The installer presents you with a list of workloads, which are groups of related options for specific development areas. For Node.js, select the **Node.js** workload.
@@ -31,7 +31,7 @@ through Visual Studio Code.
 
     ![Node.js development options in the Visual Studio installer](../../images/node/installation-nodejs-options.png)
 
-    | Option | Description | 
+    | Option | Description |
     | --- | --- |
     | Connectivity and publishing tools | Publishing to Azure ?? |
     | Developer Analytics tools | No idea ?? |
@@ -44,11 +44,11 @@ through Visual Studio Code.
 
 ## Installing the Node.js runtime
 
-Node.js support doesn't come with a Node.js Runtime, so you need to install a version from the 
-[Node.js website](https://nodejs.org/en/download/). In general, Visual Studio automatically detects the 
+Node.js support doesn't come with a Node.js Runtime, so you need to install a version from the
+[Node.js website](https://nodejs.org/en/download/). In general, Visual Studio automatically detects the
 installed Node.js runtime, if it does not detect an installed runtime you can configure your project
 to reference the installed runtime.
 
 >[!Tip]
->Although Visual Studio 2017 does support older versions, we recommend you install at least the 
-current LTS Version.  
+>Although Visual Studio 2017 does support older versions, we recommend you install at least the
+current LTS Version.

@@ -33,7 +33,7 @@ Debugging runs `node_modules\@vue\cli-service\bin\vue-cli-service.js serve`. You
 
 Vue.js provides an official CLI for quickly scaffolding projects. If you would like to use it to create your application, follow the steps below to setup your development environment.
 
-> [!NOTE]
+> :pushpin:
 > This steps assumes you already have some knowledge about the Vue.js framework. If not, we suggest to visit [Vue.js](https://vuejs.org/) for details about it.
 
 ### Create a new ASP.NET Core project

@@ -12,16 +12,16 @@ on the command line before launching Visual Studio. Below describes how to do it
 2. Set the environment variable with a command such as: `SET TSS_LOG=-level verbose -file C:\temp\logs\tsserver.PID.log`
 3. Launch VS 2017 from the same command prompt by running `devenv.exe`.
 
-> [!NOTE]
+> :pushpin:
 > The folder to contain the log file referenced in step 2 should already exist
 
-> [!NOTE]
+> :pushpin:
 > If your TypeScript version is less than 3.1, please `Disable dedicated syntax process` under Tools > Options > Text Editor > JavaScript/TypeScript > Language Service and restart Visual Studio
 
 After reproducing the problem, log files should be created in the folder specified. (There will be a `tsserver.<ProcId>.log` file
 created for each langauge service process, and a `ti-<ProcId>.log` file created for any types installer processes).
 
-> [!WARNING]
+> :warning:
 > The log file may contain sensitive information, such as file paths, segments of code, and
 > data used for completion lists, signature help, etc. Review the file before sharing if this is a concern.
 
@@ -48,7 +48,7 @@ and allowing the trace to finish packaging. Do not hit Cancel in PerfView, as th
 The zip file created contains detailed logging of file access, asynchronous tasks, Visual Studio internal
 events, and events from the TypeScript/JavaScript language service.
 
-> [!CAUTION]
+> :warning:
 > The log file created can be extremely large - in the order of hundreds of megabytes per minute - and
 > contains system-wide details including call-stacks, file access, etc. Ensure you have sufficient
 > disk space, stop logging promptly after reproducing the problem, and do not share the trace if it may
