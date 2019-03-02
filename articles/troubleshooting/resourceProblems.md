@@ -14,7 +14,7 @@ of source code analyzed, as shown below.
 
 # Reducing the amount of source loaded
 
-By default, without a `tsconfig.json` file present, a Visual Studio 2017 project will create
+By default, without a `tsconfig.json` file present, a Visual Studio project will create
 a TypeScript "context" that includes all the TypeScript files, and another for any JavaScript files. These
 contexts may be controlled somewhat with TypeScript settings in the Visual Studio project file, however
 for more control over the "contexts" and their settings, adding `tsconfig.json` files is recommended.
@@ -29,7 +29,7 @@ For TypeScript code, or JavaScript code with JsDoc annotations, this can be high
 for many JavaScript files - especially large libraries - this results in a lot of work, with often limited
 results.
 
-For some common JavaScript libraries, the langauge service can recognize the library files, and will
+For some common JavaScript libraries, the language service can recognize the library files, and will
 automatically fetch the type definitions for it rather than process the JavaScript code directly. For
 some project structures however, this is insufficient, and assisting the language service via explicit
 configuration can be highly beneficial.
@@ -81,7 +81,7 @@ The above `tsconfig.json` file contains several other options that may be benefi
 
 ## Editor settings
 
-Within Visual Studio 2017, the default behavior is to create the language service contexts for every
+Within Visual Studio, the default behavior is to create the language service contexts for every
 project in a solution. In VS2017 Update 3 an option was added to only create the contexts for projects
 that have files open in the editor. This can significantly reduce memory usage, but does mean that
 projects without files open may contain errors that will not show in the editor while editing. (Though

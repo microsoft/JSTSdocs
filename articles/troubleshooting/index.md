@@ -1,16 +1,16 @@
 # Enable detailed language service logging
 
 The "brains" of the language service largely runs in a node.exe process running the `tsserver.js` script.
-Visual Studio 2017 communicates with this process to keep the project in sync, and ask questions for the
+Visual Studio communicates with this process to keep the project in sync, and ask questions for the
 editor. This communication can be logged, which can be very helpful in identifying where issues might be
 occurring.
 
 Logging is easiest enabled by setting an environment variable. This can be set via system properties, or
 on the command line before launching Visual Studio. Below describes how to do it via the command-line.
 
-1. Open an instance of the `"Developer Command Prompt for VS 2017"`.
+1. Open an instance of the `"Developer Command Prompt for VS 2017"` (or `2019`).
 2. Set the environment variable with a command such as: `SET TSS_LOG=-level verbose -file C:\temp\logs\tsserver.PID.log`
-3. Launch VS 2017 from the same command prompt by running `devenv.exe`.
+3. Launch Visual Studio from the same command prompt by running `devenv.exe`.
 
 > :pushpin:
 > The folder to contain the log file referenced in step 2 should already exist
@@ -36,7 +36,7 @@ on ETW, see [this MSDN documentation](https://msdn.microsoft.com/en-us/library/w
 One of the most powerful tools to capture (and view) ETW events is PerfView. PerfView is an open source
 tool and the latest release can be downloaded from https://github.com/Microsoft/perfview/releases .
 
-With PerfView downloaded and the executable extracted and unblocked, open a `"Developer Command Prompt for VS 2017"`
+With PerfView downloaded and the executable extracted and unblocked, open a `"Developer Command Prompt for VS 2017"` (or `2019`)
 with Administrative rights, and run the following commands:
 
 1. `SET VSEXE=%VSINSTALLDIR%Common7\IDE\devenv.exe`
