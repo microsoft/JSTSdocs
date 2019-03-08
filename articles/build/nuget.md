@@ -12,11 +12,11 @@ uid: tsnuget
 
 As an alternative to using the TypeScript SDK with MSBuild to compile TypeScript, you can also use the TypeScript NuGet package `Microsoft.TypeScript.MSBuild`. This allows you to install a particular version of TypeScript locally to your project.
 
-> [!NOTE]
+> :pushpin:
 > One common use case for the NuGet package is for compiling TypeScript using the .NET Core CLI. Unless you are willing to hand-edit your project file to import build targets from a TypeScript SDK installation, the NuGet package is the only way to enable TypeScript compilation using .NET Core CLI commands such as `dotnet build` and `dotnet publish`.
 
->[!CAUTION]
-> If you are using the NuGet package for MSBuild support for a given project, that project file must not itself import `Microsoft.TypeScript.Default.props` or `Microsoft.TypeScript.targets`. 
+>:warning:
+> If you are using the NuGet package for MSBuild support for a given project, that project file must not itself import `Microsoft.TypeScript.Default.props` or `Microsoft.TypeScript.targets`.
 > These will be imported by the NuGet package, so including them separately could cause unintended behavior. See [Removing Default Imports](#removing-default-imports) for details on what to remove.
 
 ## Installing major releases via NuGet (https://www.nuget.org)
@@ -31,7 +31,7 @@ As an alternative to using the TypeScript SDK with MSBuild to compile TypeScript
 
 ## Installing nightly drops (https://www.myget.org)
 
-1. Add a new Package Source 
+1. Add a new Package Source
  * Go to `Tools` -> `Options` -> `NuGet Package Manager` -> `Package Sources`
  * Create a new Source:
   * Name: `TypeScript Nightly`
@@ -42,7 +42,7 @@ As an alternative to using the TypeScript SDK with MSBuild to compile TypeScript
 2. Use the new Package Source
  * On Project node Right-Click -> `Manage NuGet Packages`
  * Search for `Microsoft.TypeScript.MSBuild`
-        
+
       <img src="../../images/mygetMSBuild.PNG" width="700px" alt="Search for NuGet Nightly Build Package"/>
 
  * Hit `Install`
@@ -92,7 +92,7 @@ As an alternative to using the TypeScript SDK with MSBuild to compile TypeScript
         This file imports `Microsoft.TypeScript.Default.props` from the `tools` folder and sets properties indicating that the build has been initiated through NuGet.
 
 * `tools` folder
-    
+
     Versions prior to 2.3 only contain a tsc folder. `Microsoft.TypeScript.targets` and `TypeScript.Tasks.dll` are located at the root level.
 
     In versions 2.3 and later, the root level contains `Microsoft.TypeScript.targets` and `Microsoft.TypeScript.Default.props`. See [MSBuild Configuration](xref:msbuild) for more details on these files.
@@ -111,7 +111,7 @@ As an alternative to using the TypeScript SDK with MSBuild to compile TypeScript
     3. `tsc`
 
         This folder contains `tsc.js`, `tsserver.js` and all dependency files required to run them as node scripts.
-        > [!NOTE]
+        > :pushpin:
         > If Visual Studio is installed then the `node.exe` bundled with it will automatically be picked up. Otherwise Node.js must be installed on the machine.
-        
+
         Versions prior to 3.1 contained a `tsc.exe` executable to run the compilation. In version 3.1 this was removed in favor of using `node.exe`.

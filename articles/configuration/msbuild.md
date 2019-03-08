@@ -14,7 +14,7 @@ uid: msbuild
 
 There are two different sources of information that tell MSBuild how to handle TypeScript. The first, `Microsoft.TypeScript.Default.props`, establishes some default TypeScript compilation settings. The second, `Microsoft.TypeScript.targets`, gives instructions on how to handle TypeScript files as part of the building and cleaning processes. To include these in your project, you will need to (in most cases) import `Microsoft.TypeScript.Default.props` at the beginning of your project file and `Microsoft.TypeScript.targets` at the end, as shown [in the TypeScript handbook](http://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html#msbuild).
 
-> [!NOTE]
+> :pushpin:
 > ASP.NET Core projects implicitly include these files, so an ASP.NET Core project file will not need to import them.
 
 ## The `TypeScriptToolsVersion` property
@@ -26,7 +26,7 @@ Since a particular machine may have multiple versions of TypeScript installed, M
 ## Input files
 There are two ways of including TypeScript files in the compilation: either using a tsconfig.json file or the `TypeScriptCompile` MSBuild item type.
 ### With TSConfig
-One option for allowing MSBuild to recognize what TypeScript files are part of your project is by way of a tsconfig.json file. This configuration file can be registered for build configuration by being explicitly associated with your .csproj in the Content item list, as shown in the example below. Otherwise, if your project has no items included as part of the Content item list, it can be simply included as part of the directory tree rooted at the directory containing your project file. 
+One option for allowing MSBuild to recognize what TypeScript files are part of your project is by way of a tsconfig.json file. This configuration file can be registered for build configuration by being explicitly associated with your .csproj in the Content item list, as shown in the example below. Otherwise, if your project has no items included as part of the Content item list, it can be simply included as part of the directory tree rooted at the directory containing your project file.
 ```xml
 <ItemGroup>
     <Content Include="myfolder/tsconfig.json" />

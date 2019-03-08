@@ -1,6 +1,6 @@
 # NewtonSoft.Json versioning issues
 
-Visual Studio 2017 communicates with the JavaScript and TypeScript language service using JSON. To
+Visual Studio communicates with the JavaScript and TypeScript language service using JSON. To
 deserialize these messages, Visual Studio uses the very popular [Json.NET package from NewtonSoft](https://www.newtonsoft.com/json). If a different version of this assembly is loaded into memory
 than expected, then subtle differences in behavior can cause deserialization to fail, and thus failure
 to communicate with the language service.
@@ -27,8 +27,8 @@ and avoid using the GAC. There are two potential solutions to this.
 
 ### Remove NewtonSoft.Json from the GAC
 Removing the copy of NewtonSoft.Json.dll from the GAC is one approach. However it runs the risks of
-breaking whatever application installed it to the GAC, as it may expect to still find it there. The 
-command to uninstall NewtonSoft.Json from the GAC is shown below. Run from a Developer Command Prompt 
+breaking whatever application installed it to the GAC, as it may expect to still find it there. The
+command to uninstall NewtonSoft.Json from the GAC is shown below. Run from a Developer Command Prompt
 with Admin rights.
 
 ```

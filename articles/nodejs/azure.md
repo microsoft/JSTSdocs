@@ -35,7 +35,7 @@ The details for each of these tasks follows.
 
 To set up GitHub for Visual Studio:
 
-1. Make sure the [GitHub Extension for Visual Studio](https://visualstudio.github.com/) is installed and enabled using the 
+1. Make sure the [GitHub Extension for Visual Studio](https://visualstudio.github.com/) is installed and enabled using the
 menu item **Tools** > **Extensions and Updates**.
 
 2. From the menu select **View** > **Other Windows** > **GitHub**, and the following appears.
@@ -73,7 +73,7 @@ The next steps show you how to publish from this repository to an Azure App Serv
 
     <img width="575px" src="../../images/linux-appservice/script-generator-args.png"/>
 
-> [!WARNING]
+> :warning:
 > The App Service deployment process uses a set of heuristics to determine which type of application to try and run. If a **.sln** file is detected in the deployed content, it will assume an MSBuild based project is being deployed. The setting added above overrides this logic and specifies explicitly that this is a Node.js application. Without this setting, the Node.js application will fail to deploy if the *.sln* file is part of the repository being deployed to the App Service.
 
 7. Once created, open the App Service and select **Deployment options**.
@@ -117,7 +117,7 @@ and it is accessible at the URL created for the Azure App Service (by default th
 
 * If the node.exe process dies (that is, an unhandled exception occurs), the container restarts.
 * When the container starts up, it runs through various heuristics to figure out
-how to start the Node.js process. Details of the implementation can be seen at 
+how to start the Node.js process. Details of the implementation can be seen at
 [generateStartupCommand.js](https://github.com/Azure-App-Service/node/blob/master/8.9.4/startup/generateStartupCommand.js).
 * You can connect to the running container via SSH for investigations. This is easily done using the Azure Portal. Select the App Service, and scroll down
 the list of tools until reaching **SSH** under the **Development Tools** section.
