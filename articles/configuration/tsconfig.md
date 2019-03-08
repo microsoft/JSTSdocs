@@ -12,7 +12,7 @@ uid: tsconfig
 
 The primary documentation concerning the `tsconfig.json` file can be found [on the TypeScript website](http://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 There, you can find details on the file format, the available compiler options, and more.
-Here, we will provide some tips for using the `tsconfig.json` file that commonly occur when using TypeScript in Visual Studio.
+Here, we will provide some tips for using the `tsconfig.json` file that might be helpful when using TypeScript in Visual Studio.
 
 ## Configuring JavaScript using a jsconfig.json file
 
