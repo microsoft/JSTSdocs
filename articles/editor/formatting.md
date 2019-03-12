@@ -4,8 +4,6 @@ Use the **Formatting** page of the **Options** dialog box to set options for for
 
 ## General
 
-### Automatic formatting
-
 These options determine when formatting occurs in Source view.
 
 | Option | Description |
@@ -16,13 +14,13 @@ These options determine when formatting occurs in Source view.
 | **Format completed block on }** | Checkbox - When enabled, the Code Editor automatically formats the line when you choose the closing brace key. |
 | **Format on paste** | Checkbox - When enabled, the Code Editor reformats code when you paste it into the editor. The editor uses the currently defined formatting rules. If this option is not selected, the editor uses the original formatting of the pasted-in code. |
 
-#### Module Completions
+### Module Completions
 
 | Option | Description |
 | --- | ---|
 | **Include auto imports from other modules in completion list** | Checkbox - When enabled, suggestions from other modules are included in the completion list. Selecting an imported suggestion will add an import statement for the relevant module to the document. |
 
-#### Module Quote Preference
+### Module Quote Preference
 
 This option determines the quote style to be used for auto import completions and quick fixes.
 
@@ -32,7 +30,7 @@ This option determines the quote style to be used for auto import completions an
 | **Single (')** | Radio Button - When selected, single quotation marks will be used for completions. |
 | **Double (")** | Radio Button - When selected, double quotation marks will be used for completions. |
 
-#### Module Specifier Preference
+### Module Specifier Preference
 
 This option determines the path style to be used for auto import completions.
 
@@ -41,17 +39,17 @@ This option determines the path style to be used for auto import completions.
 | **Use unqualified module names if possible** | Radio Button - When selected, import paths will be based on the `baseUrl` specified in your configuration file. |
 | **Always use relative paths** | Radio Button - When selected, import paths will be relative to the file location. |
 
-### New Lines
+## New Lines
 These options determine whether the Code Editor puts an open brace for functions and control blocks on a new line.
 
-#### Braces
+### Braces
 
 | Option | Description |
 | --- | ---|
 | **Place open brace on new line for functions** | Checkbox - When enabled, the Code Editor moves the open brace associated with a function to a new line. |
 | **Place open brace on new line for control blocks** | Checkbox - When enabled, the Code Editor moves the open brace associated with a control block (for example, `if` and `while` control blocks) to a new line. |
 
-### Spacing
+## Spacing
 
 These options determine how spaces are inserted in Source view.
 
@@ -68,7 +66,7 @@ These options determine how spaces are inserted in Source view.
 
 Formatting can be manaully invoked on both the document and selection levels.
 
-#### Format Document
+### Format Document
 
 Code formatting can be manually invoked on a document by choosing **Edit > Advanced > Format Document**, or by using the shortcut `Ctrl + K`, `Ctrl + D`.
 
@@ -96,7 +94,7 @@ function CheckEqual(a, b) {
 
 when document formatting is performed. In this example, the formatting options **Insert space after comma delimiter**, **Insert space before and after binary operators**, **Place open brace on new line for functions**, and **Place open brace on new line for control blocks were used**. Any options which have been disabled or changed in the settings menu will be respected.
 
-#### Format Selection 
+### Format Selection 
 
 Formatting can also be invoked on a specific block of code. To do so, select or highlight the code to format, and choose **Edit > Advanced > Format Selection**, or use the shortcut `Ctrl + K`, `Ctrl + F`. 
 
