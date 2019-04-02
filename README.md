@@ -9,7 +9,7 @@ This repository contains documentation for using the JavaScript and TypeScript l
 
 - Build
     - [Building via Nuget](articles/build/nuget.md)
-    - [Building via tsc](articles/build/nuget.md)
+    - [Building via tsc](articles/build/tsc.md)
 
 - Configuration
     - [MSBuild Configuration](articles/configuration/msbuild.md)
