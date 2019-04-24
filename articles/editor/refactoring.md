@@ -25,9 +25,9 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.1.4|2304, 2503, 2552, 2686|Add an appropriate import (?)|
 |2.2.1|2339, 2551|[Add missing member](#add-missing-member)|
 |2.2.1|2377|[Synthesize missing `super()` call](#synthesize-missing-super-call)|
-|2.2.1|2420|[Implement interface members](#implement-interface-members)|
+|2.2.1|2420, 2720|[Implement interface members](#implement-interface-members)|
 |2.2.1|2515, 2653|[Implement abstract members from base class](#implement-abstract-members-from-base-class)|
-|2.2.1|2663|[Prepend `this.` to member access](#prepend-this-to-member-access)|
+|2.2.1|2662, 2663|[Prepend `this.` to member access](#prepend-this-to-member-access)|
 |2.2.1|2689|[Change `extends` to `implements`](#change-extends-to-implements)|
 |2.2.1|17009|[Move `super()` call ahead of `this` access](#move-super-call-ahead-of-this-access)|
 |2.3.0|All|[Suppress JS diagnostic](#suppress-js-diagnostic)|
@@ -37,7 +37,18 @@ Code fixes are supported as of Visual Studio 2017 version 15.0.0.
 |2.5.0|8020|[Convert JSDoc type to TS type](#convert-jsdoc-type-to-ts-type)|
 |2.6.1|1329|[Call decorator factory expression](#call-decorator-factory-expression)|
 |2.6.1|7005, 7006, 7008, 7010, 7019, 7032, 7033, 7034|Annotate with inferred type|
-|2.6.1|7016|Install @types for JS module|
+|2.6.1|2307, 7016|Install @types for JS module|
+|2.7.0|1219|[Set missing `experimentalDecorators` option](#set-missing-experimentaldecorators-option)|
+|2.7.0|1308|[Add `async` modifier to function containing `await`](#add-async-modifier-to-function-containing-await)|
+|2.9.0|2724|[Fix spelling of imported module](#fix-spelling-of-imported-module)|
+|2.9.0|7027|[Remove unreachable code](#remove-unreachable-code)|
+|2.9.0|80005|[Convert `require` call to `import`](#convert-require-call-to-import)|
+|2.9.1|1340|[Add missing `typeof`](#add-missing-typeof)|
+|2.9.1|7028|[Remove unused label](#remove-unused-label)|
+|3.0.0|1337|[Convert to mapped object type](#convert-to-mapped-object-type)|
+|3.2.1|2348|[Add missing new operator](#add-missing-new-operator)|
+|3.2.1|2352|[Add convert to `unknown` for non-overlapping types](#add-convert-to-unknown-for-non-overlapping-types)|
+|3.2.1|7051|[Add name to nameless parameter](#add-name-to-nameless-parameter)|
 
 ## Examples
 
@@ -440,6 +451,24 @@ const c = class C extends A {
 
 #### Prepend `this.` to Member Access
 
+ **Before - TS2662**
+* For static members
+```ts
+class C {
+    static m() { C.m(); }
+    n() { m(); }
+}
+```
+
+**After**
+
+```ts
+class C {
+    static m() { C.m(); }
+    n() { C.m(); }
+}
+```
+
 **Before - TS2663**
 
 ```ts
@@ -734,4 +763,235 @@ class C {
     @DecoratorFactory()
     M() { }
 }
+```
+
+#### Set Missing `experimentalDecorators` Option
+
+**Before - TS1219**
+
+```ts
+// @Filename: /dir/a.ts
+declare const decorator: any;
+
+class A {
+    @decorator method() {};
+};
+```
+
+```ts
+// @Filename: /dir/tsconfig.json
+{
+    "compilerOptions": {
+    }
+}
+```
+
+**After**
+
+```ts
+// @Filename: /dir/a.ts
+declare const decorator: any;
+
+class A {
+    @decorator method() {};
+};
+```
+
+```ts
+// @Filename: /dir/tsconfig.json
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+    }
+}
+```
+
+**Notes**
+ * Experimental support for decorators is a feature that is subject to change in a future release.
+
+#### Add `async` Modifier to Function Containing `await`
+
+**Before - TS1308**
+
+```ts
+function f() {
+    await Promise.resolve();
+}
+```
+
+**After**
+
+```ts
+async function f() {
+    await Promise.resolve();
+}
+```
+
+#### Fix Spelling of Imported Module
+
+ **Before - TS2724**
+
+ ```ts
+// @Filename: file1.ts
+export const fooooooooo = 1;
+ ```
+
+ ```ts
+// @Filename: file2.ts
+import {fooooooooa} from "./file1"; fooooooooa;
+ ```
+
+ **After**
+
+ ```ts
+// @Filename: file1.ts
+export const fooooooooo = 1;
+ ```
+
+ ```ts
+// @Filename: file2.ts
+import {fooooooooo} from "./file1"; fooooooooa;
+ ```
+
+#### Remove Unreachable Code
+
+**Before - TS7027**
+
+```ts
+function f() {
+    return 1;
+    return 2;
+}
+```
+
+**After**
+
+```ts
+function f() {
+    return 1;
+}
+```
+
+#### Convert `require` Call to `import`
+
+**Before - TS80005**
+
+```ts
+const a = require("a");
+```
+
+**After**
+
+```ts
+import a = require("a");
+```
+
+#### Add Missing `typeof`
+
+**Before - TS1340**
+
+```ts
+ declare module "foo" {
+     const a = "foo"
+     export = a
+ }
+ const x: import("foo") = import("foo");
+```
+
+**After**
+
+```ts
+ declare module "foo" {
+     const a = "foo"
+     export = a
+ }
+ const x: typeof import("foo") = import("foo");
+```
+
+#### Remove Unused Label
+
+**Before - TS7028**
+
+```ts
+label1: while (1) {}
+```
+
+**After**
+
+```ts
+while (1) {}
+```
+
+#### Convert to Mapped Object Type
+
+**Before - TS1337**
+
+```ts
+ type K = "foo" | "bar";
+ interface SomeType {
+     a: string;
+     [prop: K]: any;
+ }
+```
+
+**After**
+```ts
+ type K = "foo" | "bar";
+ type SomeType = {
+    [prop in K]: any;
+} & {
+    a: string;
+};
+```
+
+#### Add Missing New Operator
+
+**Before - TS2348**
+
+```ts
+class C {
+}
+var c = C();
+```
+
+**After**
+
+```ts
+class C {
+}
+var c = new C();
+```
+
+#### Add Convert to `unknown` for Non-Overlapping Types
+
+**Before - TS2352**
+
+```ts
+const s1 = 1 as string;
+const o1 = s + " word" as object;
+
+const s2 = <string>2;
+const o2 = <object>s2;
+```
+
+**After**
+
+```ts
+const s1 = 1 as unknown as string;
+const o1 = s + " word" as unknown as object;
+
+const s2 = <string><unknown>2;
+const o2 = <object><unknown>s2;
+```
+
+#### Add Name to Nameless Parameter
+
+**Before - TS7051**
+```ts
+var x: (number) => string;
+```
+**After**
+
+```ts
+var x: (arg0: number) => string;
 ```
