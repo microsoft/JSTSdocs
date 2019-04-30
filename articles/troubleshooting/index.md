@@ -9,14 +9,10 @@ Logging is easiest enabled by setting an environment variable. This can be set v
 on the command line before launching Visual Studio. Below describes how to do it via the command-line.
 
 1. Open an instance of the `"Developer Command Prompt for VS 2017"` (or `2019`).
-2. Set the environment variable with a command such as: `SET TSS_LOG=-level verbose -file C:\temp\logs\tsserver.PID.log`
-3. Launch Visual Studio from the same command prompt by running `devenv.exe`.
-
-> :pushpin:
-> The folder to contain the log file referenced in step 2 should already exist
-
-> :pushpin:
-> If your TypeScript version is less than 3.1, please `Disable dedicated syntax process` under Tools > Options > Text Editor > JavaScript/TypeScript > Language Service and restart Visual Studio
+2. Create a folder for the logs, e.g. `C:\temp\logs`.  Note that this folder must exist _before_ logging begins.
+3. Set the environment variable with a command such as: `SET TSS_LOG=-level verbose -file C:\temp\logs\tsserver.PID.log`
+4. Launch Visual Studio from the same command prompt by running `devenv.exe`.
+5. If your TypeScript version is less than 3.1, please `Disable dedicated syntax process` under Tools > Options > Text Editor > JavaScript/TypeScript > Language Service and restart Visual Studio (from the same command prompt).
 
 After reproducing the problem, log files should be created in the folder specified. (There will be a `tsserver.<ProcId>.log` file
 created for each langauge service process, and a `ti-<ProcId>.log` file created for any types installer processes).
