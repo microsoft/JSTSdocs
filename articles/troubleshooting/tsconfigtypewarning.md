@@ -1,0 +1,9 @@
+# The `tsconfig.json` Build Action Warning
+
+You may get an Intellisense warning that reads "One or more tsconfig.json files in this project have their Build Action set to None and as a result may not be correctly used for configuration." as shown below.
+
+Before Visual Studio 2019 version 16.2, in order for a `tsconfig.json` file to be detected properly for configuring your editor experience, it had to have its Build Action set to "Content". Similarly, when using TypeScript 3.5.1 or earlier with MSBuild, `tsconfig.json` files were also required have their Build Action set to "Content". However, because this forces it to be published with your application, many users preferred to not set it as such, which caused unpredictable configuration issues for building and for the editor experience.
+
+In Visual Studio 2019 version 16.2 and TypeScript 3.5.2, we have added support for `tsconfig.json` files to have their Build Action set to "TypeScriptCompile". This allows for the editor and build to be configured properly without being forced to publish the `tsconfig.json` files. As a result, we have introduced this warning to encourage users to update the Build Action of their `tsconfig.json` files. Please note that, depending on your type of project, you may need to reload the project when updating the file's Build Action.
+
+If you are unable to update the Build Action of a particular item, you also may add `<DisableTSConfigItemTypeWarning>true</DisableTSConfigItemTypeWarning>` to your project file to disable the warning. However, this will not resolve the configuration issues you may be experiencing, so we generally discourage this approach.
