@@ -26,13 +26,14 @@ Since a particular machine may have multiple versions of TypeScript installed, M
 ## Input files
 There are two ways of including TypeScript files in the compilation: either using a tsconfig.json file or the `TypeScriptCompile` MSBuild item type.
 ### With TSConfig
-One option for allowing MSBuild to recognize what TypeScript files are part of your project is by way of a tsconfig.json file. This configuration file can be registered for build configuration by being explicitly associated with your .csproj in the Content item list, as shown in the example below. Otherwise, if your project has no items included as part of the Content item list, it can be simply included as part of the directory tree rooted at the directory containing your project file.
+One option for allowing MSBuild to recognize what TypeScript files are part of your project is by way of a tsconfig.json file. This configuration file can be registered for build configuration by being explicitly associated with your .csproj in the TypeScriptCompile or Content item lists, as shown in the example below. Otherwise, if your project has no items included as part of either the TypeScriptCompile or Content item lists, it can be simply included as part of the directory tree rooted at the directory containing your project file.
 ```xml
 <ItemGroup>
-    <Content Include="myfolder/tsconfig.json" />
+    <TypeScriptCompile Include="myfolder/tsconfig.json" />
 </ItemGroup>
 ```
 Note that in the latter case, configuration files within a folder titled "node_modules", "bower_components", or "platforms" will not be considered in order to avoid duplicate symbol errors.
+Furthermore, note in TypeScript 3.5.1 and earlier, the Content item list must be used, as the TypeScriptCompile item list was not supported for `tsconfig.json` files. 
 
 The tsconfig.json can either explicitly enumerate the input files (in the "includes" property) or it can exclude files that should not be compiled (in the "excludes" property). The file also allows you to set compile options that will override those set in the TypeScript Build page of your project's Properties. For more details, refer to [the discussion of tsconfig.json files](xref:tsconfig).
 
