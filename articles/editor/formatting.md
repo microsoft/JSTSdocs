@@ -14,11 +14,15 @@ These options determine when formatting occurs in Source view.
 | **Format completed block on }** | Checkbox - When enabled, the Code Editor automatically formats the line when you choose the closing brace key. |
 | **Format on paste** | Checkbox - When enabled, the Code Editor reformats code when you paste it into the editor. The editor uses the currently defined formatting rules. If this option is not selected, the editor uses the original formatting of the pasted-in code. |
 
-### Module Completions
+### Completions
 
 | Option | Description |
 | --- | ---|
 | **Include auto imports from other modules in completion list** | Checkbox - When enabled, suggestions from other modules are included in the completion list. Selecting an imported suggestion will add an import statement for the relevant module to the document. |
+
+| Option | Description |
+| --- | ---|
+| **Replace "." with "?." on completion in strictNullChecks mode** | Checkbox - When enabled and in strictNullChecks mode, suggestions for items which may be null or undefined are included in the completion list. Selecting one of these items will replace the preceding "." with the optional chaining operator "?.". Requires TS 3.7 or later. |
 
 ### Module Quote Preference
 
