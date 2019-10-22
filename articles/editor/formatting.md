@@ -39,6 +39,15 @@ This option determines the path style to be used for auto import completions.
 | **Use unqualified module names if possible** | Radio Button - When selected, import paths will be based on the `baseUrl` specified in your configuration file. |
 | **Always use relative paths** | Radio Button - When selected, import paths will be relative to the file location. |
 
+### Semicolon Preference
+
+This option determines handling of optional semicolons.
+| Option | Description |
+| --- | ---|
+| **Do not insert or remove any semicolons** | Radio Button - When selected, semicolons will not be inserted or removed.  |
+| **Insert semicolons at statement ends** | Radio Button - When selected, semicolons will be inserted at statement ends. |
+| **Remove unnecessary semicolons** | Radio Button - When selected, unnecessary semicolons will be removed. |
+
 ## New Lines
 These options determine whether the Code Editor puts an open brace for functions and control blocks on a new line.
 
