@@ -13,7 +13,7 @@ In order to enforce style concerns or help ensure correctness, you may want to u
 
 ## ESLint
 
-Visual Studio natively supports ESLint for linting JavaScript files and JSX files. By default, Visual Studio installs ESLint 4 and uses it to lint all open .js files and .jsx files. The set of rules that are used to lint your files is configured by default using the global ESLint configuration file (.eslintrc) in the User Home folder. Files are linted as you type, and results are shown in the error list and as squiggles in the editor. Information concerning ESLint rules and usage can be found in [the ESLint documentation](https://eslint.org/docs/user-guide/configuring).
+Visual Studio natively supports ESLint for linting JavaScript, TypeScript, JSX and TSX files. By default, Visual Studio installs ESLint 6 and uses it to lint all open .js, .ts, .jsx and .tsx files. The set of rules that are used to lint your files is configured by default using the global ESLint configuration file (.eslintrc.json) in the User Home folder. Files are linted as you type, and results are shown in the error list and as squiggles in the editor. Information concerning ESLint rules and usage can be found in [the ESLint documentation](https://eslint.org/docs/user-guide/configuring).
 
 ### Configuration
 
@@ -25,7 +25,7 @@ As mentioned above, by default, ESLint will provide results based on the global 
 
 #### Configuring the version of ESLint
 
-Visual Studio will use its installation of ESLint 4 by default. However, if you would like to use a different version, Visual Studio will pick up a local installation of ESLint and use it instead. In particular, if any parent directory of the file you want to be linted contains a `package.json` that lists ESLint as a dependency, as well as a `node_modules` folder with an installation of ESLint, then it will use that copy of the linter. Visual Studio is designed to be backwards compatible to ESLint 2.
+Visual Studio will use its installation of ESLint 6 by default. However, if you would like to use a different version, Visual Studio will pick up a local installation of ESLint and use it instead. In particular, if any parent directory of the file you want to be linted contains a `package.json` that lists ESLint as a dependency, as well as a `node_modules` folder with an installation of ESLint, then it will use that copy of the linter. Visual Studio is designed to be backwards compatible to ESLint 2.
 
 > :warning:
 > Before version 4, ESLint did not provide full location information for its results. Therefore, if you are using a version of ESLint earlier than 4, squiggles will appear under the first character of any error location, rather than underneath the whole error.
@@ -45,5 +45,8 @@ ESLint support can be enabled or disabled under Tools -> Options -> Text Editor 
 
 Additionally, you can choose to lint your whole project or solution (as opposed to only open files) by selecting "Lint all files included in project, even closed files" under Tools -> Options -> Text Editor -> JavaScript/TypeScript -> Linting.
 
-## TSLint
-Currently, TSLint is not supported directly by Visual Studio. However, there are extensions available, or it can be used as a command-line tool.
+## TypeScript and ESLint
+Visual Studio uses the [@typescript-eslint/parser](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/parser) to enable linting for TypeScript files. 
+
+### Rules that require type information
+The global ESLint configuration file includes some rules for TypeScript from [@typescript-eslint/plugin](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin), but does not include any of the rules that require type information. Enabling these rules requires a `tsconfig.json` that is specified in the ESLint configuration file (search for the term **parserOptions** [here](https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin)). If you would like to use these rules, we recommend you set up a local installation of ESLint as described above. 
