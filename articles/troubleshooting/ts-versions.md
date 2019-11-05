@@ -2,6 +2,11 @@
 
 :warning: WORK IN PROGRESS :warning:
 
+## I want to know which version of TypeScript Visual Studio is using
+
+* For language service (IntelliSense) or Compile-On-Save: see output in Output Window. 
+* Build: See MSBuild logs. Note the version of the compiler used may be different for each project in the solution.
+
 ## Visual Studio picks the wrong version of TypeScript for IntelliSense
 
 * If using the `<TypeScriptToolsVersion>` property confirm that the correct version of the SDK is installed
