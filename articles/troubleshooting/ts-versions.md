@@ -1,8 +1,8 @@
 # Troubleshooting TypeScript version issues
 
-## Visual Studio picks the wrong version of TypeScript for IntelliSense
+:warning: WORK IN PROGRESS :warning:
 
-<TODO>
+## Visual Studio picks the wrong version of TypeScript for IntelliSense
 
 * If using the `<TypeScriptToolsVersion>` property confirm that the correct version of the SDK is installed
    * Tip: Using the Nuget package is preferred
@@ -14,5 +14,7 @@
 
 * If using the `<TypeScriptToolsVersion>` property confirm that the correct version of the SDK is installed
    * Tip: Using the Nuget package is preferred
-   
-<TODO>
+
+## I am seeing different Node processes
+
+* There is an instance of the tsserver process that powers syntactic features that's always on the latest TypeScript
