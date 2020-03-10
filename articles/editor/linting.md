@@ -13,7 +13,7 @@ In order to enforce style concerns or help ensure correctness, you may want to u
 
 ## ESLint
 
-Visual Studio natively supports ESLint for linting JavaScript, TypeScript, JSX and TSX files. By default, Visual Studio installs ESLint 6 and uses it to lint all open .js, .ts, .jsx and .tsx files. The set of rules that are used to lint your files is configured by default using the global ESLint configuration file (.eslintrc.json) in the User Home folder. Files are linted as you type, and results are shown in the error list and as squiggles in the editor. Information concerning ESLint rules and usage can be found in [the ESLint documentation](https://eslint.org/docs/user-guide/configuring).
+Visual Studio natively supports ESLint for linting JavaScript, TypeScript, JSX and TSX files. By default, Visual Studio installs ESLint 6 and uses it to lint all open .js, .ts, .jsx and .tsx files. The set of rules that are used to lint your files is configured by default using the global ESLint configuration file (.eslintrc) in the User Home folder. Files are linted as you type, and results are shown in the error list and as squiggles in the editor. Information concerning ESLint rules and usage can be found in [the ESLint documentation](https://eslint.org/docs/user-guide/configuring).
 
 ### Configuration
 
