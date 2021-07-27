@@ -1,9 +1,8 @@
 # Open Folder projects in JavaScript and TypeScript
 
 Visual Studio 2017 introduces the ability to [develop code without projects or solutions](https://docs.microsoft.com/en-us/visualstudio/ide/develop-code-in-visual-studio-without-projects-or-solutions),
-which enables you to open a folder of code and immediately start working with rich editor support such as IntelliSense, search, refactoring, debugging, and more.
-In addition to these features, the Node Tools workload adds support
-for building TypeScript files, managing npm packages, and running npm scripts.
+enabling you to open a folder of code and immediately start working with rich editor support such as IntelliSense, search, refactoring, debugging, and more.
+In addition, the Node Tools workload adds support for building TypeScript files, managing npm packages, and running npm scripts.
 
 To get started, select _Open Folder_ from the Start Page, or select _File | Open | Folder_ from the main menu.
 The Solution Explorer will immediately display all the files in the folder, and you can open any to begin editing.
